@@ -14,6 +14,15 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import FadeLinesText from "@/assets/web/home/fadedlines_text.svg";
 import BgHero2 from "@/assets/web/home/hero.svg";
 import blackFadeHero from "@/assets/web/home/black_fade_hero.svg";
+import PricingHome from "@/assets/web/home/pricing-sections/pricing_home.svg"
+import Consultation from "@/assets/web/home/pricing-sections/CONSULTATIONS.svg"
+import BestServices from "@/assets/web/home/pricing-sections/BESTSERVICES.svg"
+import Clean from "@/assets/web/home/pricing-sections/CLEAN.svg"
+import PricingLeft from "@/assets/web/home/pricing-sections/pricing_left.png"
+import PricingCenter from "@/assets/web/home/pricing-sections/pricing_center.png"
+import PricingRight from "@/assets/web/home/pricing-sections/pricing_right.png"
+import Scheduling from "@/assets/web/home/pricing-sections/SCHEDULING.svg"
+import Logo from "@/assets/svg/logo.svg"
 
 import instagramPhotosDesktop1 from '/src/assets/follow-us/desktop/instagram_photo_1.png';
 import instagramPhotosDesktop2 from '/src/assets/follow-us/desktop/instagram_photo_2.png';
@@ -75,6 +84,33 @@ export default function Home() {
       document.head.removeChild(style);
     };
   }, []);
+
+  const services = [
+    {
+      image: Consultation,
+      title: "PROFESSIONAL CONSULTATIONS",
+      description: "You want it, you get it. Describe what you’re aiming for to your chosen barber and let them make your dream hair."
+    },
+    {
+      image: Scheduling,
+      title: "ON-TIME SCHEDULING",
+      description: "Schedule anytime anywhere here on our website, and only up to you to attend whenever you appointed."
+    },
+
+  ];
+  const services2 = [
+    {
+      image: Clean,
+      title: "CLEAN AND HYGENIC",
+      description: "We make sure our barbers keep their tools as clean as their cuts."
+    },
+    {
+      image: BestServices,
+      title: "BEST SERVICES",
+      description: "Our barbers are top of the line. Few of the best barbers you’ll find in Melbourne."
+    }
+
+  ];
 
   return (
     <Layout>
@@ -141,34 +177,61 @@ export default function Home() {
 
           <p className="text-stone-50 w-10/12 text-center  absolute bottom-14  2xl:bottom-24 z-10 left-1/2 transform -translate-x-1/2 ">55 PORTMAN ST; OAKLEIGH VIC 3166; AUSTRALIA</p>
         </section>
-        <section className="py-12 w-full md:h-[50vh] flex mt-32 px-4  md:px-12 my-12 relative">
-          <div
-            className="relative px-4 md:absolute  flex flex-col gap-4 z-30 text-start backdrop-blur-lg text-white rounded-[50px] py-8 pb-16 md:px-16 md:my-12 mb-10 md:mx-6 border border-stone-50 md:w-2/3 shadow-lg bg-black/40 md:left-1/2 md:top-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 hover:scale-105 transition-transform duration-500 ease-in-out"
-            style={{ backdropFilter: 'blur(16px) contrast(100%)', WebkitBackdropFilter: 'blur(16px) contrast(100%)' }}
-          >
-            <h3 className="text-2xl md:text-3xl font-inter tracking-wider font-extrabold md:w-8/12">SIMPLE AND <span className="text-transparent bg-gradient-to-r from-[#4DFF20]  to-[#88FF7D] bg-clip-text">EFFECTIVE PRICING</span> <br className="hidden md:block " /> FOR THAT FRESH LOOK</h3>
-            <p className="text-sm">Anyone deserves a good haircut. Time to get yours.</p>
-            <div className="h-[4rem]"></div>
-            <div className="flex flex-col gap-12 md:gap-0 md:flex-row align-bottom tracking-wider">
-              <div className="flex flex-col md:w-8/12 gap-3">
-                <h4 className="text-xl font-extrabold mb-2 tracking-wider">$50 - HAIRCUT</h4>
-                <p className="text-xs md:w-8/12 mb-2">Men&apos;s haircut start from $50 depending on <br /> which barber you would like.</p>
-                <Button className="w-fit bg-gradient-to-r from-[#14FF00]  to-[#999999] rounded-xl px-6 text-stone-50 font-bold uppercase py-1 text-lg transform transition-all duration-500 hover:scale-110 hover:from-[#999999] hover:to-[#14FF00]">
-                  <a href=" https://book.squareup.com/appointments/ud9yhcwfqc1fg0/location/LY7BZ89WAQ2QS/services">
-                    PRICING PLANS
-                  </a>
-                </Button>
+
+
+
+
+        <section className="py-12 w-full md:min-h-[50vh] mt-0  px-4 flex flex-col  items-center md:px-12 my-12 relative bg-black">
+          <img src={PricingHome} alt="barber shop faded lines" className='w-full h-full object-cover object-bottom absolute left-0 bottom-0 z-0' />
+
+          <div className="flex flex-col gap-4 text-center items-center relative">
+            <img src={Logo} alt="barber shop faded lines" className='w-32 h-auto opacity-90' />
+            <h3 className="text-2xl md:text-3xl font-inter tracking-wider font-extrabold ">SIMPLE AND <span className="text-transparent bg-gradient-to-r from-[#4DFF20]  to-[#88FF7D] bg-clip-text">EFFECTIVE PRICING</span> <br className="hidden md:block " /> FOR THAT FRESH LOOK</h3>
+            <p className="text-lg md:text-xl w-8/12 mt-4">Anyone deserves a good haircut. Time to get yours.</p>
+          </div>
+
+          <div className="relative flex flex-col w-full">
+
+            <div className="relative h-full w-full py-[7rem]  flex gap-4 justify-between">
+              <div className="flex flex-col gap-32 justify-start items-start">
+                {services.map((service, index) => (
+                  <div key={index} className="text-center flex gap-2 justify-center items-center flex-col w-5/12 ">
+                    <img src={service.image} alt="Consultation" />
+                    <h3 className="text-base font-bold">{service.title}</h3>
+                    <p className="font-extralight text-stone-300 text-xs">{service.description}</p>
+                  </div>
+                ))}
               </div>
-              <div className="flex flex-col md:justify-end md:items-end md:text-end md:w-8/12 gap-3 tracking-wider">
-                <h4 className="text-xl font-extrabold mb-2 tracking-wider">$75 - HAIRCUT & BEARD</h4>
-                <p className="text-xs  mb-2">Men&apos;s haircut and beard trims starts from $75 <br /> depending on which barber you would like.</p>
-                <Button className="w-fit bg-gradient-to-r from-[#14FF00]  to-[#999999] rounded-xl px-6 text-stone-50 font-bold uppercase py-1 text-lg transform transition-all duration-500 hover:scale-110 hover:from-[#999999] hover:to-[#14FF00]">
-                  <a href=" https://book.squareup.com/appointments/ud9yhcwfqc1fg0/location/LY7BZ89WAQ2QS/services">
-                    PRICING PLANS
-                  </a>
-                </Button>
+              <div className="flex flex-col justify-end items-end gap-[10rem]" >
+                {services2.map((service, index) => (
+                  <div key={index} className="text-center flex gap-2 justify-center items-center flex-col w-7/12 ">
+                    <img src={service.image} alt="Consultation" />
+                    <h3 className="text-base font-bold">{service.title}</h3>
+                    <p className="font-extralight text-stone-300 text-xs">{service.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
+
+
+            <div className="absolute px-4 left-1/2 -translate-x-1/2 top-[60%] -translate-y-1/2 flex flex-col w-fit ">
+              <img src={PricingLeft} alt="pricing left" className="w-[9rem] top-[-4rem] left-14 h-auto absolute hover:move-up transition-all duration-100 ease-in-out" />
+              <img src={PricingCenter} alt="pricing left" className="w-[18rem] top-[-10rem] left-1/2 -translate-x-1/2 h-auto absolute transition-transform duration-300 ease-in-out hover:transform-y" />
+              <img src={PricingRight} alt="pricing left" className="w-[10rem] top-[-4rem] right-[1rem] h-auto absolute hover:move-up transition-all duration-100 ease-in-out" />
+              <div
+                className="flex flex-col gap-4 z-30 text-start backdrop-blur-lg text-white rounded-[1.5rem] py-8 pb-16 md:px-16 md:my-12 mb-10 md:mx-6 shadow-lg bg-black/40  transform hover:scale-105 transition-transform duration-500 ease-in-out justify-center items-center"
+                id="gradientPricingSection"
+                style={{ backdropFilter: 'blur(16px) contrast(100%)', WebkitBackdropFilter: 'blur(16px) contrast(100%)' }}
+              >
+
+                <div className="flex flex-col justify-center items-center">
+                  <h4 className="text-xl font-extrabold mb-2 tracking-wider">$50 - $75</h4>
+                  <h4 className="text-xl font-extrabold mb-2 tracking-wider">HAIR AND BEARD</h4>
+                </div>
+                <p>Men&apos;s  haircut start from $50 and alongside a beard trim may cost up to $75 depending on your chosen barber.</p>
+              </div>
+            </div>
+
           </div>
         </section>
 

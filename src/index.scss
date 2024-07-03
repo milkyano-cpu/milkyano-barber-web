@@ -374,6 +374,25 @@
   mask-composite: exclude;
 }
 
+#gradientPricingSection {
+  @apply backdrop-blur-lg ;
+}
+
+#gradientPricingSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1.5rem;
+  border: 2px solid transparent;
+  background: linear-gradient(150deg, rgba(20, 255, 0, 0) 60%, rgba(20, 255, 0, 1) 100%) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -413,4 +432,22 @@
   video {
     @apply object-cover rounded-2xl;
   }
+}
+
+.hover\:move-up {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.hover\:move-up:hover {
+  transform: translateY(-20px);
+  /* Adjust the value as needed */
+}
+
+.hover\:transform-y {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.hover\:transform-y:hover {
+  transform: translate(-50%, -30px);
+  /* Combine both translateX and translateY */
 }
