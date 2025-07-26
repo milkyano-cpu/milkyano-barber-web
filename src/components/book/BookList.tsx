@@ -21,6 +21,7 @@ import Josh from "@/assets/web/barbers/booking-list/josh-book.png";
 import Niko from "@/assets/web/barbers/booking-list/niko-book.svg";
 import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
 import Amir from "@/assets/web/barbers/booking-list/amir-book.svg";
+import James from "@/assets/web/home/bottom_cta.png";
 // import Hero from "@/assets/web/home/hero.svg";
 
 const barberImages: { [key: string]: string } = {
@@ -34,6 +35,7 @@ const barberImages: { [key: string]: string } = {
   NIKO: Niko,
   NOAH: Noah,
   AMIR: Amir,
+  JAMES: James,
   // MUSTAFA: Hero,
 };
 
@@ -45,14 +47,15 @@ const BookList = () => {
   const [expandedBarber, setExpandedBarber] = useState<string | null>(null);
 
   useEffect(() => {
+    // ✅ Fixed joinBarbersAndServices function
     const joinBarbersAndServices = (
       barbers: BarberResponse | undefined,
       services: ServicesResponse | undefined,
       specificBarber: string | null,
     ) => {
       const barberServices: BarberServices = { data: [] };
+
       const sortOrder = [
-        // "MUSTAFA",
         "AMIR",
         "RAYHAN",
         "JAY",
@@ -63,34 +66,35 @@ const BookList = () => {
         "JOSH",
         "CHRISTOS",
         "WYATT",
+        "JAMES",
       ];
 
-      let sortedProfiles = barbers?.team_member_booking_profiles
-        .filter((profile) => {
-          const upperName = profile.display_name.toUpperCase();
-          return sortOrder.some((name) => upperName.includes(name));
-        })
-        .sort((a, b) => {
-          const aUpperName = a.display_name.toUpperCase();
-          const bUpperName = b.display_name.toUpperCase();
-          const aName = sortOrder.findIndex((name) =>
-            aUpperName.includes(name),
-          );
-          const bName = sortOrder.findIndex((name) =>
-            bUpperName.includes(name),
-          );
-          return aName - bName;
-        });
+      // 1. Use all available profiles
+      let sortedProfiles = barbers?.team_member_booking_profiles ?? [];
 
-      // Filter for a specific barber if provided
+      // 2. Filter for a specific barber if provided
       if (specificBarber && specificBarber !== "book") {
-        sortedProfiles = sortedProfiles?.filter((profile) =>
+        sortedProfiles = sortedProfiles.filter((profile) =>
           profile.display_name
             .toUpperCase()
             .includes(specificBarber.toUpperCase()),
         );
       }
 
+      // 3. Sort based on predefined sortOrder, unknowns go to bottom
+      sortedProfiles = sortedProfiles.sort((a, b) => {
+        const aIndex = sortOrder.findIndex((name) =>
+          a.display_name.toUpperCase().includes(name),
+        );
+        const bIndex = sortOrder.findIndex((name) =>
+          b.display_name.toUpperCase().includes(name),
+        );
+        const aSort = aIndex !== -1 ? aIndex : 999;
+        const bSort = bIndex !== -1 ? bIndex : 999;
+        return aSort - bSort;
+      });
+
+      // 4. Match services with each barber
       if (sortedProfiles && services) {
         for (let i = 0; i < sortedProfiles.length; i++) {
           const servicesForBarber = services.objects.filter((service) =>
@@ -185,6 +189,7 @@ const BookList = () => {
       setIsLoading(false);
     };
 
+    console.log(barberServices);
     fetchData();
   }, [location.pathname]);
 
