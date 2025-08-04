@@ -21,7 +21,7 @@ import Josh from "@/assets/web/barbers/booking-list/josh-book.png";
 import Niko from "@/assets/web/barbers/booking-list/niko-book.svg";
 import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
 import Amir from "@/assets/web/barbers/booking-list/amir-book.svg";
-import James from "@/assets/web/home/bottom_cta.png";
+import Jamie from "@/assets/web/home/bottom_cta.png";
 // import Hero from "@/assets/web/home/hero.svg";
 
 const barberImages: { [key: string]: string } = {
@@ -35,7 +35,7 @@ const barberImages: { [key: string]: string } = {
   NIKO: Niko,
   NOAH: Noah,
   AMIR: Amir,
-  JAMES: James,
+  JAMIE: Jamie,
   // MUSTAFA: Hero,
 };
 
@@ -56,6 +56,7 @@ const BookList = () => {
       const barberServices: BarberServices = { data: [] };
 
       const sortOrder = [
+        "JAMIE",
         "AMIR",
         "RAYHAN",
         "JAY",
@@ -66,7 +67,6 @@ const BookList = () => {
         "JOSH",
         "CHRISTOS",
         "WYATT",
-        "JAMES",
       ];
 
       // 1. Use all available profiles
