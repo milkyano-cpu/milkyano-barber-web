@@ -21,7 +21,7 @@ import Josh from "@/assets/web/barbers/booking-list/josh-book.png";
 import Niko from "@/assets/web/barbers/booking-list/niko-book.svg";
 import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
 import Amir from "@/assets/web/barbers/booking-list/amir-book.svg";
-import Jamie from "@/assets/web/home/bottom_cta.png";
+import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpeg";
 // import Hero from "@/assets/web/home/hero.svg";
 
 const barberImages: { [key: string]: string } = {

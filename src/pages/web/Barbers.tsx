@@ -14,6 +14,7 @@ import Christos from "@/assets/web/barbers/christos.png";
 import Josh from "@/assets/web/barbers/josh.png";
 import Niko from "@/assets/web/barbers/niko.png";
 import Noah from "@/assets/web/barbers/noah.png";
+import Jamie from "@/assets/web/barbers/jamie.png";
 import { Link, useLocation } from "react-router-dom";
 import BgHero2 from "@/assets/web/home/hero.svg";
 // import Hero from "@/assets/web/home/hero.svg";
@@ -50,7 +51,7 @@ export default function Barbers() {
   localStorage.setItem("utm_medium", queryParams.get("utm_medium") || "None");
   localStorage.setItem(
     "utm_campaign",
-    queryParams.get("utm_campaign") || "None"
+    queryParams.get("utm_campaign") || "None",
   );
   localStorage.setItem("utm_content", queryParams.get("utm_content") || "None");
 
@@ -94,6 +95,11 @@ export default function Barbers() {
   };
 
   const barberSvgs = [
+    {
+      svg: Jamie,
+      link: generateRoute("/jamie"),
+      landing: false,
+    },
     {
       svg: Amir,
       link: generateRoute("/amir"),
