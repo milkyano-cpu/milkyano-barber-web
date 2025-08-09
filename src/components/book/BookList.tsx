@@ -280,10 +280,27 @@ const BookList = () => {
                     <h2 className="text-3xl md:text-4xl font-bold text-white uppercase mb-2">
                       {item.barber.display_name.split(" ")[0]}
                     </h2>
-                    <p className="text-sm text-white mb-4">
-                      {item.barber.display_name.match(/IG.*?(?=\))|$/)?.[0] +
-                        ")" || ""}
-                    </p>
+                    <>
+                      <p className="text-sm text-white mb-4">
+                        {item.barber.display_name.match(/IG.*?(?=\))|$/)?.[0] +
+                          ")" || ""}
+                      </p>
+
+                      {item.barber.display_name.includes(
+                        "midas_the_barber_",
+                      ) && (
+                        <p className="-mt-4 mb-4 md:text-sm text-xs">
+                          Christos will be in Alpha Omega From 19th August{" "}
+                          <br />{" "}
+                          <a
+                            className="text-xs text-blue-500 underline"
+                            href="https://www.alphaomegamensgrooming.com/"
+                          >
+                            https://www.alphaomegamensgrooming.com/
+                          </a>
+                        </p>
+                      )}
+                    </>
 
                     {/* Green Line */}
                     <div className="relative h-px w-full bg-green-500 mb-6">

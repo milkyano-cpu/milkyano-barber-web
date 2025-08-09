@@ -109,7 +109,9 @@ export default function ChristosLanding() {
   return (
     <LandingLayout>
       <Helmet>
-        <title>christos Fadelines BEST BARBER/HAIRDRESSER IN MELBOURNE</title>
+        <title>
+          christos Fadelines Will be in Alpha Omega from 19th August
+        </title>
         <meta
           name="description"
           content={`Christos Fadelines BEST BARBER IN MELBOURNE - ${description}`}
@@ -172,7 +174,14 @@ export default function ChristosLanding() {
                 Hi, I&apos;m christos
               </h2>
               <h2 className="text-xl font-bold mb-4">
-                BEST BARBER/HAIRDRESSER IN MELBOURNE
+                Will be in{" "}
+                <a
+                  className="text-blue-500 underline"
+                  href="https://www.alphaomegamensgrooming.com/"
+                >
+                  Alpha Omega
+                </a>{" "}
+                from 19th August
               </h2>
               <p className="text-lg mb-8">{description}</p>
               <div className="bg-black"></div>
