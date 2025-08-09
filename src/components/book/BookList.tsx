@@ -282,8 +282,17 @@ const BookList = () => {
                     </h2>
                     <>
                       <p className="text-sm text-white mb-4">
-                        {item.barber.display_name.match(/IG.*?(?=\))|$/)?.[0] +
-                          ")" || ""}
+                        {(() => {
+                          const hasAvailableNow =
+                            item.barber.display_name.includes(
+                              "(Available Now)",
+                            );
+                          let ig =
+                            item.barber.display_name
+                              .match(/IG[^\)]*/)?.[0]
+                              ?.replace(/\s+/g, "") || "";
+                          return hasAvailableNow ? ig + ")" : ig;
+                        })()}
                       </p>
 
                       {item.barber.display_name.includes(
