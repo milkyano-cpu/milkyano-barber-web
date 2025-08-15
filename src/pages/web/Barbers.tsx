@@ -130,11 +130,11 @@ export default function Barbers() {
       link: generateRoute("/jay"),
       landing: true,
     },
-    {
-      svg: Wyatt,
-      link: generateRoute("/wyatt"),
-      landing: true,
-    },
+    // {
+    //   svg: Wyatt,
+    //   link: generateRoute("/wyatt"),
+    //   landing: true,
+    // },
     {
       svg: Emman,
       link: generateRoute("/emman"),

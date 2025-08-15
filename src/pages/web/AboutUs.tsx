@@ -214,13 +214,13 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="container flex flex-col gap-20 mb-40">
+      {/* <section className="container flex flex-col gap-20 mb-40">
         <h2>
           Where Haircuts <br />
           Are Done Right.
         </h2>
         <img src={dummy} alt="" />
-      </section>
+      </section> */}
     </Layout>
   );
 }
