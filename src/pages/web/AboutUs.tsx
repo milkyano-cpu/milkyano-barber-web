@@ -18,7 +18,7 @@ import TiktokAboutUs from "@/assets/web/about-us/about_us_tiktok.png";
 
 import AboutUsDejan1 from "@/assets/web/about-us/about_us_dejan_1.png";
 import plus from "@/assets/web/about-us/plus.svg";
-import dummy from "@/assets/web/about-us/dummy.svg";
+// import dummy from "@/assets/web/about-us/dummy.svg";
 
 const SocialMediaLinks: React.FC = () => {
   const socialMedia = [

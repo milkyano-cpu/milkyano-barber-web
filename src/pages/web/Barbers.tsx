@@ -7,7 +7,7 @@ import Amir from "@/assets/web/barbers/amir.png";
 import Rayhan from "@/assets/web/barbers/rayhan.png";
 import Anthony from "@/assets/web/barbers/anthony.png";
 import Jay from "@/assets/web/barbers/jay.png";
-import Wyatt from "@/assets/web/barbers/wyatt.png";
+// import Wyatt from "@/assets/web/barbers/wyatt.png";
 import Emman from "@/assets/web/barbers/emman.png";
 import Dejan from "@/assets/web/barbers/dejan.png";
 import Christos from "@/assets/web/barbers/christos.png";
