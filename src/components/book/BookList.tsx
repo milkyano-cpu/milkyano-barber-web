@@ -22,9 +22,11 @@ import Niko from "@/assets/web/barbers/booking-list/niko-book.svg";
 import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
 import Amir from "@/assets/web/barbers/booking-list/amir-book.svg";
 import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpeg";
+import Lucas from "@/assets/web/barbers/booking-list/lucas-book.png";
 // import Hero from "@/assets/web/home/hero.svg";
 
 const barberImages: { [key: string]: string } = {
+  LUCAS: Lucas,
   RAYHAN: Rayhan,
   ANTHONY: Anthony,
   JAY: Jay,
@@ -56,6 +58,7 @@ const BookList = () => {
       const barberServices: BarberServices = { data: [] };
 
       const sortOrder = [
+        "LUCAS",
         "JAMIE",
         "AMIR",
         "RAYHAN",
