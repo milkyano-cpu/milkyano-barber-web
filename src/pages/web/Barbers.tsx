@@ -96,11 +96,6 @@ export default function Barbers() {
 
   const barberSvgs = [
     {
-      svg: Jamie,
-      link: generateRoute("/jamie"),
-      landing: false,
-    },
-    {
       svg: Amir,
       link: generateRoute("/amir"),
       landing: true,
@@ -108,11 +103,6 @@ export default function Barbers() {
     {
       svg: Rayhan,
       link: generateRoute("/rayhan"),
-      landing: true,
-    },
-    {
-      svg: Anthony,
-      link: generateRoute("/anthony"),
       landing: true,
     },
     {
@@ -143,6 +133,16 @@ export default function Barbers() {
     {
       svg: Christos,
       link: generateRoute("/christos"),
+      landing: true,
+    },
+    {
+      svg: Jamie,
+      link: generateRoute("/jamie"),
+      landing: false,
+    },
+    {
+      svg: Anthony,
+      link: generateRoute("/anthony"),
       landing: true,
     },
     {
