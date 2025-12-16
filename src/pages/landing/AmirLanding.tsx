@@ -44,6 +44,13 @@ import image14 from "@/assets/landing/cuts/josh/textured_burst_fade_1.png";
 import image15 from "@/assets/landing/cuts/josh/textured_burst_fade.png";
 import image16 from "@/assets/landing/cuts/josh/textured_crop_skin_fade.png";
 import image17 from "@/assets/landing/cuts/josh/v_mid_drop_fade.png";
+
+import galleryImage1 from "@/assets/landing/galleries/amir/amir-gallery-1.svg";
+import galleryImage2 from "@/assets/landing/galleries/amir/amir-gallery-2.svg";
+import galleryImage3 from "@/assets/landing/galleries/amir/amir-gallery-3.svg";
+import galleryImage4 from "@/assets/landing/galleries/amir/amir-gallery-4.svg";
+import galleryImage5 from "@/assets/landing/galleries/amir/amir-gallery-5.svg";
+import galleryImage6 from "@/assets/landing/galleries/amir/amir-gallery-6.svg";
 import useUtmTracking from "@/hooks/utmTrackingHook";
 
 // const Hero = getAsset("/assets/landing/videos/josh/hero.mp4");
@@ -75,6 +82,15 @@ const cutsImages = [
   { src: image15, name: "Textured Burst Fade" },
   { src: image16, name: "Textured Crop Skin Fade" },
   { src: image17, name: "V Mid Drop Fade" },
+];
+
+const galleryImages = [
+  { src: galleryImage1, name: "Amir Gallery 1" },
+  { src: galleryImage2, name: "Amir Gallery 2" },
+  { src: galleryImage3, name: "Amir Gallery 3" },
+  { src: galleryImage4, name: "Amir Gallery 4" },
+  { src: galleryImage5, name: "Amir Gallery 5" },
+  { src: galleryImage6, name: "Amir Gallery 6" },
 ];
 
 // const OPTIONS: EmblaOptionsType = { loop: true, inViewThreshold: 1 };
@@ -231,13 +247,7 @@ export default function AaronLanding() {
         {/* Gallery Section */}
         <section className="relative z-20 container mx-auto px-6 md:px-8 py-16 pt-40 md:py-24">
           <div className="max-w-screen-lg mx-auto">
-            {/* Gallery Header */}
-            <div className="text-center mb-8 md:mb-12">
-              <h3 className="text-3xl md:text-5xl font-poppins font-extrabold text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text uppercase mb-4">
-                My Work
-              </h3>
-            </div> 
-
+            
             {/* Next Available Time */}
             <p className="text-stone-400 text-md md:text-base text-center mb-2">
               Next Available XX:XX
@@ -249,8 +259,8 @@ export default function AaronLanding() {
               className="max-w-sm md:max-w-md mx-auto mb-2 overflow-hidden rounded-xl bg-stone-800"
             >
               <img
-                src={cutsImages[selectedImage % cutsImages.length].src}
-                alt={cutsImages[selectedImage % cutsImages.length].name}
+                src={galleryImages[selectedImage % galleryImages.length].src}
+                alt={galleryImages[selectedImage % galleryImages.length].name}
                 className="w-full h-[500px] md:h-[500px] object-cover"
               />
             </div>
@@ -265,9 +275,9 @@ export default function AaronLanding() {
               <div className="h-[2px] bg-[#42FF00]"></div>
             </div>
 
-            {/* Gallery Grid - 3x3 Thumbnails */}
+            {/* Gallery Grid - 2x3 Thumbnails */}
             <div className="grid grid-cols-3 gap-2 md:gap-4">
-              {Array.from({ length: 9 }).map((_, index) => (
+              {Array.from({ length: 6 }).map((_, index) => (
                 <div
                   key={index}
                   onClick={(e) => handleThumbnailClick(index, e)}
@@ -278,7 +288,7 @@ export default function AaronLanding() {
                   }`}
                 >
                   <img
-                    src={cutsImages[index % cutsImages.length].src}
+                    src={galleryImages[index % galleryImages.length].src}
                     alt={`Amir's haircut work ${index + 1}`}
                     className="w-full h-full object-cover pointer-events-none"
                     loading="lazy"
