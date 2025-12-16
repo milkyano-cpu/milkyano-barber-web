@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
@@ -85,6 +85,25 @@ const imagesReviews = [cardFour, cardOne, cardTwo, cardThree];
 export default function AaronLanding() {
   useUtmTracking();
   const location = useLocation();
+  const [selectedImage, setSelectedImage] = useState(0);
+  const previewImageRef = useRef<HTMLDivElement>(null);
+
+  const handleThumbnailClick = (index: number, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setSelectedImage(index);
+
+    // Scroll to preview image smoothly
+    setTimeout(() => {
+      if (previewImageRef.current) {
+        const yOffset = -100; // Offset dari top untuk spacing
+        const y = previewImageRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
+  };
 
   const generateLink = (text: string): JSX.Element => {
     const customize: boolean = true;
@@ -207,6 +226,77 @@ export default function AaronLanding() {
             className="absolute z-20 w-auto h-full object-fill bottom-[-23rem] md:bottom-[-20rem]"
             fetchPriority="high"
           />
+        </section>
+
+        {/* Gallery Section */}
+        <section className="relative z-20 container mx-auto px-6 md:px-8 py-16 pt-40 md:py-24">
+          <div className="max-w-screen-lg mx-auto">
+            {/* Gallery Header */}
+            <div className="text-center mb-8 md:mb-12">
+              <h3 className="text-3xl md:text-5xl font-poppins font-extrabold text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text uppercase mb-4">
+                My Work
+              </h3>
+            </div> 
+
+            {/* Next Available Time */}
+            <p className="text-stone-400 text-md md:text-base text-center mb-2">
+              Next Available XX:XX
+            </p>
+
+            {/* Main Preview Image */}
+            <div
+              ref={previewImageRef}
+              className="max-w-sm md:max-w-md mx-auto mb-2 overflow-hidden rounded-xl bg-stone-800"
+            >
+              <img
+                src={cutsImages[selectedImage % cutsImages.length].src}
+                alt={cutsImages[selectedImage % cutsImages.length].name}
+                className="w-full h-[500px] md:h-[500px] object-cover"
+              />
+            </div>
+
+            {/* Instagram Handle Below Preview */}
+            <p className="text-stone-400 text-md md:text-base text-center mb-4 md:mb-6">
+              [@amir.blendz_]
+            </p>
+
+            {/* Green Divider Line */}
+            <div className="w-full mb-6 md:mb-8">
+              <div className="h-[2px] bg-[#42FF00]"></div>
+            </div>
+
+            {/* Gallery Grid - 3x3 Thumbnails */}
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
+              {Array.from({ length: 9 }).map((_, index) => (
+                <div
+                  key={index}
+                  onClick={(e) => handleThumbnailClick(index, e)}
+                  className={`aspect-square overflow-hidden rounded-lg bg-stone-800 transition-all duration-200 cursor-pointer ${
+                    selectedImage === index
+                      ? "ring-4 ring-[#42FF00] scale-95"
+                      : "hover:opacity-80 hover:scale-105"
+                  }`}
+                >
+                  <img
+                    src={cutsImages[index % cutsImages.length].src}
+                    alt={`Amir's haircut work ${index + 1}`}
+                    className="w-full h-full object-cover pointer-events-none"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="flex justify-center mt-12">
+              <Button
+                variant={"ghost"}
+                className="border border-[#00FF19] px-8 md:px-12 py-6 md:py-8 text-lg md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a]"
+              >
+                {generateLink("BOOK NOW")}
+              </Button>
+            </div>
+          </div>
         </section>
 
         <section className="flex relative flex-col z-20 justify-center items-center  container w-full text-stone-50 uppercase py-32 pt-40 pb-20">
