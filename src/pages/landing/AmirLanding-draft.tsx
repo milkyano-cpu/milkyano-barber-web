@@ -1,25 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-// import { EmblaOptionsType } from 'embla-carousel'
+// import { EmblaOptionsType } from "embla-carousel";
 // import EmblaCarousel from "@/components/landing/CarouselScaled";
 import Srolled from "@/components/landing/Scrolled";
-import getAsset from "@/utils/getAssets";
+// import getAsset from "@/utils/getAssets";
 import LandingLayout from "@/components/landing/LandingLayout";
 
-import cardOne from "@/assets/landing/reviews/jay/card1.svg";
-import cardTwo from "@/assets/landing/reviews/jay/card2.svg";
-import cardThree from "@/assets/landing/reviews/jay/card3.svg";
-import cardFour from "@/assets/landing/reviews/jay/card4.svg";
+import cardOne from "@/assets/landing/reviews/cards_one.svg";
+import cardTwo from "@/assets/landing/reviews/cards_two.svg";
+import cardThree from "@/assets/landing/reviews/cards_three.svg";
+import cardFour from "@/assets/landing/reviews/cards_four.svg";
 
 import Top from "@/assets/landing/top_line.svg";
 import Mid from "@/assets/landing/mid_line.svg";
 import Bottom from "@/assets/landing/bottom_line.svg";
 
 import ParticlesTwo from "@/assets/landing/section_2_particles.svg";
-import ParticlesThree from "@/assets/landing/section_3_particles.svg";
+// import ParticlesThree from "@/assets/landing/section_3_particles.svg";
 
 import SwipeGif from "@/assets/landing/arrow_animation.gif";
 import SwipedtoSee from "@/assets/landing/swipe_to_see.svg";
@@ -27,61 +27,99 @@ import SwipedtoSee from "@/assets/landing/swipe_to_see.svg";
 import HeroTop from "@/assets/landing/hero_top_line.svg";
 import HeroBottom from "@/assets/landing/hero_bottom_line.svg";
 
-import highDropFade1 from "@/assets/landing/cuts/jay/high_drop_fade_1.png";
-import midBurstFade1 from "@/assets/landing/cuts/jay/mid_burst_fade_1.png";
-import midDropFade from "@/assets/landing/cuts/jay/mid_drop_fade.png";
-import midToHighBurstFade2 from "@/assets/landing/cuts/jay/mid_to_high_burst_fade_2.png";
-import highDropFade from "@/assets/landing/cuts/jay/high_drop_fade.png";
-import midBurstFade2 from "@/assets/landing/cuts/jay/mid_burst_fade_2.png";
-import midSkinFadeMullet1 from "@/assets/landing/cuts/jay/mid_skin_fade_mullet_1.png";
-import midToHighBurstFade from "@/assets/landing/cuts/jay/mid_to_high_burst_fade.png";
-import highSkinFadeMullet from "@/assets/landing/cuts/jay/high_skin_fade_mullet.png";
-import highSkinFade1 from "@/assets/landing/cuts/jay/high_skin_fade_1.png";
-import highSkinFade from "@/assets/landing/cuts/jay/high_skin_fade.png";
-import midDropFade1 from "@/assets/landing/cuts/jay/mid_drop_fade_1.png";
-import midBurstFade3 from "@/assets/landing/cuts/jay/mid_burst_fade_3.png";
-import midBurstFade from "@/assets/landing/cuts/jay/mid_burst_fade.png";
-import midTaper from "@/assets/landing/cuts/jay/mid_taper.png";
-import midToHighBurstFade1 from "@/assets/landing/cuts/jay/mid_to_high_burst_fade_1.png";
-import midToHighDropFade from "@/assets/landing/cuts/jay/mid_to_high_drop_fade.png";
-import midToHighSkinFade from "@/assets/landing/cuts/jay/mid_to_high_skin_fade.png";
-import midToLowBurstFade from "@/assets/landing/cuts/jay/mid_to_low_burst_fade.png";
+import image1 from "@/assets/landing/cuts/josh/blow_out_taper_fade_1.png";
+import image2 from "@/assets/landing/cuts/josh/blow_out_taper_fade.png";
+import image3 from "@/assets/landing/cuts/josh/burst_fade_1.png";
+import image4 from "@/assets/landing/cuts/josh/burst_fade_2.png";
+import image5 from "@/assets/landing/cuts/josh/burst_fade.png";
+import image6 from "@/assets/landing/cuts/josh/drop_fade.png";
+import image7 from "@/assets/landing/cuts/josh/drop_v_burst_fade.png";
+import image8 from "@/assets/landing/cuts/josh/high_skin_fade_1.png";
+import image9 from "@/assets/landing/cuts/josh/high_skin_fade.png";
+import image10 from "@/assets/landing/cuts/josh/high_v_drop_fade.png";
+import image11 from "@/assets/landing/cuts/josh/mid_burst_fade.png";
+import image12 from "@/assets/landing/cuts/josh/mid_to_high_burst_fade.png";
+import image13 from "@/assets/landing/cuts/josh/taper_fade.png";
+import image14 from "@/assets/landing/cuts/josh/textured_burst_fade_1.png";
+import image15 from "@/assets/landing/cuts/josh/textured_burst_fade.png";
+import image16 from "@/assets/landing/cuts/josh/textured_crop_skin_fade.png";
+import image17 from "@/assets/landing/cuts/josh/v_mid_drop_fade.png";
+
+import galleryImage1 from "@/assets/landing/galleries/amir/amir-gallery-1.svg";
+import galleryImage2 from "@/assets/landing/galleries/amir/amir-gallery-2.svg";
+import galleryImage3 from "@/assets/landing/galleries/amir/amir-gallery-3.svg";
+import galleryImage4 from "@/assets/landing/galleries/amir/amir-gallery-4.svg";
+import galleryImage5 from "@/assets/landing/galleries/amir/amir-gallery-5.svg";
+import galleryImage6 from "@/assets/landing/galleries/amir/amir-gallery-6.svg";
 import useUtmTracking from "@/hooks/utmTrackingHook";
 
-const Hero = getAsset("/assets/landing/videos/jay/hero.mp4");
+// const Hero = getAsset("/assets/landing/videos/josh/hero.mp4");
 
-const video1 = getAsset("/assets/landing/videos/jay/tiktok_1.mp4");
+// const video1 = getAsset("/assets/landing/videos/josh/tiktok_1.mp4");
+// const video2 = getAsset("/assets/landing/videos/josh/tiktok_2.mp4");
+// const video3 = getAsset("/assets/landing/videos/josh/tiktok_3.mp4");
+// const video4 = getAsset("/assets/landing/videos/josh/tiktok_1.mp4");
+// const video5 = getAsset("/assets/landing/videos/josh/tiktok_2.mp4");
+// const video6 = getAsset("/assets/landing/videos/josh/tiktok_3.mp4");
+
+// const videos = [video1, video2, video3, video4, video5, video6];
 
 const cutsImages = [
-  { src: highDropFade1, name: "High Drop Fade 1" },
-  { src: midBurstFade1, name: "Mid Burst Fade 1" },
-  { src: midDropFade, name: "Mid Drop Fade" },
-  { src: midToHighBurstFade2, name: "Mid to High Burst Fade 2" },
-  { src: highDropFade, name: "High Drop Fade" },
-  { src: midBurstFade2, name: "Mid Burst Fade 2" },
-  { src: midSkinFadeMullet1, name: "Mid Skin Fade Mullet 1" },
-  { src: midToHighBurstFade, name: "Mid to High Burst Fade" },
-  { src: highSkinFadeMullet, name: "High Skin Fade Mullet" },
-  { src: highSkinFade1, name: "High Skin Fade 1" },
-  { src: highSkinFade, name: "High Skin Fade" },
-  { src: midDropFade1, name: "Mid Drop Fade 1" },
-  { src: midBurstFade3, name: "Mid Burst Fade 3" },
-  { src: midBurstFade, name: "Mid Burst Fade" },
-  { src: midTaper, name: "Mid Taper" },
-  { src: midToHighBurstFade1, name: "Mid to High Burst Fade 1" },
-  { src: midToHighDropFade, name: "Mid to High Drop Fade" },
-  { src: midToHighSkinFade, name: "Mid to High Skin Fade" },
-  { src: midToLowBurstFade, name: "Mid to Low Burst Fade" },
+  { src: image1, name: "Blow Out Taper Fade 1" },
+  { src: image2, name: "Blow Out Taper Fade" },
+  { src: image3, name: "Burst Fade 1" },
+  { src: image4, name: "Burst Fade 2" },
+  { src: image5, name: "Burst Fade" },
+  { src: image6, name: "Drop Fade" },
+  { src: image7, name: "Drop V Burst Fade" },
+  { src: image8, name: "High Skin Fade 1" },
+  { src: image9, name: "High Skin Fade" },
+  { src: image10, name: "High V Drop Fade" },
+  { src: image11, name: "Mid Burst Fade" },
+  { src: image12, name: "Mid to High Burst Fade" },
+  { src: image13, name: "Taper Fade" },
+  { src: image14, name: "Textured Burst Fade 1" },
+  { src: image15, name: "Textured Burst Fade" },
+  { src: image16, name: "Textured Crop Skin Fade" },
+  { src: image17, name: "V Mid Drop Fade" },
 ];
 
-// const OPTIONS: EmblaOptionsType = { loop: true, inViewThreshold: 1 }
-// const SLIDE_COUNT = 5
-// const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
-const imagesReviews = [cardOne, cardTwo, cardThree, cardFour];
+const galleryImages = [
+  { src: galleryImage1, name: "Amir Gallery 1" },
+  { src: galleryImage2, name: "Amir Gallery 2" },
+  { src: galleryImage3, name: "Amir Gallery 3" },
+  { src: galleryImage4, name: "Amir Gallery 4" },
+  { src: galleryImage5, name: "Amir Gallery 5" },
+  { src: galleryImage6, name: "Amir Gallery 6" },
+];
 
-export default function JayLanding() {
+// const OPTIONS: EmblaOptionsType = { loop: true, inViewThreshold: 1 };
+// const SLIDE_COUNT = 5;
+// const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+const imagesReviews = [cardFour, cardOne, cardTwo, cardThree];
+
+export default function AaronLanding() {
   useUtmTracking();
   const location = useLocation();
+  const [selectedImage, setSelectedImage] = useState(0);
+  const previewImageRef = useRef<HTMLDivElement>(null);
+
+  const handleThumbnailClick = (index: number, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setSelectedImage(index);
+
+    // Scroll to preview image smoothly
+    setTimeout(() => {
+      if (previewImageRef.current) {
+        const yOffset = -100; // Offset dari top untuk spacing
+        const y = previewImageRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
+  };
 
   const generateLink = (text: string): JSX.Element => {
     const customize: boolean = true;
@@ -111,23 +149,23 @@ export default function JayLanding() {
   }, []);
 
   const description =
-    "Pushing the boundaries of traditional barbering, I blend innovative techniques with classic skills to create unique, personalized styles.";
+    "Hair is my canvas, and I create masterpieces with every cut. Experience the artistry of precision barbering tailored to your individual style.";
 
   return (
     <LandingLayout>
       <Helmet>
-        <title>jay Fadelines BEST BARBER/HAIRDRESSER IN MELBOURNE</title>
+        <title>Amir Fadelines BEST BARBER/HAIRDRESSER IN MELBOURNE</title>
         <meta
           name="description"
-          content={`Jay Fadelines BEST BARBER IN MELBOURNE - ${description}`}
+          content={`Amir Fadelines BEST BARBER IN MELBOURNE - ${description}`}
         />
         <meta
           property="og:title"
-          content="Jay Fadelines BEST BARBER IN MELBOURNE"
+          content="Amir Fadelines BEST BARBER IN MELBOURNE"
         />
         <meta
           property="og:description"
-          content={`Jay Fadelines BEST BARBER IN MELBOURNE - ${description}`}
+          content={`Amir Fadelines BEST BARBER IN MELBOURNE - ${description}`}
         />
         <meta property="og:image" content="URL to Fadelines' preview image" />
         <meta property="og:url" content="URL to Fadelines' website" />
@@ -158,15 +196,7 @@ export default function JayLanding() {
         />
 
         <section className="relative w-full h-[35rem] md:h-[35rem] ">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute z-0 w-full h-[40rem] md:h-[35rem] object-cover"
-          >
-            <source src={Hero} type="video/mp4" />
-          </video>
+          <div className="absolute z-0 w-full h-[40rem] md:h-[35rem] object-cover bg-[url(/amir-bg.png)] bg-center bg-cover"></div>
           <div className="max-w-screen-lg mx-auto md:mx-0 md:ml-8 lg:ml-16 w-full">
             <div
               className="relative z-30 backdrop-blur-lg text-white rounded-3xl py-12 px-12 my-12 mb-10 mx-6 md:ml-12 md:mr-auto border border-stone-50 md:w-1/2"
@@ -176,7 +206,7 @@ export default function JayLanding() {
               }}
             >
               <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-[#42FF00] tracking-wider">
-                Hi, I&apos;m jay
+                Hi, I&apos;m Amir
               </h2>
               <h2 className="text-xl font-bold mb-4">
                 BEST BARBER/HAIRDRESSER IN MELBOURNE
@@ -214,6 +244,71 @@ export default function JayLanding() {
           />
         </section>
 
+        {/* Gallery Section */}
+        <section className="relative z-20 container mx-auto px-6 md:px-8 py-16 pt-40 md:py-24">
+          <div className="max-w-screen-lg mx-auto">
+            
+            {/* Next Available Time */}
+            <p className="text-stone-400 text-md md:text-base text-center mb-2">
+              Next Available XX:XX
+            </p>
+
+            {/* Main Preview Image */}
+            <div
+              ref={previewImageRef}
+              className="max-w-sm md:max-w-md mx-auto mb-2 overflow-hidden rounded-xl bg-stone-800"
+            >
+              <img
+                src={galleryImages[selectedImage % galleryImages.length].src}
+                alt={galleryImages[selectedImage % galleryImages.length].name}
+                className="w-full h-[500px] md:h-[500px] object-cover"
+              />
+            </div>
+
+            {/* Instagram Handle Below Preview */}
+            <p className="text-stone-400 text-md md:text-base text-center mb-4 md:mb-6">
+              [@amir.blendz_]
+            </p>
+
+            {/* Green Divider Line */}
+            <div className="w-full mb-6 md:mb-8">
+              <div className="h-[2px] bg-[#42FF00]"></div>
+            </div>
+
+            {/* Gallery Grid - 2x3 Thumbnails */}
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div
+                  key={index}
+                  onClick={(e) => handleThumbnailClick(index, e)}
+                  className={`aspect-square overflow-hidden rounded-lg bg-stone-800 transition-all duration-200 cursor-pointer ${
+                    selectedImage === index
+                      ? "ring-4 ring-[#42FF00] scale-95"
+                      : "hover:opacity-80 hover:scale-105"
+                  }`}
+                >
+                  <img
+                    src={galleryImages[index % galleryImages.length].src}
+                    alt={`Amir's haircut work ${index + 1}`}
+                    className="w-full h-full object-cover pointer-events-none"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="flex justify-center mt-12">
+              <Button
+                variant={"ghost"}
+                className="border border-[#00FF19] px-8 md:px-12 py-6 md:py-8 text-lg md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a]"
+              >
+                {generateLink("BOOK NOW")}
+              </Button>
+            </div>
+          </div>
+        </section>
+
         <section className="flex relative flex-col z-20 justify-center items-center  container w-full text-stone-50 uppercase py-32 pt-40 pb-20">
           <div className="hidden xl:flex  absolute bottom-1/3 pb-32 left-32  h-auto">
             <img
@@ -242,7 +337,7 @@ export default function JayLanding() {
             className="absolute z-0 w-auto h-full object-fill bottom-[0]"
           />
         </section>
-        <section className="container relative z-10 text-stone-50 pt-0 py-12 ">
+        {/* <section className="container relative z-10 text-stone-50 pt-0 py-12 ">
           <div className="relative z-10">
             <h3 className=" text-4xl md:text-6xl  font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">
               Our Videos
@@ -250,16 +345,12 @@ export default function JayLanding() {
             <p className="text-center text-lg w-10/12 md:w-full mx-auto">
               well known on TIktok with millions of views
             </p>
-            <div className="py-12 md:py-0 w-full md:px-12 justify-center items-center flex m md:my-32">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-fit rounded-3xl relative z-0  h-[23rem] md:h-[35rem] "
-              >
-                <source type="video/mp4" src={video1} />
-              </video>
+            <div className="py-12 md:py-0 w-full md:px-12  ">
+              <EmblaCarousel
+                slides={SLIDES}
+                options={OPTIONS}
+                videos={videos}
+              />
             </div>
             <div className="flex gap-10 justify-center items-center flex-col w-full ">
               <Button
@@ -277,7 +368,7 @@ export default function JayLanding() {
             alt="Your img"
             className="absolute left-0 z-0 w-auto h-full object-fill bottom-[0]"
           />
-        </section>
+        </section> */}
 
         <section className="container mx-auto px-6 sm:px-6 lg:px-8 py-12 text-stone-50 rounded-lg relative z-10 flex flex-col justify-center items-center">
           <h4 className="text-4xl md:text-7xl my-6 md:my-12 uppercase   items-center justify-center text-center font-extrabold text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">

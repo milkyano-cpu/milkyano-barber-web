@@ -1,16 +1,13 @@
 import Layout from "@/components/web/WebLayout";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 import BgHero2 from "@/assets/web/home/hero.svg";
-import haircut from "@/assets/web/home/haircut.png";
-import beard from "@/assets/web/home/beard.png";
+import Logo from "@/assets/web/icons/logo.svg";
+import Instagram from "@/assets/web/icons/Instagram.svg";
+import Tiktok from "@/assets/web/icons/Tiktok.svg";
+import Maps from "@/assets/web/icons/Maps.svg";
+import GoogleReview from "@/assets/web/icons/GoogleReview.svg";
 
 import instagramPhotosDesktop1 from "/src/assets/follow-us/desktop/instagram_photo_1.png";
 import instagramPhotosDesktop2 from "/src/assets/follow-us/desktop/instagram_photo_2.png";
@@ -186,35 +183,52 @@ export default function Home() {
         />
         <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-black/80 to-black" />
         <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
-          <div className="flex flex-col mb-12">
-            <h1 className="text-[#33FF00]">THE BEST</h1>
-            <h2>FOR YOUR HAIR</h2>
+          <div className="flex flex-col">
+            <img
+              src={Logo}
+              alt="Fadedlines Barber Shop"
+              className="w-[20rem] md:w-[25rem] h-auto"
+            />
           </div>
           <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max self-center hover:bg-[#454545]/80">
             {generateLink("BOOK NOW")}
           </Button>
 
-          <div className="flex flex-col md:flex-row gap-6 md:gap-10">
-            <p>
-              We served over <span className="text-[#33FF00]">5000+</span>
-            </p>
-            <p className="flex gap-2">
-              Happy Customers+{" "}
-              <svg
-                className="w-6"
-                viewBox="0 0 31 30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15.5 0.375C12.6075 0.375 9.77986 1.23274 7.37479 2.83976C4.96972 4.44677 3.0952 6.73089 1.98827 9.40325C0.881337 12.0756 0.591713 15.0162 1.15602 17.8532C1.72033 20.6902 3.11323 23.2961 5.15857 25.3414C7.20391 27.3868 9.80984 28.7797 12.6468 29.344C15.4838 29.9083 18.4244 29.6187 21.0968 28.5117C23.7691 27.4048 26.0532 25.5303 27.6602 23.1252C29.2673 20.7201 30.125 17.8926 30.125 15C30.1209 11.1225 28.5788 7.40492 25.8369 4.66309C23.0951 1.92125 19.3775 0.379095 15.5 0.375ZM15.5 27.375C13.0525 27.375 10.6599 26.6492 8.62482 25.2894C6.58977 23.9297 5.00363 21.9969 4.067 19.7357C3.13036 17.4745 2.8853 14.9863 3.36279 12.5858C3.84028 10.1852 5.01889 7.98023 6.74956 6.24955C8.48024 4.51888 10.6852 3.34027 13.0858 2.86278C15.4863 2.38529 17.9745 2.63036 20.2357 3.56699C22.497 4.50363 24.4297 6.08976 25.7894 8.12482C27.1492 10.1599 27.875 12.5525 27.875 15C27.8713 18.2809 26.5663 21.4264 24.2463 23.7463C21.9264 26.0663 18.7809 27.3713 15.5 27.375ZM8.75001 12.1875C8.75001 11.8537 8.84898 11.5275 9.0344 11.25C9.21983 10.9725 9.48338 10.7562 9.79173 10.6285C10.1001 10.5007 10.4394 10.4673 10.7667 10.5324C11.0941 10.5975 11.3947 10.7583 11.6307 10.9943C11.8668 11.2303 12.0275 11.5309 12.0926 11.8583C12.1577 12.1856 12.1243 12.5249 11.9966 12.8333C11.8688 13.1416 11.6525 13.4052 11.375 13.5906C11.0975 13.776 10.7713 13.875 10.4375 13.875C9.98995 13.875 9.56073 13.6972 9.24426 13.3807C8.9278 13.0643 8.75001 12.6351 8.75001 12.1875ZM22.25 12.1875C22.25 12.5213 22.151 12.8475 21.9656 13.125C21.7802 13.4025 21.5166 13.6188 21.2083 13.7465C20.8999 13.8743 20.5606 13.9077 20.2333 13.8426C19.9059 13.7775 19.6053 13.6167 19.3693 13.3807C19.1333 13.1447 18.9725 12.8441 18.9074 12.5167C18.8423 12.1894 18.8757 11.8501 19.0035 11.5417C19.1312 11.2334 19.3475 10.9698 19.625 10.7844C19.9025 10.599 20.2288 10.5 20.5625 10.5C21.0101 10.5 21.4393 10.6778 21.7557 10.9943C22.0722 11.3107 22.25 11.7399 22.25 12.1875ZM22.0995 18.9375C20.6525 21.4392 18.2464 22.875 15.5 22.875C12.7536 22.875 10.3489 21.4406 8.90188 18.9375C8.82048 18.8095 8.76583 18.6663 8.7412 18.5166C8.71658 18.3668 8.72249 18.2137 8.75859 18.0663C8.79469 17.9189 8.86022 17.7804 8.95125 17.659C9.04228 17.5376 9.15693 17.4359 9.28829 17.36C9.41965 17.284 9.56501 17.2355 9.71563 17.2172C9.86625 17.1989 10.019 17.2112 10.1647 17.2535C10.3105 17.2958 10.4461 17.3671 10.5636 17.4632C10.681 17.5592 10.7778 17.6781 10.8481 17.8125C11.8986 19.628 13.5495 20.625 15.5 20.625C17.4505 20.625 19.1014 19.6266 20.1505 17.8125C20.2997 17.554 20.5454 17.3654 20.8337 17.2882C21.1219 17.2109 21.429 17.2513 21.6875 17.4005C21.946 17.5497 22.1346 17.7954 22.2119 18.0836C22.2891 18.3719 22.2487 18.679 22.0995 18.9375Z"
-                  fill="#33FF00"
-                />
-              </svg>
-            </p>
+          <div className="flex gap-4 mt-4">
+            <a
+              href="https://www.instagram.com/fadedlinesbarbershop"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-40 hover:opacity-100 transition-opacity"
+            >
+              <img alt="Instagram" src={Instagram} className="w-12 h-auto" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@faded_lines"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-40 hover:opacity-100 transition-opacity"
+            >
+              <img alt="TikTok" src={Tiktok} className="w-12 h-auto" />
+            </a>
+            <a
+              href="https://maps.app.goo.gl/tBwhgZUekSLXHF4P6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-40 hover:opacity-100 transition-opacity"
+            >
+              <img alt="Google Maps" src={Maps} className="w-12 h-auto" />
+            </a>
+            <a
+              href="https://shorturl.at/72sRM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-40 hover:opacity-100 transition-opacity"
+            >
+              <img alt="Google Review" src={GoogleReview} className="w-12 h-auto" />
+            </a>
           </div>
-          <p>Elevate your look, define your presence</p>
-          <sub>55 PORTMAN ST; OAKLEIGH VIC 3166; AUSTRALIA</sub>
+
           <svg
             className="w-7 mt-20"
             viewBox="0 0 55 30"
@@ -229,53 +243,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col justify-center items-center">
-        <h2 className="text-[#33FF00]">OUR SERVICES</h2>
-        <p>Simple and Effective Pricing for that Fresh Looks</p>
+      <section className="flex flex-col justify-center items-center px-6">
+        <h2 className="text-[#33FF00]">AFRAID OF THE RESULTS?</h2>
+        <p className="text-2xl md:text-3xl font-bold">See It for Yourself!</p>
 
-        <div className="flex gap-8 mt-20 px-6 md:w-max w-full overflow-x-auto">
-          <div className="flex flex-col justify-between bg-[#262626] rounded-xl w-[250px] p-2">
-            <div className="flex flex-col">
-              <img
-                className="mb-4"
-                src={haircut}
-                width={500}
-                height={500}
-                alt="haircut"
-              />
-              <h3>Haircut</h3>
-              <p>
-                Men's haircut start from $50 depending on which barber you would
-                like.
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full max-w-6xl">
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <div key={num} className="relative rounded-xl overflow-hidden bg-[#262626] h-[400px] md:h-[350px]">
+              <video
+                className="w-full h-full object-cover"
+                controls
+                preload="metadata"
+              >
+                <source
+                  src={`https://s3.milkyano.com/milkyano/fadedlines-oakleigh/home-video/home-video-${num}.mp4`}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
-
-            <div className="flex gap-8 justify-between mt-6">
-              <h2 className="text-[#33FF00]">$50</h2>
-              <Button>{generateLink("PRICING PLANS")}</Button>
-            </div>
-          </div>
-
-          <div className="flex flex-col bg-[#262626] rounded-xl w-[250px] p-2">
-            <img
-              className="mb-4"
-              src={beard}
-              width={500}
-              height={500}
-              alt="haircut"
-            />
-            <h3>Haircut & Beard</h3>
-            <p>
-              Men's haircut and beard trims starts from $75 depending on which
-              barber you would like.
-            </p>
-
-            <div className="flex gap-8 justify-between mt-6">
-              <h2 className="text-[#33FF00]">$75</h2>
-              <Button>{generateLink("PRICING PLANS")}</Button>
-            </div>
-          </div>
+          ))}
         </div>
+
+        <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max mt-10 hover:bg-[#454545]/80">
+          {generateLink("BOOK NOW")}
+        </Button>
       </section>
 
       <section className="flex flex-col justify-center items-center">
@@ -286,60 +278,6 @@ export default function Home() {
           instagram_images_desktop={instagram_images_desktop}
           instagram_images_mobile={instagram_images_mobile}
         />
-      </section>
-
-      <section className="flex flex-col justify-center items-center md:pb-40">
-        <h2 className="text-[#33FF00] text-center">
-          FREQUENTLY ASKED <br />
-          QUESTIONS
-        </h2>
-        <div className="py-4 px-4 my-12 relative z-20 w-full md:w-2/3 mx-auto">
-          <Accordion
-            type="single"
-            collapsible
-            className="flex border pb-12 border-[#05FF00] rounded-[36px] p-12 pt-6 flex-col gap-8 bg-[#101010] shadow-[0px_4px_39px_31px_rgba(0,244,24,0.1)] font-light"
-          >
-            <AccordionItem
-              value="item-1"
-              className="py-2 px-4 border-b border-white/30 font-light group ease-in-out duration-300"
-            >
-              <AccordionTrigger className="relative z-10 ">
-                <div className="font-bold text-lg group-hover:translate-x-2 ease-in-out duration-300">
-                  Is it accessible?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-stone-300 group-hover:translate-x-2 ease-in-out duration-300">
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-2"
-              className="py-2 px-4 border-b border-white/30 font-light group ease-in-out duration-300"
-            >
-              <AccordionTrigger className="relative z-10 ">
-                <div className="font-bold text-lg group-hover:translate-x-2 ease-in-out duration-300">
-                  Is it accessible?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-stone-300 group-hover:translate-x-2 ease-in-out duration-300">
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-3"
-              className="py-2 px-4 border-b border-white/30 font-light group ease-in-out duration-300"
-            >
-              <AccordionTrigger className="relative z-10 ">
-                <div className="font-bold text-lg group-hover:translate-x-2 ease-in-out duration-300">
-                  Is it accessible?
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-stone-300 group-hover:translate-x-2 ease-in-out duration-300">
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
       </section>
     </Layout>
   );

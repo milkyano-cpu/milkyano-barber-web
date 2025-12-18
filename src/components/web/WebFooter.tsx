@@ -170,7 +170,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Monday 12 AM - 9 PM
+                    Monday 12 PM – 6 PM
                   </Link>
                 </li>
                 <li>
@@ -179,7 +179,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Tuesday 12 AM - 9 PM
+                    Tuesday 12 PM – 8 PM
                   </Link>
                 </li>
                 <li>
@@ -188,7 +188,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Wednesday 12 AM - 9 PM
+                    Wednesday 12 PM – 8 PM
                   </Link>
                 </li>
                 <li>
@@ -197,7 +197,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Thursday 10 AM - 9 PM
+                    Thursday 10 AM – 8 PM
                   </Link>
                 </li>
                 <li>
@@ -206,7 +206,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Friday 10 AM - 8 PM
+                    Friday 10 AM – 8 PM
                   </Link>
                 </li>
                 <li>
@@ -215,7 +215,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Saturday 9 AM - 8 PM
+                    Saturday 9 AM – 6 PM
                   </Link>
                 </li>
                 <li>
@@ -224,7 +224,7 @@ const WebFooter: React.FC = () => {
                     target="_blank"
                     className="hover:text-white"
                   >
-                    Sunday 6 AM - 12 PM
+                    Sunday 10 AM – 3 PM
                   </Link>
                 </li>
               </ul>

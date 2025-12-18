@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
@@ -44,13 +44,6 @@ import image14 from "@/assets/landing/cuts/josh/textured_burst_fade_1.png";
 import image15 from "@/assets/landing/cuts/josh/textured_burst_fade.png";
 import image16 from "@/assets/landing/cuts/josh/textured_crop_skin_fade.png";
 import image17 from "@/assets/landing/cuts/josh/v_mid_drop_fade.png";
-
-import galleryImage1 from "@/assets/landing/galleries/amir/amir-gallery-1.svg";
-import galleryImage2 from "@/assets/landing/galleries/amir/amir-gallery-2.svg";
-import galleryImage3 from "@/assets/landing/galleries/amir/amir-gallery-3.svg";
-import galleryImage4 from "@/assets/landing/galleries/amir/amir-gallery-4.svg";
-import galleryImage5 from "@/assets/landing/galleries/amir/amir-gallery-5.svg";
-import galleryImage6 from "@/assets/landing/galleries/amir/amir-gallery-6.svg";
 import useUtmTracking from "@/hooks/utmTrackingHook";
 
 // const Hero = getAsset("/assets/landing/videos/josh/hero.mp4");
@@ -84,15 +77,6 @@ const cutsImages = [
   { src: image17, name: "V Mid Drop Fade" },
 ];
 
-const galleryImages = [
-  { src: galleryImage1, name: "Amir Gallery 1" },
-  { src: galleryImage2, name: "Amir Gallery 2" },
-  { src: galleryImage3, name: "Amir Gallery 3" },
-  { src: galleryImage4, name: "Amir Gallery 4" },
-  { src: galleryImage5, name: "Amir Gallery 5" },
-  { src: galleryImage6, name: "Amir Gallery 6" },
-];
-
 // const OPTIONS: EmblaOptionsType = { loop: true, inViewThreshold: 1 };
 // const SLIDE_COUNT = 5;
 // const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
@@ -101,25 +85,6 @@ const imagesReviews = [cardFour, cardOne, cardTwo, cardThree];
 export default function AaronLanding() {
   useUtmTracking();
   const location = useLocation();
-  const [selectedImage, setSelectedImage] = useState(0);
-  const previewImageRef = useRef<HTMLDivElement>(null);
-
-  const handleThumbnailClick = (index: number, e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    setSelectedImage(index);
-
-    // Scroll to preview image smoothly
-    setTimeout(() => {
-      if (previewImageRef.current) {
-        const yOffset = -100; // Offset dari top untuk spacing
-        const y = previewImageRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    }, 50);
-  };
 
   const generateLink = (text: string): JSX.Element => {
     const customize: boolean = true;
@@ -242,71 +207,6 @@ export default function AaronLanding() {
             className="absolute z-20 w-auto h-full object-fill bottom-[-23rem] md:bottom-[-20rem]"
             fetchPriority="high"
           />
-        </section>
-
-        {/* Gallery Section */}
-        <section className="relative z-20 container mx-auto px-6 md:px-8 py-16 pt-40 md:py-24">
-          <div className="max-w-screen-lg mx-auto">
-            
-            {/* Next Available Time */}
-            <p className="text-stone-400 text-md md:text-base text-center mb-2">
-              Next Available XX:XX
-            </p>
-
-            {/* Main Preview Image */}
-            <div
-              ref={previewImageRef}
-              className="max-w-sm md:max-w-md mx-auto mb-2 overflow-hidden rounded-xl bg-stone-800"
-            >
-              <img
-                src={galleryImages[selectedImage % galleryImages.length].src}
-                alt={galleryImages[selectedImage % galleryImages.length].name}
-                className="w-full h-[500px] md:h-[500px] object-cover"
-              />
-            </div>
-
-            {/* Instagram Handle Below Preview */}
-            <p className="text-stone-400 text-md md:text-base text-center mb-4 md:mb-6">
-              [@amir.blendz_]
-            </p>
-
-            {/* Green Divider Line */}
-            <div className="w-full mb-6 md:mb-8">
-              <div className="h-[2px] bg-[#42FF00]"></div>
-            </div>
-
-            {/* Gallery Grid - 2x3 Thumbnails */}
-            <div className="grid grid-cols-3 gap-2 md:gap-4">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <div
-                  key={index}
-                  onClick={(e) => handleThumbnailClick(index, e)}
-                  className={`aspect-square overflow-hidden rounded-lg bg-stone-800 transition-all duration-200 cursor-pointer ${
-                    selectedImage === index
-                      ? "ring-4 ring-[#42FF00] scale-95"
-                      : "hover:opacity-80 hover:scale-105"
-                  }`}
-                >
-                  <img
-                    src={galleryImages[index % galleryImages.length].src}
-                    alt={`Amir's haircut work ${index + 1}`}
-                    className="w-full h-full object-cover pointer-events-none"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Call to Action */}
-            <div className="flex justify-center mt-12">
-              <Button
-                variant={"ghost"}
-                className="border border-[#00FF19] px-8 md:px-12 py-6 md:py-8 text-lg md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a]"
-              >
-                {generateLink("BOOK NOW")}
-              </Button>
-            </div>
-          </div>
         </section>
 
         <section className="flex relative flex-col z-20 justify-center items-center  container w-full text-stone-50 uppercase py-32 pt-40 pb-20">

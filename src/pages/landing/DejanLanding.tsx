@@ -170,9 +170,9 @@ export default function DejanLanding() {
           >
             <source src={Hero} type="video/mp4" />
           </video>
-          <div className="max-w-screen-lg mx-auto w-full">
+          <div className="max-w-screen-lg mx-auto md:mx-0 md:ml-8 lg:ml-16 w-full">
             <div
-              className="relative z-30 backdrop-blur-lg text-white rounded-3xl py-12 px-12 my-12 mb-10 mx-6 md:mx-12 border border-stone-50 md:w-1/2"
+              className="relative z-30 backdrop-blur-lg text-white rounded-3xl py-12 px-12 my-12 mb-10 mx-6 md:ml-12 md:mr-auto border border-stone-50 md:w-1/2"
               style={{
                 backdropFilter: "blur(16px) contrast(100%)",
                 WebkitBackdropFilter: "blur(16px) contrast(100%)",
@@ -187,7 +187,7 @@ export default function DejanLanding() {
               <p className="text-lg mb-8">{description}</p>
               <div className="bg-black"></div>
             </div>
-            <div className="px-6 md:px-12 text-stone-50 flex flex-col md:flex-row gap-4 uppercase relative z-30">
+            <div className="px-6 md:pl-12 text-stone-50 flex flex-col md:flex-row gap-4 uppercase relative z-30">
               <Button
                 variant={"ghost"}
                 className="relative z-20 backdrop-blur-lg bg-transparent text-xl rounded-full border border-stone-50 px-12 py-6 hover:bg-white/10"

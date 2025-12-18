@@ -10,11 +10,13 @@ import Jay from "@/assets/web/barbers/jay.png";
 // import Wyatt from "@/assets/web/barbers/wyatt.png";
 import Emman from "@/assets/web/barbers/emman.png";
 import Dejan from "@/assets/web/barbers/dejan.png";
-import Christos from "@/assets/web/barbers/christos.png";
+// import Christos from "@/assets/web/barbers/christos.png";
 import Josh from "@/assets/web/barbers/josh.png";
 import Niko from "@/assets/web/barbers/niko.png";
 import Noah from "@/assets/web/barbers/noah.png";
 import Jamie from "@/assets/web/barbers/jamie.png";
+import Lucas from "@/assets/web/barbers/lucas.png";
+import Can from "@/assets/web/barbers/can.png";
 import { Link, useLocation } from "react-router-dom";
 import BgHero2 from "@/assets/web/home/hero.svg";
 // import Hero from "@/assets/web/home/hero.svg";
@@ -101,6 +103,16 @@ export default function Barbers() {
       landing: true,
     },
     {
+      svg: Lucas,
+      link: generateRoute("/lucas"),
+      landing: true,
+    },
+    {
+      svg: Can,
+      link: generateRoute("/can"),
+      landing: true,
+    },
+    {
       svg: Rayhan,
       link: generateRoute("/rayhan"),
       landing: true,
@@ -130,11 +142,11 @@ export default function Barbers() {
       link: generateRoute("/emman"),
       landing: true,
     },
-    {
-      svg: Christos,
-      link: generateRoute("/christos"),
-      landing: true,
-    },
+    // {
+    //   svg: Christos,
+    //   link: generateRoute("/christos"),
+    //   landing: true,
+    // },
     {
       svg: Jamie,
       link: generateRoute("/jamie"),
@@ -230,7 +242,7 @@ export default function Barbers() {
         </div>
       </section>
 
-      <section className="w-full min-h-screen flex  justify-center md:max-w-screen-xl   mx-auto md:py-24 pb-[12rem] md:pb-[4rem] mb-12 relative">
+      <section className="w-full min-h-screen flex  justify-center md:max-w-screen-xl   mx-auto pt-8 md:pt-12 pb-[12rem] md:pb-[4rem] mb-0 relative">
         <div className="w-full flex flex-wrap mx-auto justify-center items-center px-4 md:px-0">
           {barberSvgs.map((barber, index) => (
             <Link

@@ -24,6 +24,8 @@ import BookContactInfo from './components/book/BookContactInfo';
 import ThankYou from './components/book/ThankYou';
 import NoahLanding from './pages/landing/NoahLanding';
 import AmirLanding from './pages/landing/AmirLanding';
+import LucasLanding from './pages/landing/LucasLanding';
+import CanLanding from './pages/landing/CanLanding';
 import PageTracker from './components/analytics/PageTracker';
 
 const webRoutes = [
@@ -67,7 +69,9 @@ const landingRoutes = [
   { path: 'rayhan', component: RayhanLanding },
   { path: 'wyatt', component: WyattLanding },
   { path: 'noah', component: NoahLanding },
-  { path: 'amir', component: AmirLanding }
+  { path: 'amir', component: AmirLanding },
+  { path: 'lucas', component: LucasLanding },
+  { path: 'can', component: CanLanding }
 ];
 
 const bookRoutes = [
@@ -81,7 +85,9 @@ const bookRoutes = [
   { path: 'rayhan/book/services', component: BookList },
   { path: 'wyatt/book/services', component: BookList },
   { path: 'noah/book/services', component: BookList },
-  { path: 'amir/book/services', component: BookList }
+  { path: 'amir/book/services', component: BookList },
+  { path: 'lucas/book/services', component: BookList },
+  { path: 'can/book/services', component: BookList }
 ];
 
 const appointmentRoutes = [
@@ -95,7 +101,9 @@ const appointmentRoutes = [
   { path: 'rayhan/book/appointment', component: BookAppointment },
   { path: 'wyatt/book/appointment', component: BookAppointment },
   { path: 'noah/book/appointment', component: BookAppointment },
-  { path: 'amir/book/appointment', component: BookAppointment }
+  { path: 'amir/book/appointment', component: BookAppointment },
+  { path: 'lucas/book/appointment', component: BookAppointment },
+  { path: 'can/book/appointment', component: BookAppointment }
   // { path: "mustafa/book/appointment", component: BookAppointment },
 ];
 
@@ -110,7 +118,9 @@ const contactInfoRoutes = [
   { path: 'rayhan/book/contact-info', component: BookContactInfo },
   { path: 'wyatt/book/contact-info', component: BookContactInfo },
   { path: 'noah/book/contact-info', component: BookContactInfo },
-  { path: 'amir/book/contact-info', component: BookContactInfo }
+  { path: 'amir/book/contact-info', component: BookContactInfo },
+  { path: 'lucas/book/contact-info', component: BookContactInfo },
+  { path: 'can/book/contact-info', component: BookContactInfo }
 ];
 
 const ThankYouRoutes = [
@@ -124,7 +134,9 @@ const ThankYouRoutes = [
   { path: 'rayhan/book/thank-you', component: ThankYou },
   { path: 'wyatt/book/thank-you', component: ThankYou },
   { path: 'noah/book/thank-you', component: ThankYou },
-  { path: 'amir/book/thank-you', component: ThankYou }
+  { path: 'amir/book/thank-you', component: ThankYou },
+  { path: 'lucas/book/thank-you', component: ThankYou },
+  { path: 'can/book/thank-you', component: ThankYou }
 ];
 
 const AppRoutes: React.FC = () => {
