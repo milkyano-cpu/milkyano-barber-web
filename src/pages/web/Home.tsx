@@ -249,7 +249,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full max-w-6xl">
           {[1, 2, 3, 4, 5, 6].map((num) => (
-            <div key={num} className="relative rounded-xl overflow-hidden bg-[#262626] h-[400px] md:h-[350px]">
+            <div key={num} className="relative rounded-xl overflow-hidden bg-[#262626] aspect-[9/16]">
               <video
                 className="w-full h-full object-cover"
                 controls
