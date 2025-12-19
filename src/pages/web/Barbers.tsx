@@ -229,7 +229,7 @@ export default function Barbers() {
           </div>
 
           <svg
-            className="w-7 mt-20"
+            className="w-7 mt-8"
             viewBox="0 0 55 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
