@@ -4,7 +4,10 @@ import WebFooter from "@/components/web/WebFooter";
 import { useGtm } from "../hooks/UseGtm";
 import { useLocation } from "react-router-dom";
 
-const WebLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
+const WebLayout: React.FC<{ children: ReactNode; gap?: string }> = ({
+  children,
+  gap = "gap-40"
+}) => {
   const location = useLocation();
   const { sendEvent } = useGtm();
 
@@ -21,7 +24,7 @@ const WebLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
     <div className={`font-poppins`}>
       <h1 className="hidden">Faded Lines Barber Shop</h1>
       <WebHeader />
-      <main className="flex flex-col gap-40">{children}</main>
+      <main className={`flex flex-col ${gap}`}>{children}</main>
       <WebFooter />
     </div>
   );

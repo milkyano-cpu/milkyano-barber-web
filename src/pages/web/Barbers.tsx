@@ -196,7 +196,7 @@ export default function Barbers() {
   }, []);
 
   return (
-    <Layout>
+    <Layout gap="gap-0">
       <Helmet>
         <title>Barbers - Fadelines Barber Shop</title>
         <meta
