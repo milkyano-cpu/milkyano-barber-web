@@ -161,7 +161,7 @@ export default function AaronLanding() {
         />
 
         <section className="relative w-full h-[35rem] md:h-[35rem] ">
-          <div className="absolute z-0 w-full h-[40rem] md:h-[35rem] object-cover bg-[url(/amir-bg.png)] bg-center bg-cover"></div>
+          {/* <div className="absolute z-0 w-full h-[40rem] md:h-[35rem] object-cover bg-[url(/amir-bg.png)] bg-center bg-cover"></div> */}
           <div className="max-w-screen-lg mx-auto md:mx-0 md:ml-8 lg:ml-16 w-full">
             <div
               className="relative z-30 backdrop-blur-lg text-white rounded-3xl py-12 px-12 my-12 mb-10 mx-6 md:ml-12 md:mr-auto border border-stone-50 md:w-1/2"
