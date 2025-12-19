@@ -245,7 +245,7 @@ export default function Home() {
 
       <section className="flex flex-col justify-center items-center px-6">
         <h2 className="text-[#33FF00] text-center">AFRAID OF THE RESULTS?</h2>
-        <p className="text-2xl md:text-3xl font-bold text-center">See It for Yourself!</p>
+        <p className="text-2xl md:text-3xl font-bold text-center">See Them for Yourself!</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full max-w-6xl">
           {[1, 2, 3, 4, 5, 6].map((num) => (
