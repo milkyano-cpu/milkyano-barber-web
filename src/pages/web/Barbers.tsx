@@ -413,7 +413,7 @@ export default function Barbers() {
           </div>
 
           <svg
-            className="w-7 mt-20"
+            className="w-7 mt-8 md:mt-12"
             viewBox="0 0 55 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -426,7 +426,7 @@ export default function Barbers() {
         </div>
       </section>
 
-      <section className="relative z-20 w-full flex flex-col justify-center md:max-w-screen-xl mx-auto pt-4 md:pt-8 pb-[-4rem] md:pb-[4rem]">
+      <section className="relative z-20 w-full flex flex-col justify-center md:max-w-screen-xl mx-auto pt-0 md:pt-2 pb-[-4rem] md:pb-[4rem]">
         <div className="container mx-auto px-2 md:px-8 scale-[90%] md:scale-100 origin-top">
 
           {/* BARBER NAME CAROUSEL HEADER */}
@@ -533,7 +533,7 @@ export default function Barbers() {
                 <Button
                   className="bg-[#454545] text-[#33FF00] border border-[#33FF00] px-6 md:px-12 py-5 md:py-8 text-base md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#33FF00] hover:shadow-md hover:text-black hover:shadow-[#44813a]"
                 >
-                  Book Now
+                  Book With
                 </Button>
               </Link>
             </div>
