@@ -531,9 +531,23 @@ export default function Barbers() {
             <div className="relative z-10 px-4 bg-black">
               <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].name.toLowerCase()}/book/services`)}`}>
                 <Button
-                  className="bg-[#454545] text-[#33FF00] border border-[#33FF00] px-6 md:px-12 py-5 md:py-8 text-base md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#33FF00] hover:shadow-md hover:text-black hover:shadow-[#44813a]"
+                  className="bg-[#454545] border border-[#33FF00] px-6 md:px-12 py-5 md:py-8 text-base md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-all duration-200 ease-in-out hover:bg-[#33FF00] hover:shadow-md hover:shadow-[#44813a] group"
                 >
-                  Book With
+                  <span
+                    className="transition-all duration-200 tracking-wider"
+                    style={{
+                      WebkitTextStroke: '1.5px white',
+                      color: 'transparent',
+                      textShadow: '0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.3)',
+                    }}
+                  >
+                    <span className="group-hover:hidden">Book With</span>
+                    <span className="hidden group-hover:inline" style={{
+                      WebkitTextStroke: '0',
+                      color: 'black',
+                      textShadow: 'none',
+                    }}>Book With</span>
+                  </span>
                 </Button>
               </Link>
             </div>
