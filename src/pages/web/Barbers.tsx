@@ -33,6 +33,10 @@ import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
 import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
 import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 
+// CTA Button SVGs
+import ButtonCTA from "@/assets/web/barbers/assets/button_cta.svg";
+import ButtonCTAHover from "@/assets/web/barbers/assets/button_cta_hover.svg";
+
 export default function Barbers() {
   localStorage.removeItem("booking_source");
 
@@ -40,6 +44,7 @@ export default function Barbers() {
 
   // Gallery state management
   const [selectedBarber, setSelectedBarber] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const previewImageRef = useRef<HTMLDivElement>(null);
   const bookNowButtonRef = useRef<HTMLDivElement>(null);
 
@@ -530,11 +535,13 @@ export default function Barbers() {
             <div className="absolute w-full h-[2px] bg-[#33FF00]"></div>
             <div className="relative z-10 px-4 bg-black">
               <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].name.toLowerCase()}/book/services`)}`}>
-                <Button
-                  className="bg-[#454545] text-[#33FF00] border border-[#33FF00] px-6 md:px-12 py-5 md:py-8 text-base md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#33FF00] hover:shadow-md hover:text-black hover:shadow-[#44813a]"
-                >
-                  Book With
-                </Button>
+                <img
+                  src={isButtonHovered ? ButtonCTAHover : ButtonCTA}
+                  alt="Book With"
+                  className="w-auto h-auto max-w-[180px] md:max-w-[263px] cursor-pointer"
+                  onMouseEnter={() => setIsButtonHovered(true)}
+                  onMouseLeave={() => setIsButtonHovered(false)}
+                />
               </Link>
             </div>
           </div>
