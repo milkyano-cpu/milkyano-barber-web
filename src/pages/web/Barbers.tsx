@@ -1,5 +1,5 @@
 import Layout from "@/components/web/WebLayout";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
@@ -61,6 +61,7 @@ export default function Barbers() {
   // Gallery state management
   const [selectedBarber, setSelectedBarber] = useState(0);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [isHeroButtonHovered, setIsHeroButtonHovered] = useState(false);
   const previewImageRef = useRef<HTMLDivElement>(null);
   const bookNowButtonRef = useRef<HTMLDivElement>(null);
 
@@ -368,12 +369,30 @@ export default function Barbers() {
               className="w-[20rem] md:w-[25rem] h-auto"
             />
           </div>
-          <Button
-            onClick={handleHeroBookNowClick}
-            className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max self-center hover:bg-[#454545]/80 cursor-pointer"
-          >
-            BOOK NOW
-          </Button>
+            <button
+              onClick={handleHeroBookNowClick}
+              onMouseEnter={() => setIsHeroButtonHovered(true)}
+              onMouseLeave={() => setIsHeroButtonHovered(false)}
+              className="relative cursor-pointer px-12 md:px-16 py-4 md:py-5 text-xl md:text-2xl rounded-xl transition-all duration-300 font-poppins"
+              style={{
+                backgroundColor: isHeroButtonHovered
+                  ? 'transparent'
+                  : '#19181E',
+                backgroundImage: isHeroButtonHovered
+                  ? 'linear-gradient(to left, #33FF00, #187700)'
+                  : 'none',
+                border: 'none',
+                outline: isHeroButtonHovered ? 'none' : '2px solid white',
+                outlineOffset: '-2px',
+                color: isHeroButtonHovered ? '#19181E' : '#F0F0F0',
+                fontWeight: isHeroButtonHovered ? 700 : 600,
+                boxShadow: isHeroButtonHovered
+                  ? '0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)'
+                  : '0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)',
+              }}
+            >
+              BOOK NOW
+            </button>
 
           <div className="flex gap-4 mt-4">
             <a
@@ -567,7 +586,7 @@ export default function Barbers() {
                 <img
                   src={isButtonHovered ? barberCTAButtons[selectedBarber].hover : barberCTAButtons[selectedBarber].normal}
                   alt={`Book With ${galleryBarbers[selectedBarber].name}`}
-                  className="w-auto cursor-pointer h-[75px] md:h-[110px]"
+                  className="w-auto cursor-pointer h-[90px] md:h-[130px]"
                   onMouseEnter={() => setIsButtonHovered(true)}
                   onMouseLeave={() => setIsButtonHovered(false)}
                 />
