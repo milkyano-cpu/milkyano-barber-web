@@ -123,7 +123,7 @@ const WebFooter: React.FC = () => {
               alt="barber shop faded lines"
               className="w-[20rem] h-auto"
             />
-            <BookNowButton onClick={() => navigate('/book/services')} />
+            <BookNowButton onClick={() => navigate('/book/services')} className="w-fit" />
             <div className="flex flex-col gap-4 relative z-[99999999]">
               <h4 className="text-sm font-poppins font-medium">Visit us on:</h4>
               <ul className="flex gap-4 font-light relative z-40">

@@ -18,7 +18,7 @@ export default function BookNowButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative cursor-pointer px-12 md:px-16 py-4 md:py-5 text-xl md:text-2xl rounded-xl transition-all duration-300 font-poppins ${className}`}
+      className={`relative cursor-pointer px-8 md:px-12 py-3 md:py-4 text-base md:text-lg rounded-xl transition-all duration-300 font-poppins ${className}`}
       style={{
         backgroundColor: isHovered ? "transparent" : "#19181E",
         backgroundImage: isHovered

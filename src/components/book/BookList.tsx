@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import BookNowButton from "@/components/web/BookNowButton";
 import {
   BarberResponse,
   BarberServices,
@@ -256,7 +257,7 @@ const BookList = () => {
 
       <div className="max-w-5xl mx-auto px-4 py-24">
         {isLoading ? (
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-col items-center justify-center gap-6 min-h-[calc(100vh-12rem)] md:min-h-[calc(100vh-8rem)] md:pt-16">
             <h3 className="text-xl font-bold text-white">Loading data...</h3>
             <Spinner />
           </div>
@@ -361,12 +362,12 @@ const BookList = () => {
                                     }
                                   </p>
                                 </div>
-                                <Button
+                                <BookNowButton
                                   onClick={() => handleBookNowClick(service)}
-                                  className="bg-[#155601] text-[#3CE800] hover:text-[#155601] hover:bg-[#42FF00] w-full md:w-auto min-w-[120px] h-12"
+                                  className="w-full md:w-auto"
                                 >
                                   Book Now
-                                </Button>
+                                </BookNowButton>
                               </div>
                             </div>
                           ))}
