@@ -41,7 +41,6 @@ const NavLink: React.FC<NavLinkProps> = ({ to, label }) => {
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/barbers", label: "Barbers" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about-us", label: "About Us" },
   { to: "/careers", label: "Careers" },
@@ -119,16 +118,6 @@ const Header: React.FC = () => {
                 }`}
               >
                 HOME
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={generateRoute("/barbers")}
-                className={`text-md uppercase font-bold px-4 hover:text-white ${
-                  location.pathname === "/barbers" ? "text-white" : ""
-                }`}
-              >
-                BARBERS
               </Link>
             </li>
             <li>
