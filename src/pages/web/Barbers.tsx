@@ -33,9 +33,25 @@ import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
 import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
 import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 
-// CTA Button SVGs
-import ButtonCTA from "@/assets/web/barbers/assets/button_cta.svg";
-import ButtonCTAHover from "@/assets/web/barbers/assets/button_cta_hover.svg";
+// CTA Button SVGs - Barber-specific
+import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
+import AmirCTAHover from "@/assets/web/barbers/cta-button/amir-hover.svg";
+import LucasCTA from "@/assets/web/barbers/cta-button/lucas.svg";
+import LucasCTAHover from "@/assets/web/barbers/cta-button/lucas-hover.svg";
+import CanCTA from "@/assets/web/barbers/cta-button/can.svg";
+import CanCTAHover from "@/assets/web/barbers/cta-button/can-hover.svg";
+import RayhanCTA from "@/assets/web/barbers/cta-button/rayhan.svg";
+import RayhanCTAHover from "@/assets/web/barbers/cta-button/rayhan-hover.svg";
+import JoshCTA from "@/assets/web/barbers/cta-button/josh.svg";
+import JoshCTAHover from "@/assets/web/barbers/cta-button/josh-hover.svg";
+import NoahCTA from "@/assets/web/barbers/cta-button/noah.svg";
+import NoahCTAHover from "@/assets/web/barbers/cta-button/noah-hover.svg";
+import JayCTA from "@/assets/web/barbers/cta-button/jay.svg";
+import JayCTAHover from "@/assets/web/barbers/cta-button/jay-hover.svg";
+import EmmanCTA from "@/assets/web/barbers/cta-button/emman.svg";
+import EmmanCTAHover from "@/assets/web/barbers/cta-button/emman-hover.svg";
+import NikoCTA from "@/assets/web/barbers/cta-button/niko.svg";
+import NikoCTAHover from "@/assets/web/barbers/cta-button/niko-hover.svg";
 
 export default function Barbers() {
   localStorage.removeItem("booking_source");
@@ -200,6 +216,19 @@ export default function Barbers() {
       link: generateRoute("/niko"),
       landing: true,
     },
+  ];
+
+  // CTA Button mapping for each barber
+  const barberCTAButtons = [
+    { normal: AmirCTA, hover: AmirCTAHover },      // 0: Amir
+    { normal: LucasCTA, hover: LucasCTAHover },    // 1: Lucas
+    { normal: CanCTA, hover: CanCTAHover },        // 2: Can
+    { normal: RayhanCTA, hover: RayhanCTAHover },  // 3: Rayhan
+    { normal: JoshCTA, hover: JoshCTAHover },      // 4: Josh
+    { normal: NoahCTA, hover: NoahCTAHover },      // 5: Noah
+    { normal: JayCTA, hover: JayCTAHover },        // 6: Jay
+    { normal: EmmanCTA, hover: EmmanCTAHover },    // 7: Emman
+    { normal: NikoCTA, hover: NikoCTAHover },      // 8: Niko
   ];
 
   // Transform barberSvgs into gallery-friendly format
@@ -536,9 +565,9 @@ export default function Barbers() {
             <div className="relative z-10 px-4 bg-black">
               <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].name.toLowerCase()}/book/services`)}`}>
                 <img
-                  src={isButtonHovered ? ButtonCTAHover : ButtonCTA}
-                  alt="Book With"
-                  className="w-auto h-auto max-w-[180px] md:max-w-[263px] cursor-pointer"
+                  src={isButtonHovered ? barberCTAButtons[selectedBarber].hover : barberCTAButtons[selectedBarber].normal}
+                  alt={`Book With ${galleryBarbers[selectedBarber].name}`}
+                  className="w-auto cursor-pointer h-[75px] md:h-[110px]"
                   onMouseEnter={() => setIsButtonHovered(true)}
                   onMouseLeave={() => setIsButtonHovered(false)}
                 />
