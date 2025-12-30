@@ -389,7 +389,7 @@ export default function Home() {
               className="w-[20rem] md:w-[25rem] h-auto"
             />
           </div>
-          <BookNowButton onClick={handleHeroBookNowClick} className="px-14 md:px-20 py-4 md:py-5" />
+          <BookNowButton onClick={handleHeroBookNowClick} className="px-14 md:px-16 py-4 md:py-5" />
 
           <div className="flex gap-4 mt-4">
             <a
