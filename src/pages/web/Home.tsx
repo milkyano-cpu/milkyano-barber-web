@@ -476,7 +476,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative z-20 w-full flex flex-col justify-center md:max-w-screen-xl mx-auto pt-0 md:pt-2 pb-[-4rem] md:pb-[4rem]">
+      <section className="relative z-20 w-full flex flex-col justify-center md:max-w-screen-xl mx-auto pt-0 pb-0 md:pt-2 md:pb-[4rem] mb-[-2rem] md:mb-0">
         <div className="container mx-auto px-2 md:px-8 scale-[90%] md:scale-100 origin-top">
 
           {/* BARBER NAME CAROUSEL HEADER */}

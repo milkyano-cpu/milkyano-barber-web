@@ -116,14 +116,16 @@ const WebFooter: React.FC = () => {
       </section> */}
 
       <section className="relative z-10">
-        <div className="container mx-auto py-12 flex flex-col md:flex-row justify-center relative z-0">
+        <div className="container mx-auto pt-0 pb-4 md:py-12 flex flex-col md:flex-row justify-center relative z-0">
           <div className="flex flex-col pb-12 md:py-0 gap-10">
             <img
               src={Logo}
               alt="barber shop faded lines"
               className="w-[20rem] h-auto"
             />
-            <BookNowButton onClick={() => navigate('/book/services')} className="w-fit" />
+            <div className="flex justify-center md:justify-start w-[20rem]">
+              <BookNowButton onClick={() => navigate('/book/services')} className="w-fit" />
+            </div>
             <div className="flex flex-col gap-4 relative z-[99999999]">
               <h4 className="text-sm font-poppins font-medium">Visit us on:</h4>
               <ul className="flex gap-4 font-light relative z-40">
