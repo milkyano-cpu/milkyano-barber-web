@@ -249,7 +249,7 @@ const BookList = () => {
 
   return (
     <section className="relative bg-[#010401] min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start">
         <Link to="/home">
           <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
         </Link>
@@ -344,14 +344,18 @@ const BookList = () => {
                       </Button>
 
                       {expandedBarber === item.barber.team_member_id && (
-                        <div className="mt-4 space-y-4">
-                          {item.services.map((service) => (
+                        <div className="mt-4 border-l-2 border-r-2 border-green-500">
+                          {item.services.map((service, index) => (
                             <div
                               key={service.id}
-                              className="bg-zinc-900/30 rounded-lg p-4 md:p-6"
+                              className={`bg-zinc-900/30 p-4 md:p-6 ${
+                                index !== item.services.length - 1
+                                  ? "border-b-2 border-green-500"
+                                  : "rounded-b-lg"
+                              }`}
                             >
-                              <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 md:gap-0">
-                                <div>
+                              <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 md:gap-6">
+                                <div className="md:flex-1">
                                   <h3 className="text-white text-base md:text-lg font-medium">
                                     {service.item_data.name}
                                   </h3>
@@ -364,7 +368,7 @@ const BookList = () => {
                                 </div>
                                 <BookNowButton
                                   onClick={() => handleBookNowClick(service)}
-                                  className="w-full md:w-auto"
+                                  className="w-full md:w-52 md:h-14 md:flex-shrink-0"
                                 >
                                   Book Now
                                 </BookNowButton>
