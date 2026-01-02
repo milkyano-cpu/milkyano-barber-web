@@ -249,7 +249,7 @@ const BookList = () => {
 
   return (
     <section className="relative bg-[#010401] min-h-screen">
-      <div className="fixed top-6 left-6 z-50">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4">
         <Link to="/home">
           <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
         </Link>
@@ -268,7 +268,7 @@ const BookList = () => {
                 <div className="flex flex-col md:grid md:grid-cols-[300px,1fr] gap-6 md:gap-12">
                   {/* Barber Image Section */}
                   <div className="relative">
-                    <div className="w-[90%] mx-auto aspect-[1/1] md:w-[300px] rounded-lg overflow-hidden">
+                    <div className="w-[70%] mx-auto aspect-[1/1] md:w-[300px] rounded-lg overflow-hidden">
                       <img
                         src={getBarberImage(item.barber.display_name) ?? undefined}
                         alt={item.barber.display_name}
@@ -283,11 +283,11 @@ const BookList = () => {
 
                   {/* Content Section */}
                   <div className="flex flex-col">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white uppercase mb-2">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white uppercase mb-2 text-center md:text-left">
                       {item.barber.display_name.split(" ")[0]}
                     </h2>
                     <>
-                      <p className="text-sm text-white mb-4">
+                      <p className="text-sm text-white mb-4 text-center md:text-left">
                         {(() => {
                           const hasAvailableNow =
                             item.barber.display_name.includes(
@@ -304,7 +304,7 @@ const BookList = () => {
                       {item.barber.display_name.includes(
                         "midas_the_barber_",
                       ) && (
-                        <p className="-mt-4 mb-4 md:text-sm text-xs">
+                        <p className="-mt-4 mb-4 md:text-sm text-xs text-center md:text-left">
                           Christos will be in Alpha Omega From 19th August{" "}
                           <br />{" "}
                           <a
