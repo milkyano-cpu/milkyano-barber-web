@@ -328,7 +328,7 @@ const BookList = () => {
                         onClick={() =>
                           toggleBarberServices(item.barber.team_member_id)
                         }
-                        className="w-full bg-zinc-900 hover:bg-zinc-800 text-white justify-between h-12 md:h-14 text-base md:text-lg rounded-lg"
+                        className="w-full bg-zinc-900 hover:bg-zinc-800 text-white justify-between h-12 md:h-14 text-base md:text-lg border-l-2 border-r-2 border-b-2 border-green-500 rounded-none"
                       >
                         <span className="flex flex-col items-start">
                           <span>View Services</span>
@@ -344,7 +344,7 @@ const BookList = () => {
                       </Button>
 
                       {expandedBarber === item.barber.team_member_id && (
-                        <div className="mt-4 border-l-2 border-r-2 border-green-500">
+                        <div className="border-l-2 border-r-2 border-green-500">
                           {item.services.map((service, index) => (
                             <div
                               key={service.id}
