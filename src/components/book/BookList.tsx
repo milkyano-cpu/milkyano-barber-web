@@ -247,6 +247,24 @@ const BookList = () => {
     return minPrice === maxPrice ? `$${minPrice}` : `$${minPrice}-$${maxPrice}`;
   };
 
+  const cleanDisplayName = (name: string): string => {
+    // Remove (Available Now), (O), (M), surcharge text and any extra spaces
+    return name
+      .replace(/\(Available Now\)/gi, "")
+      .replace(/\(O\)/g, "")
+      .replace(/\(M\)/g, "")
+      .replace(/\+\s*\[15%\s*Surcharge\s*On\s*Sundays\]/gi, "")
+      .trim()
+      .replace(/\s+/g, " "); // Replace multiple spaces with single space
+  };
+
+  const cleanPriceDescription = (description: string): string => {
+    // Remove surcharge text from price description
+    return description
+      .replace(/\+\s*\[15%\s*Surcharge\s*On\s*Sundays\]/gi, "")
+      .trim();
+  };
+
   return (
     <section className="relative bg-[#010401] min-h-screen">
       <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start">
@@ -286,36 +304,19 @@ const BookList = () => {
                     <h2 className="text-3xl md:text-4xl font-bold text-white uppercase mb-2 text-center md:text-left">
                       {item.barber.display_name.split(" ")[0]}
                     </h2>
-                    <>
-                      <p className="text-sm text-white mb-4 text-center md:text-left">
-                        {(() => {
-                          const hasAvailableNow =
-                            item.barber.display_name.includes(
-                              "(Available Now)",
-                            );
-                          let ig =
-                            item.barber.display_name
-                              .match(/IG[^\)]*/)?.[0]
-                              ?.replace(/\s+/g, "") || "";
-                          return hasAvailableNow ? ig + ")" : ig;
-                        })()}
-                      </p>
-
-                      {item.barber.display_name.includes(
-                        "midas_the_barber_",
-                      ) && (
-                        <p className="-mt-4 mb-4 md:text-sm text-xs text-center md:text-left">
-                          Christos will be in Alpha Omega From 19th August{" "}
-                          <br />{" "}
-                          <a
-                            className="text-xs text-blue-500 underline"
-                            href="https://www.alphaomegamensgrooming.com/"
-                          >
-                            https://www.alphaomegamensgrooming.com/
-                          </a>
-                        </p>
-                      )}
-                    </>
+                    <p className="text-sm text-white mb-4 text-center md:text-left">
+                      {(() => {
+                        const hasAvailableNow =
+                          item.barber.display_name.includes(
+                            "(Available Now)",
+                          );
+                        let ig =
+                          item.barber.display_name
+                            .match(/IG[^\)]*/)?.[0]
+                            ?.replace(/\s+/g, "") || "";
+                        return hasAvailableNow ? ig + ")" : ig;
+                      })()}
+                    </p>
 
                     {/* Green Line */}
                     <div className="relative h-px w-full bg-green-500 mb-6">
@@ -324,11 +325,12 @@ const BookList = () => {
 
                     {/* Services Section */}
                     <div className="w-full">
+                      {/* Desktop: Dropdown Button */}
                       <Button
                         onClick={() =>
                           toggleBarberServices(item.barber.team_member_id)
                         }
-                        className="w-full bg-zinc-900 hover:bg-zinc-800 text-white justify-between h-12 md:h-14 text-base md:text-lg border-l-2 border-r-2 border-b-2 border-green-500 rounded-none"
+                        className="hidden md:flex w-full bg-zinc-900 hover:bg-zinc-800 text-white justify-between h-12 md:h-14 text-base md:text-lg border-l-2 border-r-2 border-b-2 border-green-500 rounded-none"
                       >
                         <span className="flex flex-col items-start">
                           <span>View Services</span>
@@ -343,8 +345,46 @@ const BookList = () => {
                         )}
                       </Button>
 
+                      {/* Mobile: 2-Column Grid - Always Visible */}
+                      <div className="md:hidden grid grid-cols-2 gap-0 border-2 border-green-500">
+                        {item.services.map((service, index) => (
+                          <div
+                            key={service.id}
+                            className={`bg-zinc-900/30 p-3 flex flex-col gap-2 ${
+                              // Right border for left column items (even indices)
+                              index % 2 === 0 ? "border-r-2 border-green-500" : ""
+                            } ${
+                              // Bottom border for all items except last row
+                              index < item.services.length - 2 ||
+                              (item.services.length % 2 !== 0 && index === item.services.length - 2)
+                                ? "border-b-2 border-green-500"
+                                : ""
+                            }`}
+                          >
+                            <div className="flex-1">
+                              <h3 className="text-white text-sm font-medium line-clamp-2 text-center">
+                                {cleanDisplayName(service.item_data.name)}
+                              </h3>
+                              <p className="text-zinc-400 text-xs mt-1 text-center">
+                                {cleanPriceDescription(
+                                  service.item_data.variations[0]
+                                    .item_variation_data.price_description
+                                )}
+                              </p>
+                            </div>
+                            <BookNowButton
+                              onClick={() => handleBookNowClick(service)}
+                              className="w-full h-10 text-xs"
+                            >
+                              Book Now
+                            </BookNowButton>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Desktop: Expandable Service List */}
                       {expandedBarber === item.barber.team_member_id && (
-                        <div className="border-l-2 border-r-2 border-green-500">
+                        <div className="hidden md:block border-l-2 border-r-2 border-green-500">
                           {item.services.map((service, index) => (
                             <div
                               key={service.id}
@@ -356,14 +396,14 @@ const BookList = () => {
                             >
                               <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 md:gap-6">
                                 <div className="md:flex-1">
-                                  <h3 className="text-white text-base md:text-lg font-medium">
-                                    {service.item_data.name}
+                                  <h3 className="text-white text-base md:text-lg font-medium text-center md:text-left">
+                                    {cleanDisplayName(service.item_data.name)}
                                   </h3>
-                                  <p className="text-zinc-400 text-sm mt-1">
-                                    {
+                                  <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
+                                    {cleanPriceDescription(
                                       service.item_data.variations[0]
                                         .item_variation_data.price_description
-                                    }
+                                    )}
                                   </p>
                                 </div>
                                 <BookNowButton
