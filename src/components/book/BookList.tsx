@@ -6,6 +6,7 @@ import {
   BarberResponse,
   BarberServices,
   ServicesResponse,
+  ServicesItem,
 } from "@/interfaces/BookingInterface";
 import { getAllBarber, getAllService } from "@/utils/barberApi";
 import Spinner from "../web/Spinner";
@@ -202,7 +203,7 @@ const BookList = () => {
     fetchData();
   }, [location.pathname]);
 
-  const handleBookNowClick = async (item: any) => {
+  const handleBookNowClick = async (item: ServicesItem) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 100));
       localStorage.removeItem("bookedItems");
@@ -230,7 +231,7 @@ const BookList = () => {
     return null;
   };
 
-  const extractPriceRange = (services: any[]) => {
+  const extractPriceRange = (services: ServicesItem[]) => {
     const prices = services
       .map((service) => {
         const priceMatch =
@@ -269,7 +270,7 @@ const BookList = () => {
 
   return (
     <section className="relative bg-[#010401] min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-[#1CFF21]">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-[#1CFF21] md:border-b-0">
         <Link to="/home">
           <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
         </Link>
@@ -316,7 +317,7 @@ const BookList = () => {
                               />
                               <p className="text-[13px] font-medium font-inter text-white/90">
                                 {(() => {
-                                  let ig =
+                                  const ig =
                                     item.barber.display_name
                                       .match(/@[^\s)]+/)?.[0] || "";
                                   return ig;
@@ -371,7 +372,7 @@ const BookList = () => {
                                 />
                                 <p className="text-[13px] font-medium font-inter text-white/90">
                                   {(() => {
-                                    let ig =
+                                    const ig =
                                       item.barber.display_name
                                         .match(/@[^\s)]+/)?.[0] || "";
                                     return ig;
@@ -455,7 +456,7 @@ const BookList = () => {
                       {/* Desktop: Expandable Service List */}
                       {expandedBarber === item.barber.team_member_id && (
                         <div className="hidden md:block">
-                          {item.services.map((service, index) => (
+                          {item.services.map((service) => (
                             <div
                               key={service.id}
                               className="bg-black border-b border-[#1CFF21]"
