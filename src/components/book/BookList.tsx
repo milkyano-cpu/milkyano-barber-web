@@ -269,7 +269,7 @@ const BookList = () => {
 
   return (
     <section className="relative bg-[#010401] min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-[#1CFF21]">
         <Link to="/home">
           <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
         </Link>
@@ -285,14 +285,14 @@ const BookList = () => {
           <div className="space-y-16 md:space-y-24">
             {barberServices?.data.map((item) => (
               <div key={item.barber.team_member_id} className="relative">
-                <div className="flex flex-col md:grid md:grid-cols-[300px,1fr] gap-6 md:gap-12">
+                <div className="flex flex-col md:grid md:grid-cols-[380px,1fr] gap-6 md:gap-12">
                   {/* Barber Image Section */}
                   <div className="relative">
                     {/* Mobile: Card with green border and info overlay */}
                     <div className="md:hidden w-[85%] mx-auto relative">
                       {/* Green border container with curved bottom */}
-                      <div className="relative rounded-[20px] overflow-visible p-[2px] bg-[#00FF00]">
-                        <div className="relative rounded-[18px] overflow-hidden bg-black">
+                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-[#1CFF21]">
+                        <div className="relative rounded-[20px] overflow-hidden bg-black">
                         {/* Image */}
                         <div className="aspect-[1/1] overflow-hidden">
                           <img
@@ -333,7 +333,7 @@ const BookList = () => {
                         </div>
 
                         {/* Curved bottom border with glow effect */}
-                        <div className="absolute -bottom-[10px] left-1/2 -translate-x-1/2 w-48">
+                        <div className="absolute -bottom-[11px] left-1/2 -translate-x-1/2 w-56">
                           <img
                             src={LineBottomBorder}
                             alt=""
@@ -343,44 +343,64 @@ const BookList = () => {
                       </div>
                     </div>
 
-                    {/* Desktop: Original layout */}
-                    <div className="hidden md:block w-[300px] rounded-lg overflow-hidden">
-                      <img
-                        src={getBarberImage(item.barber.display_name) ?? undefined}
-                        alt={item.barber.display_name}
-                        className="w-full h-full object-cover"
-                      />
+                    {/* Desktop: Card with green border and info overlay (same as mobile) */}
+                    <div className="hidden md:block w-[380px] mx-auto relative">
+                      {/* Green border container with curved bottom */}
+                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-[#1CFF21]">
+                        <div className="relative rounded-[20px] overflow-hidden bg-black">
+                          {/* Image */}
+                          <div className="aspect-[3/4] overflow-hidden">
+                            <img
+                              src={getBarberImage(item.barber.display_name) ?? undefined}
+                              alt={item.barber.display_name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+
+                          {/* Info section with green background at bottom */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-[#063307]/80 px-5 py-4 rounded-b-[18px]">
+                            <h2 className="text-[32px] font-extrabold font-inter text-white uppercase mb-1.5">
+                              {item.barber.display_name.split(" ")[0]}
+                            </h2>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <img
+                                  src={InstagramIcon}
+                                  alt="Instagram"
+                                  className="w-[14px] h-[14px]"
+                                />
+                                <p className="text-[13px] font-medium font-inter text-white/90">
+                                  {(() => {
+                                    let ig =
+                                      item.barber.display_name
+                                        .match(/@[^\s)]+/)?.[0] || "";
+                                    return ig;
+                                  })()}
+                                </p>
+                              </div>
+                              {item.barber.display_name.includes("(Available Now)") && (
+                                <span className="text-xs text-[#00FF00] border border-[#00FF00] px-2 py-1 rounded-full">
+                                  Available Now
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Curved bottom border with glow effect */}
+                        <div className="absolute -bottom-[11.5px] left-1/2 -translate-x-1/2 w-56">
+                          <img
+                            src={LineBottomBorder}
+                            alt=""
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-
-                  {/* Vertical Line - Hidden on mobile */}
-                  <div className="hidden md:block absolute left-[300px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-green-500 to-transparent ml-6" />
-
                   {/* Content Section */}
                   <div className="flex flex-col">
-                    {/* Desktop: Show name and IG */}
-                    <h2 className="hidden md:block text-3xl md:text-4xl font-bold text-white uppercase mb-2 text-center md:text-left">
-                      {item.barber.display_name.split(" ")[0]}
-                    </h2>
-                    <p className="hidden md:block text-sm text-white mb-4 text-center md:text-left">
-                      {(() => {
-                        const hasAvailableNow =
-                          item.barber.display_name.includes(
-                            "(Available Now)",
-                          );
-                        let ig =
-                          item.barber.display_name
-                            .match(/IG[^\)]*/)?.[0]
-                            ?.replace(/\s+/g, "") || "";
-                        return hasAvailableNow ? ig + ")" : ig;
-                      })()}
-                    </p>
-
-                    {/* Green Line - Hidden on mobile */}
-                    <div className="hidden md:block relative h-px w-full bg-green-500 mb-6">
-                      <div className="absolute top-1 left-0 right-0 h-px bg-green-900" />
-                    </div>
 
                     {/* Services Section */}
                     <div className="w-full">
@@ -389,12 +409,12 @@ const BookList = () => {
                         onClick={() =>
                           toggleBarberServices(item.barber.team_member_id)
                         }
-                        className="hidden md:flex w-full bg-zinc-900 hover:bg-zinc-800 text-white justify-between h-12 md:h-14 text-base md:text-lg border-l-2 border-r-2 border-b-2 border-green-500 rounded-none"
+                        className="hidden md:flex w-full bg-black hover:bg-zinc-900 text-white justify-between h-14 md:h-16 py-4 md:py-5 border border-[#1CFF21] rounded-lg"
                       >
-                        <span className="flex flex-col items-start">
-                          <span>View Services</span>
-                          <span className="text-sm text-gray-400">
-                            ({extractPriceRange(item.services)} AUD)
+                        <span className="flex items-center gap-3">
+                          <span className="text-lg md:text-xl font-semibold">View Services</span>
+                          <span className="text-sm md:text-base text-gray-400">
+                            {extractPriceRange(item.services)} AUD
                           </span>
                         </span>
                         {expandedBarber === item.barber.team_member_id ? (
@@ -409,10 +429,10 @@ const BookList = () => {
                         {item.services.map((service) => (
                           <div
                             key={service.id}
-                            className="bg-zinc-900/30 p-3 flex flex-col gap-2 border-2 border-green-500 rounded-lg"
+                            className="bg-zinc-900/30 p-3 flex flex-col gap-2 border border-[#1CFF21] rounded-lg"
                           >
                             <div className="flex-1">
-                              <h3 className="text-white text-sm font-bold font-inter line-clamp-2 text-center">
+                              <h3 className="text-white text-xs font-bold font-inter text-center">
                                 {cleanDisplayName(service.item_data.name)}
                               </h3>
                               <p className="text-zinc-400 text-xs mt-1 text-center">
@@ -434,19 +454,15 @@ const BookList = () => {
 
                       {/* Desktop: Expandable Service List */}
                       {expandedBarber === item.barber.team_member_id && (
-                        <div className="hidden md:block border-l-2 border-r-2 border-green-500">
+                        <div className="hidden md:block">
                           {item.services.map((service, index) => (
                             <div
                               key={service.id}
-                              className={`bg-zinc-900/30 p-4 md:p-6 ${
-                                index !== item.services.length - 1
-                                  ? "border-b-2 border-green-500"
-                                  : "rounded-b-lg"
-                              }`}
+                              className="bg-black border-b border-[#1CFF21]"
                             >
-                              <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 md:gap-6">
-                                <div className="md:flex-1">
-                                  <h3 className="text-white text-base md:text-lg font-medium text-center md:text-left">
+                              <div className="flex flex-col md:flex-row md:items-center gap-4 p-4 md:py-6 md:pl-6 md:pr-0">
+                                <div className="flex-1 md:min-w-0">
+                                  <h3 className="text-white text-base md:text-lg font-medium font-inter text-center md:text-left">
                                     {cleanDisplayName(service.item_data.name)}
                                   </h3>
                                   <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
@@ -458,9 +474,9 @@ const BookList = () => {
                                 </div>
                                 <BookingListButton
                                   onClick={() => handleBookNowClick(service)}
-                                  className="w-full md:w-52 md:h-14 md:flex-shrink-0"
+                                  className="w-full md:w-52 md:h-14 md:flex-shrink-0 whitespace-nowrap"
                                 >
-                                  Book Now
+                                  BOOK NOW
                                 </BookingListButton>
                               </div>
                             </div>
