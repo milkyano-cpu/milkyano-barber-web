@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import BookNowButton from "@/components/web/BookNowButton";
+import BookingListButton from "@/components/book/BookingListButton";
 import {
   BarberResponse,
   BarberServices,
@@ -377,8 +377,8 @@ const BookList = () => {
                       })()}
                     </p>
 
-                    {/* Green Line */}
-                    <div className="relative h-px w-full bg-green-500 mb-6">
+                    {/* Green Line - Hidden on mobile */}
+                    <div className="hidden md:block relative h-px w-full bg-green-500 mb-6">
                       <div className="absolute top-1 left-0 right-0 h-px bg-green-900" />
                     </div>
 
@@ -405,23 +405,14 @@ const BookList = () => {
                       </Button>
 
                       {/* Mobile: 2-Column Grid - Always Visible */}
-                      <div className="md:hidden grid grid-cols-2 gap-0 border-2 border-green-500">
-                        {item.services.map((service, index) => (
+                      <div className="md:hidden w-[85%] mx-auto grid grid-cols-2 gap-3">
+                        {item.services.map((service) => (
                           <div
                             key={service.id}
-                            className={`bg-zinc-900/30 p-3 flex flex-col gap-2 ${
-                              // Right border for left column items (even indices)
-                              index % 2 === 0 ? "border-r-2 border-green-500" : ""
-                            } ${
-                              // Bottom border for all items except last row
-                              index < item.services.length - 2 ||
-                              (item.services.length % 2 !== 0 && index === item.services.length - 2)
-                                ? "border-b-2 border-green-500"
-                                : ""
-                            }`}
+                            className="bg-zinc-900/30 p-3 flex flex-col gap-2 border-2 border-green-500 rounded-lg"
                           >
                             <div className="flex-1">
-                              <h3 className="text-white text-sm font-medium line-clamp-2 text-center">
+                              <h3 className="text-white text-sm font-bold font-inter line-clamp-2 text-center">
                                 {cleanDisplayName(service.item_data.name)}
                               </h3>
                               <p className="text-zinc-400 text-xs mt-1 text-center">
@@ -431,12 +422,12 @@ const BookList = () => {
                                 )}
                               </p>
                             </div>
-                            <BookNowButton
+                            <BookingListButton
                               onClick={() => handleBookNowClick(service)}
                               className="w-full h-10 text-xs"
                             >
-                              Book Now
-                            </BookNowButton>
+                              BOOK NOW
+                            </BookingListButton>
                           </div>
                         ))}
                       </div>
@@ -465,12 +456,12 @@ const BookList = () => {
                                     )}
                                   </p>
                                 </div>
-                                <BookNowButton
+                                <BookingListButton
                                   onClick={() => handleBookNowClick(service)}
                                   className="w-full md:w-52 md:h-14 md:flex-shrink-0"
                                 >
                                   Book Now
-                                </BookNowButton>
+                                </BookingListButton>
                               </div>
                             </div>
                           ))}
