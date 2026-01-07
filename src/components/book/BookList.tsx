@@ -25,6 +25,8 @@ import Amir from "@/assets/web/barbers/booking-list/amir-book.svg";
 import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpg";
 import Lucas from "@/assets/web/barbers/booking-list/lucas-book.jpg";
 import Can from "@/assets/web/barbers/booking-list/can-book.jpg";
+import LineBottomBorder from "@/assets/book/line-bottom-border.svg";
+import InstagramIcon from "@/assets/book/mdi_instagram.svg";
 // import Hero from "@/assets/web/home/hero.svg";
 
 const barberImages: { [key: string]: string } = {
@@ -286,7 +288,63 @@ const BookList = () => {
                 <div className="flex flex-col md:grid md:grid-cols-[300px,1fr] gap-6 md:gap-12">
                   {/* Barber Image Section */}
                   <div className="relative">
-                    <div className="w-[70%] mx-auto aspect-[1/1] md:w-[300px] rounded-lg overflow-hidden">
+                    {/* Mobile: Card with green border and info overlay */}
+                    <div className="md:hidden w-[85%] mx-auto relative">
+                      {/* Green border container with curved bottom */}
+                      <div className="relative rounded-[20px] overflow-visible p-[2px] bg-[#00FF00]">
+                        <div className="relative rounded-[18px] overflow-hidden bg-black">
+                        {/* Image */}
+                        <div className="aspect-[1/1] overflow-hidden">
+                          <img
+                            src={getBarberImage(item.barber.display_name) ?? undefined}
+                            alt={item.barber.display_name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        {/* Info section with green background at bottom */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-[#063307]/80 px-5 py-4 rounded-b-[18px]">
+                          <h2 className="text-[32px] font-extrabold font-inter text-white uppercase mb-1.5">
+                            {item.barber.display_name.split(" ")[0]}
+                          </h2>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <img
+                                src={InstagramIcon}
+                                alt="Instagram"
+                                className="w-[14px] h-[14px]"
+                              />
+                              <p className="text-[13px] font-medium font-inter text-white/90">
+                                {(() => {
+                                  let ig =
+                                    item.barber.display_name
+                                      .match(/@[^\s)]+/)?.[0] || "";
+                                  return ig;
+                                })()}
+                              </p>
+                            </div>
+                            {item.barber.display_name.includes("(Available Now)") && (
+                              <span className="text-xs text-[#00FF00] border border-[#00FF00] px-2 py-1 rounded-full">
+                                Available Now
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        </div>
+
+                        {/* Curved bottom border with glow effect */}
+                        <div className="absolute -bottom-[10px] left-1/2 -translate-x-1/2 w-48">
+                          <img
+                            src={LineBottomBorder}
+                            alt=""
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Desktop: Original layout */}
+                    <div className="hidden md:block w-[300px] rounded-lg overflow-hidden">
                       <img
                         src={getBarberImage(item.barber.display_name) ?? undefined}
                         alt={item.barber.display_name}
@@ -301,10 +359,11 @@ const BookList = () => {
 
                   {/* Content Section */}
                   <div className="flex flex-col">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white uppercase mb-2 text-center md:text-left">
+                    {/* Desktop: Show name and IG */}
+                    <h2 className="hidden md:block text-3xl md:text-4xl font-bold text-white uppercase mb-2 text-center md:text-left">
                       {item.barber.display_name.split(" ")[0]}
                     </h2>
-                    <p className="text-sm text-white mb-4 text-center md:text-left">
+                    <p className="hidden md:block text-sm text-white mb-4 text-center md:text-left">
                       {(() => {
                         const hasAvailableNow =
                           item.barber.display_name.includes(
