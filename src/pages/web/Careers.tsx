@@ -12,7 +12,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import {
@@ -23,6 +22,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import emailjs from "@emailjs/browser";
+import BookNowButton from "@/components/web/BookNowButton";
 
 import TiktokUpBefore from "@/assets/web/careers/tiktok_before.svg";
 import TiktokUpAfter from "@/assets/web/careers/tiktok_after.svg";
@@ -270,12 +270,12 @@ export default function Careers() {
                     </FormItem>
                   )}
                 />
-                <Button
-                  className="w-full bg-[#33FF00] rounded-xl text-black py-7 text-xl"
+                <BookNowButton
+                  className="w-full py-7 text-xl"
                   type="submit"
                 >
                   CONTINUE
-                </Button>
+                </BookNowButton>
               </form>
             </Form>
           </div>

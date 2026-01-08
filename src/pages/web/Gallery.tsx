@@ -1,16 +1,17 @@
 import Layout from "@/components/web/WebLayout";
-import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import CarauselGallery from "@/components/web/OurWorks";
 import CardStack from "@/components/web/CardStack";
 import { motion, useScroll, useTransform } from "framer-motion";
+import BookNowButton from "@/components/web/BookNowButton";
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function GalleriesPage() {
   localStorage.removeItem("booking_source");
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const getQueryParams = (search: string) => {
     return new URLSearchParams(search);
@@ -53,24 +54,10 @@ export default function GalleriesPage() {
     localStorage.setItem("booking_origin", "organic");
   }
 
-  const generateLink = (text: string): JSX.Element => {
-    const customize: boolean = true;
-    const squareLink: string =
-      "https://book.squareup.com/appointments/ud9yhcwfqc1fg0/location/LY7BZ89WAQ2QS/services";
-
-    let bookLink: string;
+  const handleBookNow = () => {
     const parts = location.pathname.split("/");
-    if (parts[1] === "meta") {
-      bookLink = `/meta/book/services`;
-    } else {
-      bookLink = "/book/services";
-    }
-
-    if (customize) {
-      return <Link to={bookLink}>{text}</Link>;
-    } else {
-      return <a href={squareLink}>{text}</a>;
-    }
+    const bookLink = parts[1] === "meta" ? `/meta/book/services` : "/book/services";
+    navigate(bookLink);
   };
 
   const { scrollYProgress } = useScroll();
@@ -103,9 +90,10 @@ export default function GalleriesPage() {
                 MASTERPIECE
               </span>
             </h3>
-            <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max self-center md:self-end mt-6 hover:bg-[#454545]/80">
-              {generateLink("BOOK NOW")}
-            </Button>
+            <BookNowButton
+              onClick={handleBookNow}
+              className="self-center md:self-end mt-6 px-20 py-4 md:px-20 md:py-5 text-xl md:text-5xl"
+            />
           </div>
           <div className="relative w-full min-h-[25rem] md:min-h-[40rem]">
             <div className="absolute inset-0 overflow-hidden">

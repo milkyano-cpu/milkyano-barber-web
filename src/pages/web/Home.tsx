@@ -1,28 +1,58 @@
 import Layout from "@/components/web/WebLayout";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
-
+import { Link, useLocation } from "react-router-dom";
+import BookNowButton from "@/components/web/BookNowButton";
 import BgHero2 from "@/assets/web/home/hero.svg";
 import Logo from "@/assets/web/icons/logo.svg";
 import Instagram from "@/assets/web/icons/Instagram.svg";
 import Tiktok from "@/assets/web/icons/Tiktok.svg";
 import Maps from "@/assets/web/icons/Maps.svg";
 import GoogleReview from "@/assets/web/icons/GoogleReview.svg";
+import useEmblaCarousel from "embla-carousel-react";
 
-import instagramPhotosDesktop1 from "/src/assets/follow-us/desktop/instagram_photo_1.png";
-import instagramPhotosDesktop2 from "/src/assets/follow-us/desktop/instagram_photo_2.png";
-import instagramPhotosDesktop3 from "/src/assets/follow-us/desktop/instagram_photo_3.png";
-import instagramPhotosDesktop4 from "/src/assets/follow-us/desktop/instagram_photo_4.png";
-import instagramPhotosDesktop5 from "/src/assets/follow-us/desktop/instagram_photo_5.png";
+// Preview images (for large preview)
+import Amir from "@/assets/web/barbers/amir.png";
+import Rayhan from "@/assets/web/barbers/rayhan.png";
+import Jay from "@/assets/web/barbers/jay.png";
+import Emman from "@/assets/web/barbers/emman.png";
+import Josh from "@/assets/web/barbers/josh.png";
+import Niko from "@/assets/web/barbers/niko.png";
+import Noah from "@/assets/web/barbers/noah.png";
+import Lucas from "@/assets/web/barbers/lucas.png";
+import Can from "@/assets/web/barbers/can.png";
 
-import instagramPhotosMobile1 from "/src/assets/follow-us/mobile/instagram_photo_1.png";
-import instagramPhotosMobile2 from "/src/assets/follow-us/mobile/instagram_photo_2.png";
-import instagramPhotosMobile3 from "/src/assets/follow-us/mobile/instagram_photo_3.png";
-import instagramPhotosMobile4 from "/src/assets/follow-us/mobile/instagram_photo_4.png";
-import instagramPhotosMobile5 from "/src/assets/follow-us/mobile/instagram_photo_5.png";
+// Gallery images (for grid thumbnails)
+import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
+import RayhanGallery from "@/assets/web/barbers/barbers-gallery/rayhan.png";
+import JayGallery from "@/assets/web/barbers/barbers-gallery/jay.png";
+import EmmanGallery from "@/assets/web/barbers/barbers-gallery/emman.png";
+import JoshGallery from "@/assets/web/barbers/barbers-gallery/josh.png";
+import NikoGallery from "@/assets/web/barbers/barbers-gallery/niko.png";
+import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
+import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
+import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 
-import InstagramSection from "@/components/web/InstagramSection";
-import { Link, useLocation } from "react-router-dom";
+// CTA Button SVGs - Barber-specific
+import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
+import AmirCTAHover from "@/assets/web/barbers/cta-button/amir-hover.svg";
+import LucasCTA from "@/assets/web/barbers/cta-button/lucas.svg";
+import LucasCTAHover from "@/assets/web/barbers/cta-button/lucas-hover.svg";
+import CanCTA from "@/assets/web/barbers/cta-button/can.svg";
+import CanCTAHover from "@/assets/web/barbers/cta-button/can-hover.svg";
+import RayhanCTA from "@/assets/web/barbers/cta-button/rayhan.svg";
+import RayhanCTAHover from "@/assets/web/barbers/cta-button/rayhan-hover.svg";
+import JoshCTA from "@/assets/web/barbers/cta-button/josh.svg";
+import JoshCTAHover from "@/assets/web/barbers/cta-button/josh-hover.svg";
+import NoahCTA from "@/assets/web/barbers/cta-button/noah.svg";
+import NoahCTAHover from "@/assets/web/barbers/cta-button/noah-hover.svg";
+import JayCTA from "@/assets/web/barbers/cta-button/jay.svg";
+import JayCTAHover from "@/assets/web/barbers/cta-button/jay-hover.svg";
+import EmmanCTA from "@/assets/web/barbers/cta-button/emman.svg";
+import EmmanCTAHover from "@/assets/web/barbers/cta-button/emman-hover.svg";
+import NikoCTA from "@/assets/web/barbers/cta-button/niko.svg";
+import NikoCTAHover from "@/assets/web/barbers/cta-button/niko-hover.svg";
 
 export const generateLink = (text: string): JSX.Element => {
   const customize: boolean = true;
@@ -48,6 +78,19 @@ export default function Home() {
   localStorage.removeItem("booking_source");
 
   const location = useLocation();
+
+  // Gallery state management
+  const [selectedBarber, setSelectedBarber] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const previewImageRef = useRef<HTMLDivElement>(null);
+  const bookNowButtonRef = useRef<HTMLDivElement>(null);
+
+  // Embla Carousel setup with infinite loop
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'center',
+    containScroll: false,
+  });
 
   const getQueryParams = (search: string) => {
     return new URLSearchParams(search);
@@ -90,75 +133,231 @@ export default function Home() {
     localStorage.setItem("booking_origin", "organic");
   }
 
-  // const generateRoute = (route: string): string => {
+  const generateRoute = (route: string): string => {
+    const parts = location.pathname.split("/");
+    if (parts[1] === "meta") {
+      return `/meta${route}`;
+    } else {
+      return route;
+    }
+  };
+
+  // const generateLink = (text: string): JSX.Element => {
+  //   const customize: boolean = true;
+  //   const squareLink: string =
+  //     "https://book.squareup.com/appointments/ud9yhcwfqc1fg0/location/LY7BZ89WAQ2QS/services";
+
+  //   let bookLink: string;
   //   const parts = location.pathname.split("/");
   //   if (parts[1] === "meta") {
-  //     return `/meta${route}`;
+  //     bookLink = `/meta/book/services`;
   //   } else {
-  //     return route;
+  //     bookLink = "/book/services";
+  //   }
+
+  //   if (customize) {
+  //     return <Link to={bookLink}>{text}</Link>;
+  //   } else {
+  //     return <a href={squareLink}>{text}</a>;
   //   }
   // };
 
-  // const ref = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  // });
-  // const scaleY = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  // const [screenHeight, setScreenHeight] = useState(window.innerHeight);
-  // const [headerHeight, setHeaderHeight] = useState(0);
+  // const generateLink = () => {
+  //   const squareLink: string =
+  //     "https://book.squareup.com/appointments/ud9yhcwfqc1fg0/location/LY7BZ89WAQ2QS/services";
 
-  const instagram_images_desktop = [
-    { image: instagramPhotosDesktop1, name: "Mid Burst Fade" },
-    { image: instagramPhotosDesktop2, name: "Mid Drop Fade" },
-    { image: instagramPhotosDesktop3, name: "Mid Taper" },
-    { image: instagramPhotosDesktop4, name: "V Low Drop Fade" },
-    { image: instagramPhotosDesktop5, name: "" },
+  //   let bookLink: string;
+  //   const parts = location.pathname.split("/");
+  //   if (parts[1] === "meta") {
+  //     bookLink = `/meta/book/services`;
+  //   } else {
+  //     bookLink = "/book/services";
+  //   }
+
+  //   const customize: boolean = true;
+  //   if (customize) {
+  //     return bookLink;
+  //   } else {
+  //     return squareLink;
+  //   }
+  // };
+
+  const barberSvgs = [
+    {
+      svg: Amir,
+      thumbnail: AmirGallery,
+      link: generateRoute("/amir"),
+      landing: true,
+    },
+    {
+      svg: Lucas,
+      thumbnail: LucasGallery,
+      link: generateRoute("/lucas"),
+      landing: true,
+    },
+    {
+      svg: Can,
+      thumbnail: CanGallery,
+      link: generateRoute("/can"),
+      landing: true,
+    },
+    {
+      svg: Rayhan,
+      thumbnail: RayhanGallery,
+      link: generateRoute("/rayhan"),
+      landing: true,
+    },
+    {
+      svg: Josh,
+      thumbnail: JoshGallery,
+      link: generateRoute("/josh"),
+      landing: true,
+    },
+    {
+      svg: Noah,
+      thumbnail: NoahGallery,
+      link: generateRoute("/noah"),
+      landing: true,
+    },
+    {
+      svg: Jay,
+      thumbnail: JayGallery,
+      link: generateRoute("/jay"),
+      landing: true,
+    },
+    {
+      svg: Emman,
+      thumbnail: EmmanGallery,
+      link: generateRoute("/emman"),
+      landing: true,
+    },
+    {
+      svg: Niko,
+      thumbnail: NikoGallery,
+      link: generateRoute("/niko"),
+      landing: true,
+    },
   ];
 
-  const instagram_images_mobile = [
-    instagramPhotosMobile1,
-    instagramPhotosMobile2,
-    instagramPhotosMobile3,
-    instagramPhotosMobile4,
-    instagramPhotosMobile5,
+  // CTA Button mapping for each barber
+  const barberCTAButtons = [
+    { normal: AmirCTA, hover: AmirCTAHover },      // 0: Amir
+    { normal: LucasCTA, hover: LucasCTAHover },    // 1: Lucas
+    { normal: CanCTA, hover: CanCTAHover },        // 2: Can
+    { normal: RayhanCTA, hover: RayhanCTAHover },  // 3: Rayhan
+    { normal: JoshCTA, hover: JoshCTAHover },      // 4: Josh
+    { normal: NoahCTA, hover: NoahCTAHover },      // 5: Noah
+    { normal: JayCTA, hover: JayCTAHover },        // 6: Jay
+    { normal: EmmanCTA, hover: EmmanCTAHover },    // 7: Emman
+    { normal: NikoCTA, hover: NikoCTAHover },      // 8: Niko
   ];
 
-  // useEffect(() => {
-  //   const style = document.createElement("style");
+  // Transform barberSvgs into gallery-friendly format
+  const galleryBarbers = barberSvgs.map((barber, index) => ({
+    image: barber.svg, // For preview/placeholder
+    thumbnail: barber.thumbnail, // For grid thumbnails
+    name: barber.link.split('/').pop()?.toUpperCase() || `BARBER ${index + 1}`,
+    link: barber.link,
+    landing: barber.landing,
+  }));
 
-  //   style.innerHTML = `
-  //       @keyframes move {
-  //           0% { transform: translateX(100%); opacity: 0; }
-  //           50% { opacity: 1; }
-  //           100% { transform: translateX(-100%); opacity: 0; }
-  //       }`;
+  // Embla: Sync selected slide with state
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedBarber(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
 
-  //   document.head.appendChild(style);
+  useEffect(() => {
+    if (!emblaApi) return;
 
-  //   const handleResize = () => {
-  //     setScreenHeight(window.innerHeight);
-  //     const header = document.querySelector("header");
-  //     if (header) {
-  //       // setHeaderHeight(header.clientHeight);
-  //     }
-  //   };
+    onSelect();
+    emblaApi.on('select', onSelect);
 
-  //   handleResize();
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
-  //   window.addEventListener("resize", handleResize);
-  //   console.log("screenHeight", screenHeight);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //     document.head.removeChild(style);
-  //   };
-  // }, [screenHeight]);
+  // Handler for hero Book Now button - scroll to gallery Book Now
+  const handleHeroBookNowClick = () => {
+    if (bookNowButtonRef.current) {
+      const isMobile = window.innerWidth < 768;
+      const yOffset = isMobile ? -550 : -700;
+      const y = bookNowButtonRef.current.getBoundingClientRect().top +
+                window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
-  // const availableHeight = screenHeight - headerHeight - 1;
+  // Interaction handlers for gallery
+  const handleThumbnailClick = (index: number, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // Use Embla to scroll to the selected index
+    if (emblaApi) {
+      emblaApi.scrollTo(index);
+    }
+
+    // Smooth scroll to preview with offset
+    setTimeout(() => {
+      if (previewImageRef.current) {
+        // Responsive offset: mobile vs desktop
+        const isMobile = window.innerWidth < 768; // Tailwind 'md' breakpoint
+        const yOffset = isMobile ? -220 : -150; // Mobile needs more offset
+        const y = previewImageRef.current.getBoundingClientRect().top +
+                  window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
+  };
+
+  const handleNameClick = (index: number) => {
+    // Use Embla to scroll to the selected index
+    if (emblaApi) {
+      emblaApi.scrollTo(index);
+    }
+
+    // Scroll to preview
+    setTimeout(() => {
+      if (previewImageRef.current) {
+        // Responsive offset: mobile vs desktop
+        const isMobile = window.innerWidth < 768; // Tailwind 'md' breakpoint
+        const yOffset = isMobile ? -220 : -150; // Mobile needs more offset
+        const y = previewImageRef.current.getBoundingClientRect().top +
+                  window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
+  };
+
+  useEffect(() => {
+    // Create a new style element
+    const style = document.createElement("style");
+
+    // Define the animation
+    style.innerHTML = `
+        @keyframes move {
+            0% { transform: translateX(100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(-100%); opacity: 0; }
+        }`;
+
+    // Append the style element to the document head
+    document.head.appendChild(style);
+
+    // Clean up function
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   return (
-    <Layout>
+    <Layout gap="gap-0">
       <Helmet>
-        <title>Home - Fadelines Barber Shop</title>
+        <title>Barbers - Fadelines Barber Shop</title>
         <meta
           name="description"
           content="Fadelines - A premier barber shop offering top-notch haircuts and styles."
@@ -168,12 +367,12 @@ export default function Home() {
           property="og:description"
           content="Fadelines - A premier barber shop offering top-notch haircuts and styles."
         />
-        <meta property="og:image" content="URL to Fadelines' preview image" />
+        <meta property="og:img" content="URL to Fadelines' preview img" />
         <meta property="og:url" content="URL to Fadelines' website" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary_large_img" />
       </Helmet>
 
-      <section className="flex flex-col justify-center items-center relative pt-60 md:pt-40">
+      <section className="flex flex-col justify-center items-center relative pt-28 md:pt-40">
         <img
           alt="hero image"
           width={500}
@@ -190,16 +389,23 @@ export default function Home() {
               className="w-[20rem] md:w-[25rem] h-auto"
             />
           </div>
-          <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max self-center hover:bg-[#454545]/80">
-            {generateLink("BOOK NOW")}
-          </Button>
+          <BookNowButton onClick={handleHeroBookNowClick} className="px-14 md:px-16 py-4 md:py-5" />
 
           <div className="flex gap-4 mt-4">
             <a
               href="https://www.instagram.com/fadedlinesbarbershop"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-40 hover:opacity-100 transition-opacity"
+              className="transition-all duration-300 hover:scale-110"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))';
+              }}
             >
               <img alt="Instagram" src={Instagram} className="w-12 h-auto" />
             </a>
@@ -207,7 +413,16 @@ export default function Home() {
               href="https://www.tiktok.com/@faded_lines"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-40 hover:opacity-100 transition-opacity"
+              className="transition-all duration-300 hover:scale-110"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))';
+              }}
             >
               <img alt="TikTok" src={Tiktok} className="w-12 h-auto" />
             </a>
@@ -215,7 +430,16 @@ export default function Home() {
               href="https://maps.app.goo.gl/tBwhgZUekSLXHF4P6"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-40 hover:opacity-100 transition-opacity"
+              className="transition-all duration-300 hover:scale-110"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))';
+              }}
             >
               <img alt="Google Maps" src={Maps} className="w-12 h-auto" />
             </a>
@@ -223,14 +447,23 @@ export default function Home() {
               href="https://shorturl.at/72sRM"
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-40 hover:opacity-100 transition-opacity"
+              className="transition-all duration-300 hover:scale-110"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))';
+              }}
             >
               <img alt="Google Review" src={GoogleReview} className="w-12 h-auto" />
             </a>
           </div>
 
           <svg
-            className="w-7 mt-20"
+            className="w-7 mt-8 md:mt-12"
             viewBox="0 0 55 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -243,41 +476,165 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col justify-center items-center px-6">
-        <h2 className="text-[#33FF00] text-center">AFRAID OF THE RESULTS?</h2>
-        <p className="text-2xl md:text-3xl font-bold text-center">See Them for Yourself!</p>
+      <section className="relative z-20 w-full flex flex-col justify-center md:max-w-screen-xl mx-auto pt-0 pb-0 md:pt-2 md:pb-[4rem] mb-[-2rem] md:mb-0">
+        <div className="container mx-auto px-2 md:px-8 scale-[90%] md:scale-100 origin-top">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full max-w-6xl">
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <div key={num} className="relative rounded-xl overflow-hidden bg-[#262626] aspect-[9/16]">
-              <video
-                className="w-full h-full object-cover"
-                controls
-                preload="metadata"
-              >
-                <source
-                  src={`https://s3.milkyano.com/milkyano/fadedlines-oakleigh/home-video/home-video-${num}.mp4`}
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+          {/* BARBER NAME CAROUSEL HEADER */}
+          <div
+            ref={emblaRef}
+            className="relative overflow-hidden mb-6 md:mb-8 pt-2 pb-[5px]"
+          >
+            <div className="flex items-center">
+              {galleryBarbers.map((barber, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="flex-[0_0_auto] min-w-0 px-2 md:px-4"
+                  >
+                    <button
+                      onClick={() => handleNameClick(index)}
+                      className={`relative flex flex-col items-center gap-1 md:gap-2 px-3 md:px-6 py-1 transition-all duration-500 cursor-pointer ${
+                        selectedBarber === index
+                          ? "text-[#33FF00]"
+                          : "text-stone-500"
+                      }`}
+                    >
+                  {/* Thumbnail Image */}
+                  <div className={`w-20 h-20 md:w-32 md:h-32 rounded-md overflow-hidden ${
+                    selectedBarber === index
+                      ? "ring-2 ring-[#33FF00]"
+                      : ""
+                  }`}>
+                    <img
+                      src={barber.thumbnail}
+                      alt={barber.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Barber Name with underline wrapper */}
+                  <div className="relative pb-0">
+                    <span className="text-lg md:text-4xl font-bold font-poppins whitespace-nowrap">
+                      {barber.name}
+                    </span>
+
+                    {/* GREEN UNDERLINE for active */}
+                    {selectedBarber === index && (
+                      <div className="absolute bottom-[-8px] md:bottom-[-10px] left-0 right-0 h-[2px] md:h-[4px] bg-[#33FF00]"></div>
+                    )}
+                  </div>
+
+                  {/* DIMMED GREEN SPOTLIGHT GRADIENT EFFECT - From Bottom Up */}
+                  {selectedBarber === index && (
+                    <>
+                      {/* Main spotlight layer - narrower and positioned below */}
+                      <div className="absolute inset-0 -z-10 pointer-events-none" style={{ overflow: 'visible' }}>
+                        <div
+                          className="absolute left-1/2 -translate-x-1/2"
+                          style={{
+                            width: '180%',
+                            height: '250%',
+                            bottom: '-15%',
+                            background: "radial-gradient(ellipse 80% 55% at 50% 100%, rgba(51,255,0,0.35) 0%, rgba(51,255,0,0.22) 15%, rgba(51,255,0,0.12) 30%, rgba(51,255,0,0.05) 50%, rgba(51,255,0,0) 75%)",
+                            filter: "blur(18px)",
+                          }}
+                        />
+                      </div>
+                      {/* Secondary glow layer - even narrower */}
+                      <div className="absolute inset-0 -z-10 pointer-events-none" style={{ overflow: 'visible' }}>
+                        <div
+                          className="absolute left-1/2 -translate-x-1/2"
+                          style={{
+                            width: '140%',
+                            height: '200%',
+                            bottom: '-10%',
+                            background: "radial-gradient(ellipse 70% 45% at 50% 100%, rgba(51,255,0,0.3) 0%, rgba(51,255,0,0.18) 25%, rgba(51,255,0,0.08) 45%, rgba(51,255,0,0) 70%)",
+                            filter: "blur(10px)",
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
-          ))}
+          </div>
+
+          {/* MAIN PREVIEW IMAGE */}
+          <div
+            ref={previewImageRef}
+            className="max-w-[240px] md:max-w-sm mx-auto mb-4 md:mb-8 overflow-hidden rounded-xl shadow-lg aspect-[0.7]"
+          >
+            <img
+              key={selectedBarber}
+              src={galleryBarbers[selectedBarber].image}
+              alt={galleryBarbers[selectedBarber].name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* GREEN DIVIDER LINE WITH CTA BUTTON */}
+          <div ref={bookNowButtonRef} className="w-full max-w-screen-md mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
+            <div className="absolute w-full h-[2px] bg-[#33FF00]"></div>
+            <div className="relative z-10 px-4 bg-black">
+              <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].name.toLowerCase()}/book/services`)}`}>
+                <img
+                  src={isButtonHovered ? barberCTAButtons[selectedBarber].hover : barberCTAButtons[selectedBarber].normal}
+                  alt={`Book With ${galleryBarbers[selectedBarber].name}`}
+                  className="w-auto cursor-pointer h-[90px] md:h-[130px]"
+                  onMouseEnter={() => setIsButtonHovered(true)}
+                  onMouseLeave={() => setIsButtonHovered(false)}
+                />
+              </Link>
+            </div>
+          </div>
+
+          {/* THUMBNAIL GRID (3 columns) */}
+          <div className="max-w-screen-md mx-auto relative px-1 md:px-0">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-9">
+              {galleryBarbers.map((barber, index) => (
+                <div
+                  key={index}
+                  onClick={(e) => handleThumbnailClick(index, e)}
+                  className={`aspect-square overflow-hidden rounded-md md:rounded-lg transition-all duration-200 cursor-pointer relative ${
+                    selectedBarber === index
+                      ? "ring-2 md:ring-4 ring-[#33FF00] scale-100"
+                      : "hover:opacity-80 hover:scale-105"
+                  }`}
+                >
+                <img
+                  src={barber.thumbnail}
+                  alt={barber.name}
+                  className="w-full h-full object-cover pointer-events-none"
+                  loading="lazy"
+                />
+                {/* Barber name box - bottom left corner */}
+                {/* <div className="absolute bottom-0 left-0 bg-black/85 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-br-none rounded-tl-none rounded-tr-md border border-[#33FF00]/30">
+                  <p className="text-white text-xs md:text-sm font-bold font-poppins">
+                    {barber.name}
+                  </p>
+                </div> */}
+              </div>
+              ))}
+            </div>
+
+            {/* Grid Pattern Divider Lines */}
+            {/* Vertical line between column 1 and 2 */}
+            <div className="absolute top-0 left-[33.33%] w-[1px] md:w-[2px] h-full bg-[#33FF00] pointer-events-none" style={{ transform: 'translateX(-0.5px)' }}></div>
+
+            {/* Vertical line between column 2 and 3 */}
+            <div className="absolute top-0 left-[66.66%] w-[1px] md:w-[2px] h-full bg-[#33FF00] pointer-events-none" style={{ transform: 'translateX(-0.5px)' }}></div>
+
+            {/* Horizontal line after row 1 (33.33% down) */}
+            <div className="absolute left-0 top-[33.33%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
+
+            {/* Horizontal line after row 2 (66.66% down) */}
+            <div className="absolute left-0 top-[66.66%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
+          </div>
+
         </div>
-
-        <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max mt-10 hover:bg-[#454545]/80">
-          {generateLink("BOOK NOW")}
-        </Button>
-      </section>
-
-      <section className="flex flex-col justify-center items-center">
-        <h2 className="text-[#33FF00]">GALLERY</h2>
-        <p>Our Results</p>
-
-        <InstagramSection
-          instagram_images_desktop={instagram_images_desktop}
-          instagram_images_mobile={instagram_images_mobile}
-        />
       </section>
     </Layout>
   );

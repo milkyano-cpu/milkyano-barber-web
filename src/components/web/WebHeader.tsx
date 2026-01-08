@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import Logo from "@/components/react-svg/logo";
+import IconNavbarGreen from "@/assets/svg/icon-navbar-green.svg";
+import HeaderMiddle from "@/assets/web/header-middle.png";
 import { Link, useLocation } from "react-router-dom";
 
 import {
@@ -40,7 +41,6 @@ const NavLink: React.FC<NavLinkProps> = ({ to, label }) => {
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/barbers", label: "Barbers" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about-us", label: "About Us" },
   { to: "/careers", label: "Careers" },
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
       style={{
         marginBottom: `-${height}px`,
         background:
-          "linear-gradient(180deg, rgba(3, 18, 13, 0.75) 14.29%, rgba(3, 18, 13, 0.6) 100%)",
+          "linear-gradient(180deg, rgba(3, 18, 13, 1) 14.29%, rgba(3, 18, 13, 1) 100%)",
       }}
     >
       <div className="container mx-auto flex justify-between items-center relative z-10 border-none px-2 md:px-4">
@@ -94,8 +94,19 @@ const Header: React.FC = () => {
         </h1>
         <div className="flex flex-col justify-center items-center">
           <Link to={generateRoute("/home")}>
-            <Logo className="w-48 md:w-36 h-auto opacity-90 " />
+            <img
+              src={IconNavbarGreen}
+              alt="Fadedlines Barber Shop"
+              className="w-8 md:w-10 h-auto opacity-100"
+            />
           </Link>
+        </div>
+        <div className="lg:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none">
+          <img
+            src={HeaderMiddle}
+            alt="Header decoration"
+            className="h-20 md:h-24 w-auto opacity-100"
+          />
         </div>
         <nav className="hidden lg:block sticky top-0">
           <ul className="flex text-white/80">
@@ -107,16 +118,6 @@ const Header: React.FC = () => {
                 }`}
               >
                 HOME
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={generateRoute("/barbers")}
-                className={`text-md uppercase font-bold px-4 hover:text-white ${
-                  location.pathname === "/barbers" ? "text-white" : ""
-                }`}
-              >
-                BARBERS
               </Link>
             </li>
             <li>
