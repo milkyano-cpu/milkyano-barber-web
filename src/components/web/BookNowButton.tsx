@@ -4,17 +4,20 @@ interface BookNowButtonProps {
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function BookNowButton({
   onClick,
   className = "",
   children = "BOOK NOW",
+  type = "button",
 }: BookNowButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <button
+      type={type}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
