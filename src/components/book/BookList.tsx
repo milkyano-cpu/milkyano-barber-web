@@ -259,13 +259,6 @@ const BookList = () => {
       .replace(/\s+/g, " "); // Replace multiple spaces with single space
   };
 
-  const cleanPriceDescription = (description: string): string => {
-    // Remove surcharge text from price description
-    return description
-      .replace(/\+\s*\[15%\s*Surcharge\s*On\s*Sundays\]/gi, "")
-      .trim();
-  };
-
   const formatPrice = (priceAmount: number): string => {
     // Convert from cents to dollars
     const dollars = priceAmount / 100;
