@@ -436,9 +436,7 @@ const BookList = () => {
                               <p className="text-zinc-400 text-xs mt-1 text-center">
                                 {formatPrice(
                                   service.item_data.variations[0]
-                                    .item_variation_data.price_money.amount,
-                                  service.item_data.variations[0]
-                                    .item_variation_data.price_money.currency
+                                    .item_variation_data.price_money.amount
                                 )}
                               </p>
                             </div>
@@ -468,9 +466,7 @@ const BookList = () => {
                                   <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
                                     {formatPrice(
                                       service.item_data.variations[0]
-                                        .item_variation_data.price_money.amount,
-                                      service.item_data.variations[0]
-                                        .item_variation_data.price_money.currency
+                                        .item_variation_data.price_money.amount
                                     )}
                                   </p>
                                 </div>
