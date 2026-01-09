@@ -234,11 +234,9 @@ const BookList = () => {
   const extractPriceRange = (services: ServicesItem[]) => {
     const prices = services
       .map((service) => {
-        const priceMatch =
-          service.item_data.variations[0].item_variation_data.price_description.match(
-            /\$(\d+(\.\d{2})?)/,
-          );
-        return priceMatch ? parseFloat(priceMatch[1]) : 0;
+        const priceAmount = service.item_data.variations[0].item_variation_data.price_money.amount;
+        // Convert from cents to dollars
+        return priceAmount / 100;
       })
       .filter((price) => price > 0);
 
@@ -266,6 +264,12 @@ const BookList = () => {
     return description
       .replace(/\+\s*\[15%\s*Surcharge\s*On\s*Sundays\]/gi, "")
       .trim();
+  };
+
+  const formatPrice = (priceAmount: number): string => {
+    // Convert from cents to dollars
+    const dollars = priceAmount / 100;
+    return `$${dollars.toFixed(2)}`;
   };
 
   return (
@@ -437,9 +441,11 @@ const BookList = () => {
                                 {cleanDisplayName(service.item_data.name)}
                               </h3>
                               <p className="text-zinc-400 text-xs mt-1 text-center">
-                                {cleanPriceDescription(
+                                {formatPrice(
                                   service.item_data.variations[0]
-                                    .item_variation_data.price_description
+                                    .item_variation_data.price_money.amount,
+                                  service.item_data.variations[0]
+                                    .item_variation_data.price_money.currency
                                 )}
                               </p>
                             </div>
@@ -467,9 +473,11 @@ const BookList = () => {
                                     {cleanDisplayName(service.item_data.name)}
                                   </h3>
                                   <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
-                                    {cleanPriceDescription(
+                                    {formatPrice(
                                       service.item_data.variations[0]
-                                        .item_variation_data.price_description
+                                        .item_variation_data.price_money.amount,
+                                      service.item_data.variations[0]
+                                        .item_variation_data.price_money.currency
                                     )}
                                   </p>
                                 </div>
