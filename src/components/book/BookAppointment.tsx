@@ -43,6 +43,12 @@ const BookAppointment = () => {
   const endAt = new Date(currentDate);
   endAt.setDate(endAt.getDate() + 30);
 
+  const formatPrice = (priceAmount: number, currency: string = "AUD"): string => {
+    // Convert from cents to dollars
+    const dollars = priceAmount / 100;
+    return `$${dollars.toFixed(2)} ${currency}`;
+  };
+
   const generateRoute = (route: string): string => {
     const parts = location.pathname.split("/");
     if (parts[1] === 'meta') {
@@ -248,7 +254,14 @@ const BookAppointment = () => {
                       <div key={item.id}>
                         <h4 className='font-medium'>{item.item_data.name}</h4>
                         <div className='flex gap-2 text-xs font-light'>
-                          <p>{item.item_data.variations[0].item_variation_data.price_description} Mins</p>
+                          <p>
+                            {formatPrice(
+                              item.item_data.variations[0].item_variation_data.price_money.amount,
+                              item.item_data.variations[0].item_variation_data.price_money.currency
+                            )}
+                          </p>
+                          {/* <span>•</span>
+                          <p>{item.item_data.variations[0].item_variation_data.service_duration} Mins</p> */}
                         </div>
                       </div>
                     ))
