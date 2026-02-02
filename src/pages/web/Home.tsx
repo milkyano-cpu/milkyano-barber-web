@@ -21,7 +21,6 @@ import Josh from "@/assets/web/barbers/josh.png";
 import Niko from "@/assets/web/barbers/niko.png";
 import Noah from "@/assets/web/barbers/noah.png";
 import Lucas from "@/assets/web/barbers/lucas.png";
-import Can from "@/assets/web/barbers/can.png";
 
 // Gallery images (for grid thumbnails)
 import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
@@ -32,15 +31,12 @@ import JoshGallery from "@/assets/web/barbers/barbers-gallery/josh.png";
 import NikoGallery from "@/assets/web/barbers/barbers-gallery/niko.png";
 import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
 import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
-import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 
 // CTA Button SVGs - Barber-specific
 import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
 import AmirCTAHover from "@/assets/web/barbers/cta-button/amir-hover.svg";
 import LucasCTA from "@/assets/web/barbers/cta-button/lucas.svg";
 import LucasCTAHover from "@/assets/web/barbers/cta-button/lucas-hover.svg";
-import CanCTA from "@/assets/web/barbers/cta-button/can.svg";
-import CanCTAHover from "@/assets/web/barbers/cta-button/can-hover.svg";
 import RayhanCTA from "@/assets/web/barbers/cta-button/rayhan.svg";
 import RayhanCTAHover from "@/assets/web/barbers/cta-button/rayhan-hover.svg";
 import JoshCTA from "@/assets/web/barbers/cta-button/josh.svg";
@@ -196,12 +192,6 @@ export default function Home() {
       landing: true,
     },
     {
-      svg: Can,
-      thumbnail: CanGallery,
-      link: generateRoute("/can"),
-      landing: true,
-    },
-    {
       svg: Rayhan,
       thumbnail: RayhanGallery,
       link: generateRoute("/rayhan"),
@@ -243,13 +233,12 @@ export default function Home() {
   const barberCTAButtons = [
     { normal: AmirCTA, hover: AmirCTAHover },      // 0: Amir
     { normal: LucasCTA, hover: LucasCTAHover },    // 1: Lucas
-    { normal: CanCTA, hover: CanCTAHover },        // 2: Can
-    { normal: RayhanCTA, hover: RayhanCTAHover },  // 3: Rayhan
-    { normal: JoshCTA, hover: JoshCTAHover },      // 4: Josh
-    { normal: NoahCTA, hover: NoahCTAHover },      // 5: Noah
-    { normal: JayCTA, hover: JayCTAHover },        // 6: Jay
-    { normal: EmmanCTA, hover: EmmanCTAHover },    // 7: Emman
-    { normal: NikoCTA, hover: NikoCTAHover },      // 8: Niko
+    { normal: RayhanCTA, hover: RayhanCTAHover },  // 2: Rayhan
+    { normal: JoshCTA, hover: JoshCTAHover },      // 3: Josh
+    { normal: NoahCTA, hover: NoahCTAHover },      // 4: Noah
+    { normal: JayCTA, hover: JayCTAHover },        // 5: Jay
+    { normal: EmmanCTA, hover: EmmanCTAHover },    // 6: Emman
+    { normal: NikoCTA, hover: NikoCTAHover },      // 7: Niko
   ];
 
   // Transform barberSvgs into gallery-friendly format
