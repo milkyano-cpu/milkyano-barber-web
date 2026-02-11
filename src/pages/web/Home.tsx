@@ -184,9 +184,9 @@ export default function Home() {
 
   const barberSvgs = [
     {
-      svg: Amir,
-      thumbnail: AmirGallery,
-      link: generateRoute("/amir"),
+      svg: Noah,
+      thumbnail: NoahGallery,
+      link: generateRoute("/noah"),
       landing: true,
     },
     {
@@ -208,21 +208,21 @@ export default function Home() {
       landing: true,
     },
     {
-      svg: Josh,
-      thumbnail: JoshGallery,
-      link: generateRoute("/josh"),
-      landing: true,
-    },
-    {
-      svg: Noah,
-      thumbnail: NoahGallery,
-      link: generateRoute("/noah"),
-      landing: true,
-    },
-    {
       svg: Jay,
       thumbnail: JayGallery,
       link: generateRoute("/jay"),
+      landing: true,
+    },
+    {
+      svg: Amir,
+      thumbnail: AmirGallery,
+      link: generateRoute("/amir"),
+      landing: true,
+    },
+    {
+      svg: Josh,
+      thumbnail: JoshGallery,
+      link: generateRoute("/josh"),
       landing: true,
     },
     {
@@ -241,13 +241,13 @@ export default function Home() {
 
   // CTA Button mapping for each barber
   const barberCTAButtons = [
-    { normal: AmirCTA, hover: AmirCTAHover },      // 0: Amir
+    { normal: NoahCTA, hover: NoahCTAHover },      // 0: Noah
     { normal: LucasCTA, hover: LucasCTAHover },    // 1: Lucas
     { normal: CanCTA, hover: CanCTAHover },        // 2: Can
     { normal: RayhanCTA, hover: RayhanCTAHover },  // 3: Rayhan
-    { normal: JoshCTA, hover: JoshCTAHover },      // 4: Josh
-    { normal: NoahCTA, hover: NoahCTAHover },      // 5: Noah
-    { normal: JayCTA, hover: JayCTAHover },        // 6: Jay
+    { normal: JayCTA, hover: JayCTAHover },        // 4: Jay
+    { normal: AmirCTA, hover: AmirCTAHover },      // 5: Amir
+    { normal: JoshCTA, hover: JoshCTAHover },      // 6: Josh
     { normal: EmmanCTA, hover: EmmanCTAHover },    // 7: Emman
     { normal: NikoCTA, hover: NikoCTAHover },      // 8: Niko
   ];
