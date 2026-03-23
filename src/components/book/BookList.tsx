@@ -19,10 +19,9 @@ import Jay from "@/assets/web/barbers/booking-list/jay-book.svg";
 import Wyatt from "@/assets/web/barbers/booking-list/wyatt-book.svg";
 import Emman from "@/assets/web/barbers/booking-list/emman-book.svg";
 import Christos from "@/assets/web/barbers/booking-list/christos-book.svg";
-import Josh from "@/assets/web/barbers/booking-list/josh-book.jpg";
 import Niko from "@/assets/web/barbers/booking-list/niko-book.svg";
 import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
-import Amir from "@/assets/web/barbers/booking-list/amir-book.svg";
+import Amir from "@/assets/web/barbers/booking-list/amir-book.png";
 import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpg";
 import Lucas from "@/assets/web/barbers/booking-list/lucas-book.jpg";
 import Can from "@/assets/web/barbers/booking-list/can-book.jpg";
@@ -39,7 +38,6 @@ const barberImages: { [key: string]: string } = {
   WYATT: Wyatt,
   EMMAN: Emman,
   CHRISTOS: Christos,
-  JOSH: Josh,
   NIKO: Niko,
   NOAH: Noah,
   AMIR: Amir,
@@ -74,13 +72,19 @@ const BookList = () => {
         "EMMAN",
         "NIKO",
         "ANTHONY",
-        "JOSH",
         "CHRISTOS",
         "WYATT",
       ];
 
-      // 1. Use all available profiles
-      let sortedProfiles = barbers?.team_member_booking_profiles ?? [];
+      const hiddenBarbers = ["JOSH"];
+
+      // 1. Use all available profiles, excluding hidden barbers
+      let sortedProfiles = (barbers?.team_member_booking_profiles ?? []).filter(
+        (profile) =>
+          !hiddenBarbers.some((name) =>
+            profile.display_name.toUpperCase().includes(name),
+          ),
+      );
 
       // 2. Filter for a specific barber if provided
       if (specificBarber && specificBarber !== "book") {
