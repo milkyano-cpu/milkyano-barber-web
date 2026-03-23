@@ -286,6 +286,20 @@ const BookList = () => {
     return `$${dollars.toFixed(2)}`;
   };
 
+  const getPriceDisplay = (service: ServicesItem): string => {
+    const basePrice = formatPrice(
+      service.item_data.variations[0].item_variation_data.price_money.amount
+    );
+    const isHairTransformationAmir = service.item_data.name
+      .toUpperCase()
+      .includes("HAIR TRANSFORMATION") && service.item_data.name
+      .toUpperCase()
+      .includes("AMIR");
+    return isHairTransformationAmir
+      ? `${basePrice} + [15% surcharge on Sundays]`
+      : basePrice;
+  };
+
   return (
     <section className="relative bg-[#010401] min-h-screen">
       <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-[#1CFF21] md:border-b-0">
@@ -455,10 +469,7 @@ const BookList = () => {
                                 {cleanDisplayName(service.item_data.name)}
                               </h3>
                               <p className="text-zinc-400 text-xs mt-1 text-center">
-                                {formatPrice(
-                                  service.item_data.variations[0]
-                                    .item_variation_data.price_money.amount
-                                )}
+                                {getPriceDisplay(service)}
                               </p>
                             </div>
                             <BookingListButton
@@ -485,10 +496,7 @@ const BookList = () => {
                                     {cleanDisplayName(service.item_data.name)}
                                   </h3>
                                   <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
-                                    {formatPrice(
-                                      service.item_data.variations[0]
-                                        .item_variation_data.price_money.amount
-                                    )}
+                                    {getPriceDisplay(service)}
                                   </p>
                                 </div>
                                 <BookingListButton
