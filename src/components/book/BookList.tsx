@@ -107,13 +107,30 @@ const BookList = () => {
       // 4. Match services with each barber
       if (sortedProfiles && services) {
         for (let i = 0; i < sortedProfiles.length; i++) {
-          const servicesForBarber = services.objects.filter((service) =>
-            service.item_data.variations.some((variation) =>
-              variation.item_variation_data.team_member_ids?.includes(
-                sortedProfiles[i].team_member_id,
-              ),
-            ),
-          );
+          const servicesForBarber = services.objects.filter((service) => {
+            const hasTeamMemberMatch = service.item_data.variations.some(
+              (variation) =>
+                variation.item_variation_data.team_member_ids?.includes(
+                  sortedProfiles[i].team_member_id,
+                ),
+            );
+
+            if (!hasTeamMemberMatch) return false;
+
+            // If service name contains "by [BarberName]", restrict to that barber only
+            const serviceName = service.item_data.name?.toUpperCase() ?? "";
+            const namedBarber = sortOrder.find((name) =>
+              serviceName.includes(`BY ${name}`),
+            );
+
+            if (namedBarber) {
+              return sortedProfiles[i].display_name
+                .toUpperCase()
+                .includes(namedBarber);
+            }
+
+            return true;
+          });
 
           barberServices.data.push({
             barber: sortedProfiles[i],
