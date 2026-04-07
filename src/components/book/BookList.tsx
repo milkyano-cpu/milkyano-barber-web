@@ -286,16 +286,12 @@ const BookList = () => {
     return `$${dollars.toFixed(2)}`;
   };
 
-  const getPriceDisplay = (service: ServicesItem): string => {
+  const getPriceDisplay = (service: ServicesItem, barberName: string): string => {
     const basePrice = formatPrice(
       service.item_data.variations[0].item_variation_data.price_money.amount
     );
-    const isHairTransformationAmir = service.item_data.name
-      .toUpperCase()
-      .includes("HAIR TRANSFORMATION") && service.item_data.name
-      .toUpperCase()
-      .includes("AMIR");
-    return isHairTransformationAmir
+    const isAmir = barberName.toUpperCase().includes("AMIR");
+    return isAmir
       ? `${basePrice} + [15% surcharge on Sundays]`
       : basePrice;
   };
@@ -469,7 +465,7 @@ const BookList = () => {
                                 {cleanDisplayName(service.item_data.name)}
                               </h3>
                               <p className="text-zinc-400 text-xs mt-1 text-center">
-                                {getPriceDisplay(service)}
+                                {getPriceDisplay(service, item.barber.display_name)}
                               </p>
                             </div>
                             <BookingListButton
@@ -496,7 +492,7 @@ const BookList = () => {
                                     {cleanDisplayName(service.item_data.name)}
                                   </h3>
                                   <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
-                                    {getPriceDisplay(service)}
+                                    {getPriceDisplay(service, item.barber.display_name)}
                                   </p>
                                 </div>
                                 <BookingListButton
