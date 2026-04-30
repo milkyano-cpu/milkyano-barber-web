@@ -21,6 +21,7 @@ import Niko from "@/assets/web/barbers/niko.png";
 import Noah from "@/assets/web/barbers/noah.png";
 import Lucas from "@/assets/web/barbers/lucas.png";
 import Can from "@/assets/web/barbers/can.png";
+import Leon from "@/assets/web/barbers/leon.png";
 
 // Gallery images (for grid thumbnails)
 import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
@@ -31,6 +32,7 @@ import NikoGallery from "@/assets/web/barbers/barbers-gallery/niko.png";
 import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
 import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
 import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
+import LeonGallery from "@/assets/web/barbers/barbers-gallery/leon.png";
 
 // CTA Button SVGs - Barber-specific
 import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
@@ -225,6 +227,12 @@ export default function Home() {
       svg: Niko,
       thumbnail: NikoGallery,
       link: generateRoute("/niko"),
+      landing: true,
+    },
+    {
+      svg: Leon,
+      thumbnail: LeonGallery,
+      link: generateRoute("/leon"),
       landing: true,
     },
   ];
@@ -569,13 +577,19 @@ export default function Home() {
             <div className="absolute w-full h-[2px] bg-[#33FF00]"></div>
             <div className="relative z-10 px-4 bg-black">
               <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].name.toLowerCase()}/book/services`)}`}>
-                <img
-                  src={isButtonHovered ? barberCTAButtons[selectedBarber].hover : barberCTAButtons[selectedBarber].normal}
-                  alt={`Book With ${galleryBarbers[selectedBarber].name}`}
-                  className="w-auto cursor-pointer h-[90px] md:h-[130px]"
-                  onMouseEnter={() => setIsButtonHovered(true)}
-                  onMouseLeave={() => setIsButtonHovered(false)}
-                />
+                {barberCTAButtons[selectedBarber] ? (
+                  <img
+                    src={isButtonHovered ? barberCTAButtons[selectedBarber].hover : barberCTAButtons[selectedBarber].normal}
+                    alt={`Book With ${galleryBarbers[selectedBarber].name}`}
+                    className="w-auto cursor-pointer h-[90px] md:h-[130px]"
+                    onMouseEnter={() => setIsButtonHovered(true)}
+                    onMouseLeave={() => setIsButtonHovered(false)}
+                  />
+                ) : (
+                  <BookNowButton className="px-14 md:px-16 py-4 md:py-5">
+                    BOOK WITH {galleryBarbers[selectedBarber].name}
+                  </BookNowButton>
+                )}
               </Link>
             </div>
           </div>

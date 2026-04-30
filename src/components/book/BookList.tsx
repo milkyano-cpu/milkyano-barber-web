@@ -25,6 +25,7 @@ import Amir from "@/assets/web/barbers/booking-list/amir-book.png";
 import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpg";
 import Lucas from "@/assets/web/barbers/booking-list/lucas-book.jpg";
 import Can from "@/assets/web/barbers/booking-list/can-book.jpg";
+import Leon from "@/assets/web/barbers/booking-list/leon-book.jpeg";
 import LineBottomBorder from "@/assets/book/line-bottom-border.svg";
 import InstagramIcon from "@/assets/book/mdi_instagram.svg";
 // import Hero from "@/assets/web/home/hero.svg";
@@ -42,6 +43,7 @@ const barberImages: { [key: string]: string } = {
   NOAH: Noah,
   AMIR: Amir,
   JAMIE: Jamie,
+  LEON: Leon,
   // MUSTAFA: Hero,
 };
 
@@ -71,12 +73,13 @@ const BookList = () => {
         "NOAH",
         "EMMAN",
         "NIKO",
+        "LEON",
         "ANTHONY",
         "CHRISTOS",
         "WYATT",
       ];
 
-      const hiddenBarbers = ["JOSH"];
+      const hiddenBarbers = ["JOSH", "DEJAN", "ADMIN"];
 
       // 1. Use all available profiles, excluding hidden barbers
       let sortedProfiles = (barbers?.team_member_booking_profiles ?? []).filter(
