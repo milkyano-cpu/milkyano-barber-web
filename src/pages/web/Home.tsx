@@ -22,6 +22,7 @@ import Noah from "@/assets/web/barbers/noah.png";
 import Lucas from "@/assets/web/barbers/lucas.png";
 import Can from "@/assets/web/barbers/can.png";
 import Leon from "@/assets/web/barbers/leon.png";
+import Enis from "@/assets/web/barbers/enis.png";
 
 // Gallery images (for grid thumbnails)
 import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
@@ -33,6 +34,7 @@ import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
 import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
 import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 import LeonGallery from "@/assets/web/barbers/barbers-gallery/leon.png";
+import EnisGallery from "@/assets/web/barbers/barbers-gallery/enis.png";
 
 // CTA Button SVGs - Barber-specific
 import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
@@ -234,6 +236,12 @@ export default function Home() {
       thumbnail: LeonGallery,
       link: generateRoute("/leon"),
       landing: true,
+    },
+    {
+      svg: Enis,
+      thumbnail: EnisGallery,
+      link: generateRoute("/enis"),
+      landing: false,
     },
   ];
 
@@ -630,11 +638,14 @@ export default function Home() {
             {/* Vertical line between column 2 and 3 */}
             <div className="absolute top-0 left-[66.66%] w-[1px] md:w-[2px] h-full bg-[#33FF00] pointer-events-none" style={{ transform: 'translateX(-0.5px)' }}></div>
 
-            {/* Horizontal line after row 1 (33.33% down) */}
-            <div className="absolute left-0 top-[33.33%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
+            {/* Horizontal line after row 1 (25% down) */}
+            <div className="absolute left-0 top-[25%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
 
-            {/* Horizontal line after row 2 (66.66% down) */}
-            <div className="absolute left-0 top-[66.66%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
+            {/* Horizontal line after row 2 (50% down) */}
+            <div className="absolute left-0 top-[50%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
+
+            {/* Horizontal line after row 3 (75% down) */}
+            <div className="absolute left-0 top-[75%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
           </div>
 
         </div>

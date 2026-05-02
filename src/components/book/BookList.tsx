@@ -26,6 +26,7 @@ import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpg";
 import Lucas from "@/assets/web/barbers/booking-list/lucas-book.jpg";
 import Can from "@/assets/web/barbers/booking-list/can-book.jpg";
 import Leon from "@/assets/web/barbers/booking-list/leon-book.jpeg";
+import EnisBook from "@/assets/web/barbers/booking-list/enis-book.jpeg";
 import LineBottomBorder from "@/assets/book/line-bottom-border.svg";
 import InstagramIcon from "@/assets/book/mdi_instagram.svg";
 // import Hero from "@/assets/web/home/hero.svg";
@@ -44,6 +45,7 @@ const barberImages: { [key: string]: string } = {
   AMIR: Amir,
   JAMIE: Jamie,
   LEON: Leon,
+  ENIS: EnisBook,
   // MUSTAFA: Hero,
 };
 
@@ -74,6 +76,7 @@ const BookList = () => {
         "EMMAN",
         "NIKO",
         "LEON",
+        "ENIS",
         "ANTHONY",
         "CHRISTOS",
         "WYATT",
@@ -210,14 +213,14 @@ const BookList = () => {
       //   fetchedServices,
       // });
 
-      // console.log(
-      //   "TEAM MEMBERS:",
-      //   fetchedBarbers.team_member_booking_profiles.map((profile) => ({
-      //     id: profile.team_member_id,
-      //     name: profile.display_name,
-      //     bookable: profile.is_bookable,
-      //   }))
-      // );
+      console.log(
+        "TEAM MEMBERS:",
+        fetchedBarbers.team_member_booking_profiles.map((profile) => ({
+          id: profile.team_member_id,
+          name: profile.display_name,
+          bookable: profile.is_bookable,
+        }))
+      );
 
       joinBarbersAndServices(fetchedBarbers, fetchedServices, specificBarber);
       setIsLoading(false);
