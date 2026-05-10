@@ -24,7 +24,7 @@ import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
 import Amir from "@/assets/web/barbers/booking-list/amir-book.png";
 import Jamie from "@/assets/web/barbers/booking-list/jamie-book.jpg";
 import Lucas from "@/assets/web/barbers/booking-list/lucas-book.jpg";
-import Can from "@/assets/web/barbers/booking-list/can-book.jpg";
+import Can from "@/assets/web/barbers/booking-list/can-book.png";
 import Leon from "@/assets/web/barbers/booking-list/leon-book.jpeg";
 import EnisBook from "@/assets/web/barbers/booking-list/enis-book.jpeg";
 import LineBottomBorder from "@/assets/book/line-bottom-border.svg";
