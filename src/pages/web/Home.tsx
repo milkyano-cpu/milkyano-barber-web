@@ -1,6 +1,8 @@
 import Layout from "@/components/web/WebLayout";
 // import { Button } from "@/components/ui/button";
 import { useEffect, useState, useRef, useCallback } from "react";
+import { getAllBarber, getAllService } from "@/utils/barberApi";
+import { BarberResponse, ServicesResponse, ServicesItem } from "@/interfaces/BookingInterface";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
 import BookNowButton from "@/components/web/BookNowButton";
@@ -82,6 +84,7 @@ export default function Home() {
   // Gallery state management
   const [selectedBarber, setSelectedBarber] = useState(0);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [barberMinPrices, setBarberMinPrices] = useState<Record<string, number>>({});
   const previewImageRef = useRef<HTMLDivElement>(null);
   const bookNowButtonRef = useRef<HTMLDivElement>(null);
 
@@ -188,60 +191,70 @@ export default function Home() {
       thumbnail: NoahGallery,
       link: generateRoute("/noah"),
       landing: true,
+      slug: "noah",
     },
     {
       svg: Lucas,
       thumbnail: LucasGallery,
       link: generateRoute("/lucas"),
       landing: true,
+      slug: "lucas",
     },
     {
       svg: Can,
       thumbnail: CanGallery,
       link: generateRoute("/can"),
       landing: true,
+      slug: "can",
     },
     {
       svg: Rayhan,
       thumbnail: RayhanGallery,
       link: generateRoute("/rayhan"),
       landing: true,
+      slug: "rayhan",
     },
     {
       svg: Jay,
       thumbnail: JayGallery,
       link: generateRoute("/jay"),
       landing: true,
+      slug: "jay",
     },
     {
       svg: Amir,
       thumbnail: AmirGallery,
       link: generateRoute("/amir"),
       landing: true,
+      slug: "amir",
     },
     {
       svg: Emman,
       thumbnail: EmmanGallery,
       link: generateRoute("/emman"),
       landing: true,
+      slug: "emman",
     },
     {
       svg: Niko,
       thumbnail: NikoGallery,
       link: generateRoute("/niko"),
       landing: true,
+      slug: "niko",
     },
     {
       svg: Leon,
       thumbnail: LeonGallery,
       link: generateRoute("/leon"),
       landing: true,
+      slug: "leon",
     },
     {
       svg: Enis,
       thumbnail: EnisGallery,
       link: generateRoute("/enis"),
       landing: false,
+      slug: "enis",
     },
   ];
 
@@ -264,6 +277,7 @@ export default function Home() {
     name: barber.link.split('/').pop()?.toUpperCase() || `BARBER ${index + 1}`,
     link: barber.link,
     landing: barber.landing,
+    slug: barber.slug,
   }));
 
   // Embla: Sync selected slide with state
@@ -282,6 +296,63 @@ export default function Home() {
       emblaApi.off('select', onSelect);
     };
   }, [emblaApi, onSelect]);
+
+  useEffect(() => {
+    const barberAliases: Record<string, string[]> = {
+      noah: ["NOAH"],
+      lucas: ["LUCAS"],
+      can: ["CAN"],
+      rayhan: ["RAYHAN"],
+      jay: ["JAY"],
+      amir: ["AMIR"],
+      emman: ["EMMAN"],
+      niko: ["NIKO"],
+      leon: ["LEON"],
+      enis: ["ENIS"],
+    };
+
+    const fetchPrices = async () => {
+      try {
+        const [fetchedBarbers, fetchedServices]: [BarberResponse, ServicesResponse] = await Promise.all([
+          getAllBarber(),
+          getAllService("all", "O"),
+        ]);
+
+        const prices: Record<string, number> = {};
+
+        for (const [slug, aliases] of Object.entries(barberAliases)) {
+          const barberProfile = fetchedBarbers?.team_member_booking_profiles?.find((p) =>
+            aliases.some((a) => p.display_name.toUpperCase().includes(a))
+          );
+
+          if (!barberProfile) continue;
+
+          const services: ServicesItem[] = fetchedServices?.objects?.filter((service) => {
+            const serviceName = service.item_data.name.toUpperCase();
+            const nameMatch = aliases.some((a) => serviceName.includes(`BY ${a}`));
+            const idMatch = service.item_data.variations.some((v) =>
+              v.item_variation_data.team_member_ids?.includes(barberProfile.team_member_id)
+            );
+            return nameMatch && idMatch;
+          }) ?? [];
+
+          const servicePrices = services
+            .map((s) => s.item_data.variations[0].item_variation_data.price_money.amount)
+            .filter((p) => p > 0);
+
+          if (servicePrices.length > 0) {
+            prices[slug] = Math.min(...servicePrices) / 100;
+          }
+        }
+
+        setBarberMinPrices(prices);
+      } catch {
+        // silently fail — badge just won't show
+      }
+    };
+
+    fetchPrices();
+  }, []);
 
   // Handler for hero Book Now button - scroll to gallery Book Now
   const handleHeroBookNowClick = () => {
@@ -604,34 +675,8 @@ export default function Home() {
 
           {/* THUMBNAIL GRID (3 columns) */}
           <div className="max-w-screen-md mx-auto relative px-1 md:px-0">
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-9">
-              {galleryBarbers.map((barber, index) => (
-                <div
-                  key={index}
-                  onClick={(e) => handleThumbnailClick(index, e)}
-                  className={`aspect-square overflow-hidden rounded-md md:rounded-lg transition-all duration-200 cursor-pointer relative ${
-                    selectedBarber === index
-                      ? "ring-2 md:ring-4 ring-[#33FF00] scale-100"
-                      : "hover:opacity-80 hover:scale-105"
-                  }`}
-                >
-                <img
-                  src={barber.thumbnail}
-                  alt={barber.name}
-                  className="w-full h-full object-cover pointer-events-none"
-                  loading="lazy"
-                />
-                {/* Barber name box - bottom left corner */}
-                {/* <div className="absolute bottom-0 left-0 bg-black/85 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-br-none rounded-tl-none rounded-tr-md border border-[#33FF00]/30">
-                  <p className="text-white text-xs md:text-sm font-bold font-poppins">
-                    {barber.name}
-                  </p>
-                </div> */}
-              </div>
-              ))}
-            </div>
 
-            {/* Grid Pattern Divider Lines */}
+            {/* Grid Pattern Divider Lines — rendered FIRST so grid cells paint on top */}
             {/* Vertical line between column 1 and 2 */}
             <div className="absolute top-0 left-[33.33%] w-[1px] md:w-[2px] h-full bg-[#33FF00] pointer-events-none" style={{ transform: 'translateX(-0.5px)' }}></div>
 
@@ -646,6 +691,42 @@ export default function Home() {
 
             {/* Horizontal line after row 3 (75% down) */}
             <div className="absolute left-0 top-[75%] w-full h-[1px] md:h-[2px] bg-[#33FF00] pointer-events-none" style={{ transform: 'translateY(-0.5px)' }}></div>
+
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-x-4 gap-y-7 md:gap-x-9 md:gap-y-12">
+              {galleryBarbers.map((barber, index) => (
+                <div
+                  key={index}
+                  onClick={(e) => handleThumbnailClick(index, e)}
+                  className={`aspect-square cursor-pointer relative transition-all duration-200 ${
+                    selectedBarber === index ? "scale-100" : "hover:scale-105"
+                  }`}
+                >
+                  <div className={`w-full h-full overflow-hidden rounded-md md:rounded-lg ${
+                    selectedBarber === index
+                      ? "ring-2 md:ring-4 ring-[#33FF00] opacity-100"
+                      : "hover:opacity-80"
+                  }`}>
+                    <img
+                      src={barber.thumbnail}
+                      alt={barber.name}
+                      className="w-full h-full object-cover pointer-events-none"
+                      loading="lazy"
+                    />
+                  </div>
+                  {barberMinPrices[barber.slug] !== undefined && (
+                    <span
+                      className={`absolute -top-3 z-10 bg-black/75 text-lime text-xs md:text-sm font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-lg border border-lime/50 backdrop-blur-sm tracking-wide pointer-events-none shadow-md shadow-black/60 ${
+                        Math.floor(index / 3) % 2 === 0 ? "-left-2.5" : "-right-2.5"
+                      }`}
+                    >
+                      ${barberMinPrices[barber.slug] % 1 === 0
+                        ? barberMinPrices[barber.slug]
+                        : barberMinPrices[barber.slug].toFixed(2)}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
