@@ -27,6 +27,7 @@ import Lucas from "@/assets/web/barbers/booking-list/lucas-book.jpg";
 import Can from "@/assets/web/barbers/booking-list/can-book.png";
 import Leon from "@/assets/web/barbers/booking-list/leon-book.jpeg";
 import EnisBook from "@/assets/web/barbers/booking-list/enis-book.jpeg";
+import Kosta from "@/assets/web/barbers/booking-list/kosta-book.jpeg";
 import LineBottomBorder from "@/assets/book/line-bottom-border.svg";
 import InstagramIcon from "@/assets/book/mdi_instagram.svg";
 // import Hero from "@/assets/web/home/hero.svg";
@@ -46,7 +47,20 @@ const barberImages: { [key: string]: string } = {
   JAMIE: Jamie,
   LEON: Leon,
   ENIS: EnisBook,
+  KOSTA: Kosta,
   // MUSTAFA: Hero,
+};
+
+// Barbers that should always show the "Available Now" badge, regardless of
+// whether their Square display name includes the "(Available Now)" tag.
+const ALWAYS_AVAILABLE_BARBERS = ["LEON", "ENIS", "KOSTA"];
+
+const isAvailableNow = (displayName: string): boolean => {
+  const upperName = displayName.toUpperCase();
+  return (
+    displayName.includes("(Available Now)") ||
+    ALWAYS_AVAILABLE_BARBERS.some((name) => upperName.includes(name))
+  );
 };
 
 const BookList = () => {
@@ -77,6 +91,7 @@ const BookList = () => {
         "NIKO",
         "LEON",
         "ENIS",
+        "KOSTA",
         "ANTHONY",
         "CHRISTOS",
         "WYATT",
@@ -358,7 +373,7 @@ const BookList = () => {
                                 })()}
                               </p>
                             </div>
-                            {item.barber.display_name.includes("(Available Now)") && (
+                            {isAvailableNow(item.barber.display_name) && (
                               <span className="text-xs text-[#00FF00] border border-[#00FF00] px-2 py-1 rounded-full">
                                 Available Now
                               </span>
@@ -413,7 +428,7 @@ const BookList = () => {
                                   })()}
                                 </p>
                               </div>
-                              {item.barber.display_name.includes("(Available Now)") && (
+                              {isAvailableNow(item.barber.display_name) && (
                                 <span className="text-xs text-[#00FF00] border border-[#00FF00] px-2 py-1 rounded-full">
                                   Available Now
                                 </span>

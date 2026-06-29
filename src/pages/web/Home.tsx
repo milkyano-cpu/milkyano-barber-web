@@ -25,6 +25,7 @@ import Lucas from "@/assets/web/barbers/lucas.png";
 import Can from "@/assets/web/barbers/can.png";
 import Leon from "@/assets/web/barbers/leon.png";
 import Enis from "@/assets/web/barbers/enis.png";
+import Kosta from "@/assets/web/barbers/kosta.png";
 
 // Gallery images (for grid thumbnails)
 import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
@@ -37,6 +38,7 @@ import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
 import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 import LeonGallery from "@/assets/web/barbers/barbers-gallery/leon.png";
 import EnisGallery from "@/assets/web/barbers/barbers-gallery/enis.png";
+import KostaGallery from "@/assets/web/barbers/barbers-gallery/kosta.png";
 
 // CTA Button SVGs - Barber-specific
 import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
@@ -256,6 +258,13 @@ export default function Home() {
       landing: false,
       slug: "enis",
     },
+    {
+      svg: Kosta,
+      thumbnail: KostaGallery,
+      link: generateRoute("/kosta"),
+      landing: false,
+      slug: "kosta",
+    },
   ];
 
   // CTA Button mapping for each barber
@@ -279,6 +288,9 @@ export default function Home() {
     landing: barber.landing,
     slug: barber.slug,
   }));
+
+  // Barbers that should display an "Available Now" badge on the grid
+  const availableNowBarbers = ["leon", "enis", "kosta"];
 
   // Embla: Sync selected slide with state
   const onSelect = useCallback(() => {
@@ -309,6 +321,7 @@ export default function Home() {
       niko: ["NIKO"],
       leon: ["LEON"],
       enis: ["ENIS"],
+      kosta: ["KOSTA"],
     };
 
     const fetchPrices = async () => {
@@ -722,6 +735,11 @@ export default function Home() {
                       ${barberMinPrices[barber.slug] % 1 === 0
                         ? barberMinPrices[barber.slug]
                         : barberMinPrices[barber.slug].toFixed(2)}
+                    </span>
+                  )}
+                  {availableNowBarbers.includes(barber.slug) && (
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 z-10 bg-black/75 text-[#33FF00] text-[9px] md:text-xs font-bold px-2 py-0.5 rounded-full border border-[#33FF00]/70 backdrop-blur-sm whitespace-nowrap pointer-events-none shadow-md shadow-black/60">
+                      Available Now
                     </span>
                   )}
                 </div>
