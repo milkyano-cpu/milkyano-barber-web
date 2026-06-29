@@ -289,9 +289,6 @@ export default function Home() {
     slug: barber.slug,
   }));
 
-  // Barbers that should display an "Available Now" badge on the grid
-  const availableNowBarbers = ["leon", "enis", "kosta"];
-
   // Embla: Sync selected slide with state
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -735,11 +732,6 @@ export default function Home() {
                       ${barberMinPrices[barber.slug] % 1 === 0
                         ? barberMinPrices[barber.slug]
                         : barberMinPrices[barber.slug].toFixed(2)}
-                    </span>
-                  )}
-                  {availableNowBarbers.includes(barber.slug) && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 z-10 bg-black/75 text-[#33FF00] text-[9px] md:text-xs font-bold px-2 py-0.5 rounded-full border border-[#33FF00]/70 backdrop-blur-sm whitespace-nowrap pointer-events-none shadow-md shadow-black/60">
-                      Available Now
                     </span>
                   )}
                 </div>

@@ -14,11 +14,9 @@ import Logo from "@/components/react-svg/logo";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 import Rayhan from "@/assets/web/barbers/booking-list/rayhan-book.jpeg";
-import Anthony from "@/assets/web/barbers/booking-list/anthony-book.jpg";
 import Jay from "@/assets/web/barbers/booking-list/jay-book.svg";
 import Wyatt from "@/assets/web/barbers/booking-list/wyatt-book.svg";
 import Emman from "@/assets/web/barbers/booking-list/emman-book.svg";
-import Christos from "@/assets/web/barbers/booking-list/christos-book.svg";
 import Niko from "@/assets/web/barbers/booking-list/niko-book.svg";
 import Noah from "@/assets/web/barbers/booking-list/noah-book.png";
 import Amir from "@/assets/web/barbers/booking-list/amir-book.png";
@@ -36,11 +34,9 @@ const barberImages: { [key: string]: string } = {
   LUCAS: Lucas,
   CAN: Can,
   RAYHAN: Rayhan,
-  ANTHONY: Anthony,
   JAY: Jay,
   WYATT: Wyatt,
   EMMAN: Emman,
-  CHRISTOS: Christos,
   NIKO: Niko,
   NOAH: Noah,
   AMIR: Amir,
