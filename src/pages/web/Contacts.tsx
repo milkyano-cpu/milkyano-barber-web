@@ -382,7 +382,7 @@ export default function Contacts() {
 
               <div className="flex flex-col gap-2">
                 <p>Phone: </p>
-                <sub>+6135 249 543</sub>
+                <sub>(03) 9002 1055</sub>
               </div>
             </a>
             <a

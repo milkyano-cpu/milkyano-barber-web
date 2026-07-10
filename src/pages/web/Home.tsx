@@ -12,6 +12,7 @@ import Instagram from "@/assets/web/icons/Instagram.svg";
 import Tiktok from "@/assets/web/icons/Tiktok.svg";
 import Maps from "@/assets/web/icons/Maps.svg";
 import GoogleReview from "@/assets/web/icons/GoogleReview.svg";
+import Phone from "@/assets/web/icons/Phone.svg";
 import useEmblaCarousel from "embla-carousel-react";
 
 // Preview images (for large preview)
@@ -545,6 +546,21 @@ export default function Home() {
               }}
             >
               <img alt="Google Review" src={GoogleReview} className="w-12 h-auto" />
+            </a>
+            <a
+              href="tel:0390021055"
+              className="transition-all duration-300 hover:scale-110"
+              style={{
+                filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3))';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.2))';
+              }}
+            >
+              <img alt="Phone" src={Phone} className="w-12 h-auto" />
             </a>
           </div>
 
