@@ -93,7 +93,7 @@ const BookList = () => {
         "WYATT",
       ];
 
-      const hiddenBarbers = ["JOSH", "DEJAN", "ADMIN"];
+      const hiddenBarbers = ["JOSH", "DEJAN", "ADMIN", "LUCAS"];
 
       // 1. Use all available profiles, excluding hidden barbers
       let sortedProfiles = (barbers?.team_member_booking_profiles ?? []).filter(

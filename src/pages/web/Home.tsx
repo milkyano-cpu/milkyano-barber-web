@@ -22,7 +22,6 @@ import Jay from "@/assets/web/barbers/jay.png";
 import Emman from "@/assets/web/barbers/emman.png";
 import Niko from "@/assets/web/barbers/niko.png";
 import Noah from "@/assets/web/barbers/noah.png";
-import Lucas from "@/assets/web/barbers/lucas.png";
 import Can from "@/assets/web/barbers/can.png";
 import Leon from "@/assets/web/barbers/leon.png";
 import Enis from "@/assets/web/barbers/enis.png";
@@ -35,7 +34,6 @@ import JayGallery from "@/assets/web/barbers/barbers-gallery/jay.png";
 import EmmanGallery from "@/assets/web/barbers/barbers-gallery/emman.png";
 import NikoGallery from "@/assets/web/barbers/barbers-gallery/niko.png";
 import NoahGallery from "@/assets/web/barbers/barbers-gallery/noah.png";
-import LucasGallery from "@/assets/web/barbers/barbers-gallery/lucas.png";
 import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 import LeonGallery from "@/assets/web/barbers/barbers-gallery/leon.png";
 import EnisGallery from "@/assets/web/barbers/barbers-gallery/enis.png";
@@ -44,8 +42,6 @@ import KostaGallery from "@/assets/web/barbers/barbers-gallery/kosta.png";
 // CTA Button SVGs - Barber-specific
 import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
 import AmirCTAHover from "@/assets/web/barbers/cta-button/amir-hover.svg";
-import LucasCTA from "@/assets/web/barbers/cta-button/lucas.svg";
-import LucasCTAHover from "@/assets/web/barbers/cta-button/lucas-hover.svg";
 import CanCTA from "@/assets/web/barbers/cta-button/can.svg";
 import CanCTAHover from "@/assets/web/barbers/cta-button/can-hover.svg";
 import RayhanCTA from "@/assets/web/barbers/cta-button/rayhan.svg";
@@ -197,13 +193,6 @@ export default function Home() {
       slug: "noah",
     },
     {
-      svg: Lucas,
-      thumbnail: LucasGallery,
-      link: generateRoute("/lucas"),
-      landing: true,
-      slug: "lucas",
-    },
-    {
       svg: Can,
       thumbnail: CanGallery,
       link: generateRoute("/can"),
@@ -271,13 +260,12 @@ export default function Home() {
   // CTA Button mapping for each barber
   const barberCTAButtons = [
     { normal: NoahCTA, hover: NoahCTAHover },      // 0: Noah
-    { normal: LucasCTA, hover: LucasCTAHover },    // 1: Lucas
-    { normal: CanCTA, hover: CanCTAHover },        // 2: Can
-    { normal: RayhanCTA, hover: RayhanCTAHover },  // 3: Rayhan
-    { normal: JayCTA, hover: JayCTAHover },        // 4: Jay
-    { normal: AmirCTA, hover: AmirCTAHover },      // 5: Amir
-    { normal: EmmanCTA, hover: EmmanCTAHover },    // 6: Emman
-    { normal: NikoCTA, hover: NikoCTAHover },      // 7: Niko
+    { normal: CanCTA, hover: CanCTAHover },        // 1: Can
+    { normal: RayhanCTA, hover: RayhanCTAHover },  // 2: Rayhan
+    { normal: JayCTA, hover: JayCTAHover },        // 3: Jay
+    { normal: AmirCTA, hover: AmirCTAHover },      // 4: Amir
+    { normal: EmmanCTA, hover: EmmanCTAHover },    // 5: Emman
+    { normal: NikoCTA, hover: NikoCTAHover },      // 6: Niko
   ];
 
   // Transform barberSvgs into gallery-friendly format
@@ -310,7 +298,6 @@ export default function Home() {
   useEffect(() => {
     const barberAliases: Record<string, string[]> = {
       noah: ["NOAH"],
-      lucas: ["LUCAS"],
       can: ["CAN"],
       rayhan: ["RAYHAN"],
       jay: ["JAY"],
