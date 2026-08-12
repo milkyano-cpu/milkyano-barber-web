@@ -13,7 +13,7 @@ import Spinner from "../web/Spinner";
 import Logo from "@/components/react-svg/logo";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-import Rayhan from "@/assets/web/barbers/booking-list/rayhan-book.jpeg";
+import Rayhan from "@/assets/web/barbers/booking-list/rayhan-book.webp";
 import Jay from "@/assets/web/barbers/booking-list/jay-book.svg";
 import Wyatt from "@/assets/web/barbers/booking-list/wyatt-book.svg";
 import Emman from "@/assets/web/barbers/booking-list/emman-book.svg";

@@ -17,7 +17,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 // Preview images (for large preview)
 import Amir from "@/assets/web/barbers/amir.png";
-import Rayhan from "@/assets/web/barbers/rayhan.png";
+import Rayhan from "@/assets/web/barbers/rayhan.webp";
 import Jay from "@/assets/web/barbers/jay.png";
 import Emman from "@/assets/web/barbers/emman.png";
 import Niko from "@/assets/web/barbers/niko.png";
@@ -29,7 +29,7 @@ import Kosta from "@/assets/web/barbers/kosta.png";
 
 // Gallery images (for grid thumbnails)
 import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
-import RayhanGallery from "@/assets/web/barbers/barbers-gallery/rayhan.png";
+import RayhanGallery from "@/assets/web/barbers/barbers-gallery/rayhan.webp";
 import JayGallery from "@/assets/web/barbers/barbers-gallery/jay.png";
 import EmmanGallery from "@/assets/web/barbers/barbers-gallery/emman.png";
 import NikoGallery from "@/assets/web/barbers/barbers-gallery/niko.png";
