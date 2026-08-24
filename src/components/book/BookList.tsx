@@ -53,6 +53,22 @@ const barberImages: { [key: string]: string } = {
 // whether their Square display name includes the "(Available Now)" tag.
 const ALWAYS_AVAILABLE_BARBERS = ["DEJAN", "LEON", "ENIS", "KOSTA"];
 
+// Instagram handles that override whatever is parsed from the Square display
+// name, for barbers whose Square profile has a stale or missing handle.
+const INSTAGRAM_OVERRIDES: { [key: string]: string } = {
+  DEJAN: "@dejantomic__",
+};
+
+const getInstagramHandle = (displayName: string): string => {
+  const upperName = displayName.toUpperCase();
+  for (const [key, handle] of Object.entries(INSTAGRAM_OVERRIDES)) {
+    if (upperName.includes(key)) {
+      return handle;
+    }
+  }
+  return displayName.match(/@[^\s)]+/)?.[0] || "";
+};
+
 const isAvailableNow = (displayName: string): boolean => {
   const upperName = displayName.toUpperCase();
   return (
@@ -364,12 +380,7 @@ const BookList = () => {
                                 className="w-[14px] h-[14px]"
                               />
                               <p className="text-[13px] font-medium font-inter text-white/90">
-                                {(() => {
-                                  const ig =
-                                    item.barber.display_name
-                                      .match(/@[^\s)]+/)?.[0] || "";
-                                  return ig;
-                                })()}
+                                {getInstagramHandle(item.barber.display_name)}
                               </p>
                             </div>
                             {isAvailableNow(item.barber.display_name) && (
@@ -419,12 +430,7 @@ const BookList = () => {
                                   className="w-[14px] h-[14px]"
                                 />
                                 <p className="text-[13px] font-medium font-inter text-white/90">
-                                  {(() => {
-                                    const ig =
-                                      item.barber.display_name
-                                        .match(/@[^\s)]+/)?.[0] || "";
-                                    return ig;
-                                  })()}
+                                  {getInstagramHandle(item.barber.display_name)}
                                 </p>
                               </div>
                               {isAvailableNow(item.barber.display_name) && (
