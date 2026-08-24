@@ -16,6 +16,7 @@ import Phone from "@/assets/web/icons/Phone.svg";
 import useEmblaCarousel from "embla-carousel-react";
 
 // Preview images (for large preview)
+import Dejan from "@/assets/web/barbers/dejan.webp";
 import Amir from "@/assets/web/barbers/amir.png";
 import Rayhan from "@/assets/web/barbers/rayhan.webp";
 import Jay from "@/assets/web/barbers/jay.png";
@@ -28,6 +29,7 @@ import Enis from "@/assets/web/barbers/enis.png";
 import Kosta from "@/assets/web/barbers/kosta.png";
 
 // Gallery images (for grid thumbnails)
+import DejanGallery from "@/assets/web/barbers/barbers-gallery/dejan.webp";
 import AmirGallery from "@/assets/web/barbers/barbers-gallery/amir.png";
 import RayhanGallery from "@/assets/web/barbers/barbers-gallery/rayhan.webp";
 import JayGallery from "@/assets/web/barbers/barbers-gallery/jay.png";
@@ -186,6 +188,13 @@ export default function Home() {
 
   const barberSvgs = [
     {
+      svg: Dejan,
+      thumbnail: DejanGallery,
+      link: generateRoute("/dejan"),
+      landing: true,
+      slug: "dejan",
+    },
+    {
       svg: Noah,
       thumbnail: NoahGallery,
       link: generateRoute("/noah"),
@@ -257,16 +266,17 @@ export default function Home() {
     },
   ];
 
-  // CTA Button mapping for each barber
-  const barberCTAButtons = [
-    { normal: NoahCTA, hover: NoahCTAHover },      // 0: Noah
-    { normal: CanCTA, hover: CanCTAHover },        // 1: Can
-    { normal: RayhanCTA, hover: RayhanCTAHover },  // 2: Rayhan
-    { normal: JayCTA, hover: JayCTAHover },        // 3: Jay
-    { normal: AmirCTA, hover: AmirCTAHover },      // 4: Amir
-    { normal: EmmanCTA, hover: EmmanCTAHover },    // 5: Emman
-    { normal: NikoCTA, hover: NikoCTAHover },      // 6: Niko
-  ];
+  // CTA Button mapping for each barber, keyed by slug.
+  // Barbers without an entry fall back to the generic BookNowButton.
+  const barberCTAButtons: Record<string, { normal: string; hover: string }> = {
+    noah: { normal: NoahCTA, hover: NoahCTAHover },
+    can: { normal: CanCTA, hover: CanCTAHover },
+    rayhan: { normal: RayhanCTA, hover: RayhanCTAHover },
+    jay: { normal: JayCTA, hover: JayCTAHover },
+    amir: { normal: AmirCTA, hover: AmirCTAHover },
+    emman: { normal: EmmanCTA, hover: EmmanCTAHover },
+    niko: { normal: NikoCTA, hover: NikoCTAHover },
+  };
 
   // Transform barberSvgs into gallery-friendly format
   const galleryBarbers = barberSvgs.map((barber, index) => ({
@@ -297,6 +307,7 @@ export default function Home() {
 
   useEffect(() => {
     const barberAliases: Record<string, string[]> = {
+      dejan: ["DEJAN"],
       noah: ["NOAH"],
       can: ["CAN"],
       rayhan: ["RAYHAN"],
@@ -668,10 +679,10 @@ export default function Home() {
           <div ref={bookNowButtonRef} className="w-full max-w-screen-md mx-auto mb-4 md:mb-6 relative flex items-center justify-center">
             <div className="absolute w-full h-[2px] bg-[#33FF00]"></div>
             <div className="relative z-10 px-4 bg-black">
-              <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].name.toLowerCase()}/book/services`)}`}>
-                {barberCTAButtons[selectedBarber] ? (
+              <Link to={`${generateRoute(`/${galleryBarbers[selectedBarber].slug}/book/services`)}`}>
+                {barberCTAButtons[galleryBarbers[selectedBarber].slug] ? (
                   <img
-                    src={isButtonHovered ? barberCTAButtons[selectedBarber].hover : barberCTAButtons[selectedBarber].normal}
+                    src={isButtonHovered ? barberCTAButtons[galleryBarbers[selectedBarber].slug].hover : barberCTAButtons[galleryBarbers[selectedBarber].slug].normal}
                     alt={`Book With ${galleryBarbers[selectedBarber].name}`}
                     className="w-auto cursor-pointer h-[90px] md:h-[130px]"
                     onMouseEnter={() => setIsButtonHovered(true)}

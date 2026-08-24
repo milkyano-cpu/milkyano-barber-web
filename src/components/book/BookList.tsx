@@ -13,6 +13,7 @@ import Spinner from "../web/Spinner";
 import Logo from "@/components/react-svg/logo";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
+import Dejan from "@/assets/web/barbers/booking-list/dejan-book.webp";
 import Rayhan from "@/assets/web/barbers/booking-list/rayhan-book.webp";
 import Jay from "@/assets/web/barbers/booking-list/jay-book.svg";
 import Wyatt from "@/assets/web/barbers/booking-list/wyatt-book.svg";
@@ -31,6 +32,7 @@ import InstagramIcon from "@/assets/book/mdi_instagram.svg";
 // import Hero from "@/assets/web/home/hero.svg";
 
 const barberImages: { [key: string]: string } = {
+  DEJAN: Dejan,
   LUCAS: Lucas,
   CAN: Can,
   RAYHAN: Rayhan,
@@ -49,7 +51,7 @@ const barberImages: { [key: string]: string } = {
 
 // Barbers that should always show the "Available Now" badge, regardless of
 // whether their Square display name includes the "(Available Now)" tag.
-const ALWAYS_AVAILABLE_BARBERS = ["LEON", "ENIS", "KOSTA"];
+const ALWAYS_AVAILABLE_BARBERS = ["DEJAN", "LEON", "ENIS", "KOSTA"];
 
 const isAvailableNow = (displayName: string): boolean => {
   const upperName = displayName.toUpperCase();
@@ -76,6 +78,7 @@ const BookList = () => {
       const barberServices: BarberServices = { data: [] };
 
       const sortOrder = [
+        "DEJAN",
         "LUCAS",
         "CAN",
         "JAMIE",
@@ -93,7 +96,7 @@ const BookList = () => {
         "WYATT",
       ];
 
-      const hiddenBarbers = ["JOSH", "DEJAN", "ADMIN", "LUCAS"];
+      const hiddenBarbers = ["JOSH", "ADMIN", "LUCAS"];
 
       // 1. Use all available profiles, excluding hidden barbers
       let sortedProfiles = (barbers?.team_member_booking_profiles ?? []).filter(
