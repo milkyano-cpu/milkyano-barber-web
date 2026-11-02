@@ -197,6 +197,13 @@ export default function Home() {
       slug: "dejan",
     },
     {
+      svg: Stevan,
+      thumbnail: StevanGallery,
+      link: generateRoute("/stevan"),
+      landing: false,
+      slug: "stevan",
+    },
+    {
       svg: Noah,
       thumbnail: NoahGallery,
       link: generateRoute("/noah"),
@@ -265,13 +272,6 @@ export default function Home() {
       link: generateRoute("/kosta"),
       landing: false,
       slug: "kosta",
-    },
-    {
-      svg: Stevan,
-      thumbnail: StevanGallery,
-      link: generateRoute("/stevan"),
-      landing: false,
-      slug: "stevan",
     },
   ];
 

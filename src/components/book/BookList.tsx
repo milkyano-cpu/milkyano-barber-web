@@ -59,6 +59,7 @@ const ALWAYS_AVAILABLE_BARBERS = ["DEJAN", "LEON", "ENIS", "KOSTA"];
 // name, for barbers whose Square profile has a stale or missing handle.
 const INSTAGRAM_OVERRIDES: { [key: string]: string } = {
   DEJAN: "@dejantomic__",
+  STEVAN: "@krivothebarber",
 };
 
 const getInstagramHandle = (displayName: string): string => {
