@@ -27,6 +27,7 @@ import Can from "@/assets/web/barbers/can.png";
 import Leon from "@/assets/web/barbers/leon.png";
 import Enis from "@/assets/web/barbers/enis.png";
 import Kosta from "@/assets/web/barbers/kosta.png";
+import Stevan from "@/assets/web/barbers/stevan.webp";
 
 // Gallery images (for grid thumbnails)
 import DejanGallery from "@/assets/web/barbers/barbers-gallery/dejan.webp";
@@ -40,6 +41,7 @@ import CanGallery from "@/assets/web/barbers/barbers-gallery/can.png";
 import LeonGallery from "@/assets/web/barbers/barbers-gallery/leon.png";
 import EnisGallery from "@/assets/web/barbers/barbers-gallery/enis.png";
 import KostaGallery from "@/assets/web/barbers/barbers-gallery/kosta.png";
+import StevanGallery from "@/assets/web/barbers/barbers-gallery/stevan.webp";
 
 // CTA Button SVGs - Barber-specific
 import AmirCTA from "@/assets/web/barbers/cta-button/amir.svg";
@@ -264,6 +266,13 @@ export default function Home() {
       landing: false,
       slug: "kosta",
     },
+    {
+      svg: Stevan,
+      thumbnail: StevanGallery,
+      link: generateRoute("/stevan"),
+      landing: false,
+      slug: "stevan",
+    },
   ];
 
   // CTA Button mapping for each barber, keyed by slug.
@@ -318,6 +327,7 @@ export default function Home() {
       leon: ["LEON"],
       enis: ["ENIS"],
       kosta: ["KOSTA"],
+      stevan: ["STEVAN"],
     };
 
     const fetchPrices = async () => {

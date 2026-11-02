@@ -27,6 +27,7 @@ import Can from "@/assets/web/barbers/booking-list/can-book.png";
 import Leon from "@/assets/web/barbers/booking-list/leon-book.png";
 import EnisBook from "@/assets/web/barbers/booking-list/enis-book.jpeg";
 import Kosta from "@/assets/web/barbers/booking-list/kosta-book.jpeg";
+import Stevan from "@/assets/web/barbers/booking-list/stevan-book.webp";
 import LineBottomBorder from "@/assets/book/line-bottom-border.svg";
 import InstagramIcon from "@/assets/book/mdi_instagram.svg";
 // import Hero from "@/assets/web/home/hero.svg";
@@ -46,6 +47,7 @@ const barberImages: { [key: string]: string } = {
   LEON: Leon,
   ENIS: EnisBook,
   KOSTA: Kosta,
+  STEVAN: Stevan,
   // MUSTAFA: Hero,
 };
 
@@ -107,6 +109,7 @@ const BookList = () => {
         "LEON",
         "ENIS",
         "KOSTA",
+        "STEVAN",
         "ANTHONY",
         "CHRISTOS",
         "WYATT",
