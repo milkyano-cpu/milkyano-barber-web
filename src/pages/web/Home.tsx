@@ -473,7 +473,7 @@ export default function Home() {
           width={500}
           height={500}
           src={BgHero2}
-          className="top-0 absolute w-full h-full object-cover -z-10"
+          className="top-0 absolute w-full h-full object-cover -z-10 scale-[1.02] blur-[2px]"
         />
         <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-white/25 via-white/55 to-[#f5f5f3]" />
         <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
