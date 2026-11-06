@@ -28,7 +28,7 @@ const LandingHeader: React.FC = () => {
         <nav className='hidden md:block'>
           <ul className="flex">
             <li>
-              <Button variant={"ghost"} className="border border-[#24FF00] rounded-full py-6 px-8 text-md uppercase  font-black transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-m,d hover:shadow-[#44813a] hover:text-stone-950">Book Now</Button>
+              <Button variant={"ghost"} className="border border-white rounded-full py-6 px-8 text-md uppercase  font-black transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-white hover:shadow-m,d hover:shadow-[#737373] hover:text-stone-950">Book Now</Button>
             </li>
           </ul>
         </nav>

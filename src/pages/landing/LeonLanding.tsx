@@ -151,7 +151,7 @@ export default function LeonLanding() {
                 WebkitBackdropFilter: "blur(16px) contrast(100%)",
               }}
             >
-              <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-[#42FF00] tracking-wider">
+              <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-white tracking-wider">
                 Hi, I&apos;m Leon
               </h2>
               <h2 className="text-xl font-bold mb-4">
@@ -221,7 +221,7 @@ export default function LeonLanding() {
 
         <section className="container relative z-10 text-stone-50 pt-0 py-12">
           <div className="relative z-10">
-            <h3 className="text-4xl md:text-6xl font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">
+            <h3 className="text-4xl md:text-6xl font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-white via-[#FFFFFF] to-white bg-clip-text">
               What Our Clients Say
             </h3>
             <div className="py-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4">
@@ -237,7 +237,7 @@ export default function LeonLanding() {
             <div className="flex gap-10 justify-center items-center flex-col w-full">
               <Button
                 variant={"ghost"}
-                className="border border-[#00FF1A] rounded-full font-extrabold font-poppins px-12 py-10 uppercase text-xl md:text-3xl transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a]"
+                className="border border-white rounded-full font-extrabold font-poppins px-12 py-10 uppercase text-xl md:text-3xl transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-white hover:shadow-md hover:text-stone-950 hover:shadow-[#737373]"
               >
                 {generateLink("BOOK NOW")}
               </Button>

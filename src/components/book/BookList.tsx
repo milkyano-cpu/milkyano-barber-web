@@ -337,8 +337,8 @@ const BookList = () => {
   };
 
   return (
-    <section className="relative bg-[#010401] min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-[#1CFF21] md:border-b-0">
+    <section className="relative bg-[#090909] min-h-screen">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-white md:border-b-0">
         <Link to="/home">
           <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
         </Link>
@@ -357,10 +357,10 @@ const BookList = () => {
                 <div className="flex flex-col md:grid md:grid-cols-[380px,1fr] gap-6 md:gap-12">
                   {/* Barber Image Section */}
                   <div className="relative">
-                    {/* Mobile: Card with green border and info overlay */}
+                    {/* Mobile: Card with white border and info overlay */}
                     <div className="md:hidden w-[85%] mx-auto relative">
-                      {/* Green border container with curved bottom */}
-                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-[#1CFF21]">
+                      {/* White border container with curved bottom */}
+                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-white">
                         <div className="relative rounded-[20px] overflow-hidden bg-black">
                         {/* Image */}
                         <div className="aspect-[1/1] overflow-hidden">
@@ -371,8 +371,8 @@ const BookList = () => {
                           />
                         </div>
 
-                        {/* Info section with green background at bottom */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-[#063307]/80 px-5 py-4 rounded-b-[18px]">
+                        {/* Info section with neutral background at bottom */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-[#262626]/80 px-5 py-4 rounded-b-[18px]">
                           <h2 className="text-[32px] font-extrabold font-inter text-white uppercase mb-1.5">
                             {item.barber.display_name.split(" ")[0]}
                           </h2>
@@ -388,7 +388,7 @@ const BookList = () => {
                               </p>
                             </div>
                             {isAvailableNow(item.barber.display_name) && (
-                              <span className="text-xs text-[#00FF00] border border-[#00FF00] px-2 py-1 rounded-full">
+                              <span className="text-xs text-white border border-white px-2 py-1 rounded-full">
                                 Available Now
                               </span>
                             )}
@@ -407,10 +407,10 @@ const BookList = () => {
                       </div>
                     </div>
 
-                    {/* Desktop: Card with green border and info overlay (same as mobile) */}
+                    {/* Desktop: Card with white border and info overlay (same as mobile) */}
                     <div className="hidden md:block w-[380px] mx-auto relative">
-                      {/* Green border container with curved bottom */}
-                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-[#1CFF21]">
+                      {/* White border container with curved bottom */}
+                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-white">
                         <div className="relative rounded-[20px] overflow-hidden bg-black">
                           {/* Image */}
                           <div className="aspect-[3/4] overflow-hidden">
@@ -421,8 +421,8 @@ const BookList = () => {
                             />
                           </div>
 
-                          {/* Info section with green background at bottom */}
-                          <div className="absolute bottom-0 left-0 right-0 bg-[#063307]/80 px-5 py-4 rounded-b-[18px]">
+                          {/* Info section with neutral background at bottom */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-[#262626]/80 px-5 py-4 rounded-b-[18px]">
                             <h2 className="text-[32px] font-extrabold font-inter text-white uppercase mb-1.5">
                               {item.barber.display_name.split(" ")[0]}
                             </h2>
@@ -438,7 +438,7 @@ const BookList = () => {
                                 </p>
                               </div>
                               {isAvailableNow(item.barber.display_name) && (
-                                <span className="text-xs text-[#00FF00] border border-[#00FF00] px-2 py-1 rounded-full">
+                                <span className="text-xs text-white border border-white px-2 py-1 rounded-full">
                                   Available Now
                                 </span>
                               )}
@@ -468,7 +468,7 @@ const BookList = () => {
                         onClick={() =>
                           toggleBarberServices(item.barber.team_member_id)
                         }
-                        className="hidden md:flex w-full bg-black hover:bg-zinc-900 text-white justify-between h-14 md:h-16 py-4 md:py-5 border border-[#1CFF21] rounded-lg"
+                        className="hidden md:flex w-full bg-black hover:bg-zinc-900 text-white justify-between h-14 md:h-16 py-4 md:py-5 border border-white rounded-lg"
                       >
                         <span className="flex items-center gap-3">
                           <span className="text-lg md:text-xl font-semibold">View Services</span>
@@ -488,7 +488,7 @@ const BookList = () => {
                         {item.services.map((service) => (
                           <div
                             key={service.id}
-                            className="bg-zinc-900/30 p-3 flex flex-col gap-2 border border-[#1CFF21] rounded-lg"
+                            className="bg-zinc-900/30 p-3 flex flex-col gap-2 border border-white rounded-lg"
                           >
                             <div className="flex-1">
                               <h3 className="text-white text-xs font-bold font-inter text-center">
@@ -514,7 +514,7 @@ const BookList = () => {
                           {item.services.map((service) => (
                             <div
                               key={service.id}
-                              className="bg-black border-b border-[#1CFF21]"
+                              className="bg-black border-b border-white"
                             >
                               <div className="flex flex-col md:flex-row md:items-center gap-4 p-4 md:py-6 md:pl-6 md:pr-0">
                                 <div className="flex-1 md:min-w-0">

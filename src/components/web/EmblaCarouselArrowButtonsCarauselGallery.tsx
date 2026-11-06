@@ -91,8 +91,8 @@ export const PrevButton = React.forwardRef<HTMLButtonElement, PropType>((props, 
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_566_432" result="shape" />
                     </filter>
                     <linearGradient id="paint0_linear_566_432" x1="23" y1="34.5" x2="55" y2="34.5" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#00FF0A" />
-                        <stop offset="1" stop-color="#16A613" />
+                        <stop stop-color="#FFFFFF" />
+                        <stop offset="1" stop-color="#FFFFFF" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -131,8 +131,8 @@ export const NextButton = React.forwardRef<HTMLButtonElement, PropType>((props, 
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_566_433" result="shape" />
                     </filter>
                     <linearGradient id="paint0_linear_566_433" x1="55" y1="35.5" x2="23" y2="35.5" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#00FF0A" />
-                        <stop offset="1" stop-color="#16A613" />
+                        <stop stop-color="#FFFFFF" />
+                        <stop offset="1" stop-color="#FFFFFF" />
                     </linearGradient>
                 </defs>
             </svg>

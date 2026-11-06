@@ -101,7 +101,7 @@ export default function Contacts() {
         <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
           <div className="flex flex-col mb-12">
             <h2>HAVE SOME</h2>
-            <h2 className="text-[#33FF00]">QUESTIONS?</h2>
+            <h2 className="text-white">QUESTIONS?</h2>
           </div>
 
           <svg
@@ -112,7 +112,7 @@ export default function Contacts() {
           >
             <path
               d="M50.582 0.216618L54.9987 4.63745L30.9279 28.7166C30.5422 29.1048 30.0835 29.4128 29.5783 29.623C29.0731 29.8332 28.5313 29.9414 27.9841 29.9414C27.4369 29.9414 26.8951 29.8332 26.3899 29.623C25.8847 29.4128 25.4261 29.1048 25.0404 28.7166L0.957032 4.63745L5.3737 0.220782L27.9779 22.8208L50.582 0.216618Z"
-              fill="#33FF00"
+              fill="#FFFFFF"
             />
           </svg>
         </div>
@@ -129,8 +129,8 @@ export default function Contacts() {
                 <Spinner />
               ) : status === "succeeded" ? (
                 <div className="flex justify-center items-center p-4  md:p-12 animate-scaleIn">
-                  <div className="p-1  rounded-full border border-[#24FF00]">
-                    <Check className="h-24 w-auto md:h-24 md:w-24 text-[#24FF00] " />
+                  <div className="p-1  rounded-full border border-white">
+                    <Check className="h-24 w-auto md:h-24 md:w-24 text-white " />
                   </div>
                 </div>
               ) : status === "failed" ? (
@@ -164,7 +164,7 @@ export default function Contacts() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="Johnathan"
                         {...field}
                       />
@@ -185,7 +185,7 @@ export default function Contacts() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="Doe"
                         {...field}
                       />
@@ -206,7 +206,7 @@ export default function Contacts() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="mail@fade.com"
                         {...field}
                       />
@@ -227,7 +227,7 @@ export default function Contacts() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="+12555"
                         {...field}
                       />
@@ -249,7 +249,7 @@ export default function Contacts() {
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                          className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                           placeholder="Type Here..."
                           {...field}
                         />
@@ -269,7 +269,7 @@ export default function Contacts() {
           </Form>
         </div>
 
-        <div className="flex flex-col gap-4 md:w-1/2 items-center md:border-l-2 border-[#114330]">
+        <div className="flex flex-col gap-4 md:w-1/2 items-center md:border-l-2 border-[#404040]">
           <h3>OR GET IN TOUCH BY</h3>
 
           <div className="flex flex-col gap-6">
@@ -281,7 +281,7 @@ export default function Contacts() {
               style={{
                 backgroundColor: hoveredButton === 'email' ? "transparent" : "#19181E",
                 backgroundImage: hoveredButton === 'email'
-                  ? "linear-gradient(to left, #33FF00, #187700)"
+                  ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
                   : "none",
                 border: "none",
                 outline: hoveredButton === 'email' ? "none" : "2px solid white",
@@ -289,8 +289,8 @@ export default function Contacts() {
                 color: hoveredButton === 'email' ? "#19181E" : "#F0F0F0",
                 fontWeight: hoveredButton === 'email' ? 700 : 600,
                 boxShadow: hoveredButton === 'email'
-                  ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-                  : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+                  ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+                  : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
               }}
             >
               <svg
@@ -339,7 +339,7 @@ export default function Contacts() {
               style={{
                 backgroundColor: hoveredButton === 'phone' ? "transparent" : "#19181E",
                 backgroundImage: hoveredButton === 'phone'
-                  ? "linear-gradient(to left, #33FF00, #187700)"
+                  ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
                   : "none",
                 border: "none",
                 outline: hoveredButton === 'phone' ? "none" : "2px solid white",
@@ -347,8 +347,8 @@ export default function Contacts() {
                 color: hoveredButton === 'phone' ? "#19181E" : "#F0F0F0",
                 fontWeight: hoveredButton === 'phone' ? 700 : 600,
                 boxShadow: hoveredButton === 'phone'
-                  ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-                  : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+                  ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+                  : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
               }}
             >
               <svg
@@ -393,7 +393,7 @@ export default function Contacts() {
               style={{
                 backgroundColor: hoveredButton === 'instagram' ? "transparent" : "#19181E",
                 backgroundImage: hoveredButton === 'instagram'
-                  ? "linear-gradient(to left, #33FF00, #187700)"
+                  ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
                   : "none",
                 border: "none",
                 outline: hoveredButton === 'instagram' ? "none" : "2px solid white",
@@ -401,8 +401,8 @@ export default function Contacts() {
                 color: hoveredButton === 'instagram' ? "#19181E" : "#F0F0F0",
                 fontWeight: hoveredButton === 'instagram' ? 700 : 600,
                 boxShadow: hoveredButton === 'instagram'
-                  ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-                  : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+                  ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+                  : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
               }}
             >
               <svg

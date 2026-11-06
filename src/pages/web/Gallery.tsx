@@ -86,7 +86,7 @@ export default function GalleriesPage() {
           <div className="w-full md:w-10/12 flex flex-col justify-end md:pb-24 h-full">
             <h3 className="text-3xl md:text-4xl font-extrabold tracking-wider flex flex-col  md:gap-2 text-center md:text-right">
               <span>BE OUR NEXT</span>
-              <span className="text-transparent bg-[#33FF00] bg-clip-text">
+              <span className="text-transparent bg-white bg-clip-text">
                 MASTERPIECE
               </span>
             </h3>
@@ -106,9 +106,9 @@ export default function GalleriesPage() {
         </section>
 
         <div className=" w-full flex justify-center py-12 relative">
-          <div className="h-40 w-[1px] bg-[#086600] z-0" />
+          <div className="h-40 w-[1px] bg-white z-0" />
           <motion.div
-            className="absolute h-[18rem] w-[2px] bg-gradient-to-b from-[#096601] to-[#15ff00] shadow-[0px_0px_70px_2px_#15ff00] origin-top z-10"
+            className="absolute h-[18rem] w-[2px] bg-gradient-to-b from-white to-white shadow-[0px_0px_70px_2px_#FFFFFF] origin-top z-10"
             style={{ scaleY }}
           />
         </div>
@@ -119,7 +119,7 @@ export default function GalleriesPage() {
               <h3 className="text-2xl md:text-3xl tracking-wider font-extrabold w-full md:w-1/3 mx-auto font-poppins">
                 WE’VE DONE ALL
                 <br />
-                <span className="text-transparent bg-[#33FF00] bg-clip-text">
+                <span className="text-transparent bg-white bg-clip-text">
                   YOU EVER NEED
                 </span>
               </h3>

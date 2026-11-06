@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
           <h3>
             {" "}
             Privacy Policy for <br />{" "}
-            <span className="text-transparent bg-gradient-to-r from-[#42FF00]  to-[#79FF86] bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-white  to-white bg-clip-text">
               Fadedlines Barbershop
             </span>
           </h3>

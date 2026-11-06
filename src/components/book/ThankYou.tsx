@@ -225,7 +225,7 @@ const ThankYouPage = () => {
   }
 
   return (
-    <section className='relative bg-[#010401] flex flex-col p-4 py-32 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0'>
+    <section className='relative bg-[#090909] flex flex-col p-4 py-32 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0'>
       <div className='flex flex-col justify-center items-center absolute left-6 top-6'>
         <Link to={'/home'}>
           <Logo className='w-48 md:w-[12rem] h-auto opacity-90 ' />
@@ -270,8 +270,8 @@ const ThankYouPage = () => {
             <p className='font-extralight'>Your Appointment is Coming Up</p>
           </div>
           <div className='relative  h-8 w-full px-4'>
-            <hr className='absolute top-0 left-0  w-[15rem] h-[3px] bg-[#42FF00] transform  z-10' />
-            <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-[#038101] z-0 opacity-50' />
+            <hr className='absolute top-0 left-0  w-[15rem] h-[3px] bg-white transform  z-10' />
+            <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-white z-0 opacity-50' />
           </div>
         </section>
         <section className='flex flex-col gap-12 mx-auto w-full md:w-8/12'>
@@ -291,32 +291,32 @@ const ThankYouPage = () => {
               </div>
             </div>
             <div className='rounded-b-xl px-4 pt-10 pb-4 border border-stone-400'>
-              <Button className=' w-full text-xl bg-[#036901] text-stone-50 h-fit py-4 rounded-xl font-light'>
+              <Button className=' w-full text-xl bg-white text-black h-fit py-4 rounded-xl font-light'>
                 Add to Calendar
               </Button>
               <div className='grid grid-cols-3 py-2 gap-x-4 pt-4'>
                 <div className='text-center flex flex-col text-xs gap-3 items-center justify-center'>
                   <Button
                     onClick={() => setDialog(true)}
-                    className=' w-full bg-[#036901] text-stone-50 h-fit py-4 rounded-xl font-light'
+                    className=' w-full bg-white text-black h-fit py-4 rounded-xl font-light'
                   >
-                    <ClockHistory className='text-stone-50 w-6 h-auto' />
+                    <ClockHistory className='text-black w-6 h-auto' />
                   </Button>
                   Reschedule
                 </div>
                 <div className='text-center flex flex-col text-xs gap-3 items-center justify-center'>
                   <Button
                     onClick={() => setDialog(true)}
-                    className=' w-full bg-[#036901] text-stone-50 h-fit py-4 rounded-xl font-light'
+                    className=' w-full bg-white text-black h-fit py-4 rounded-xl font-light'
                   >
-                    <XCircleFill className='text-stone-50 w-6 h-auto' />
+                    <XCircleFill className='text-black w-6 h-auto' />
                   </Button>
                   Cancel
                 </div>
                 <div className='text-center flex flex-col text-xs gap-3 items-center justify-center'>
                   <Link to={'/barbers'} className='w-full h-full'>
-                    <Button className=' w-full bg-[#036901] text-stone-50 h-fit py-4 rounded-xl font-light'>
-                      <ReplyFill className='text-stone-50 w-6 h-auto' />
+                    <Button className=' w-full bg-white text-black h-fit py-4 rounded-xl font-light'>
+                      <ReplyFill className='text-black w-6 h-auto' />
                     </Button>
                   </Link>
                   Rebook
@@ -366,7 +366,7 @@ const ThankYouPage = () => {
                   Cancellation Policy
                 </h3>
                 <div className='flex flex-col gap-4 relative'>
-                  <h4 className='text-xs md:text-md relative right-[-55%] lg:right-[-60%] font-light text-stone-950 bg-[#04C600] rounded-full w-fit px-4 py-1 opacity-90 flex gap-1'>
+                  <h4 className='text-xs md:text-md relative right-[-55%] lg:right-[-60%] font-light text-stone-950 bg-white rounded-full w-fit px-4 py-1 opacity-90 flex gap-1'>
                     Cancel Before
                     <span>
                       {dateObject.dayName}, {dateObject.monthName}{' '}
@@ -382,7 +382,7 @@ const ThankYouPage = () => {
                   {dateObject.dayName}, {dateObject.monthName} {dateObject.day}
                 </span>
                 . After that, you may be charged a cancellation fee.{' '}
-                <a className='text-[#04C600] underline'>See full policy</a>
+                <a className='text-white underline'>See full policy</a>
               </p>
             </div>
           </div>

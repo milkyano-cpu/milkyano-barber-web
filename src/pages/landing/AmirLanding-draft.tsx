@@ -205,7 +205,7 @@ export default function AaronLanding() {
                 WebkitBackdropFilter: "blur(16px) contrast(100%)",
               }}
             >
-              <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-[#42FF00] tracking-wider">
+              <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-white tracking-wider">
                 Hi, I&apos;m Amir
               </h2>
               <h2 className="text-xl font-bold mb-4">
@@ -270,9 +270,9 @@ export default function AaronLanding() {
               [@amir.blendz_]
             </p>
 
-            {/* Green Divider Line */}
+            {/* White Divider Line */}
             <div className="w-full mb-6 md:mb-8">
-              <div className="h-[2px] bg-[#42FF00]"></div>
+              <div className="h-[2px] bg-white"></div>
             </div>
 
             {/* Gallery Grid - 2x3 Thumbnails */}
@@ -283,7 +283,7 @@ export default function AaronLanding() {
                   onClick={(e) => handleThumbnailClick(index, e)}
                   className={`aspect-square overflow-hidden rounded-lg bg-stone-800 transition-all duration-200 cursor-pointer ${
                     selectedImage === index
-                      ? "ring-4 ring-[#42FF00] scale-95"
+                      ? "ring-4 ring-white scale-95"
                       : "hover:opacity-80 hover:scale-105"
                   }`}
                 >
@@ -301,7 +301,7 @@ export default function AaronLanding() {
             <div className="flex justify-center mt-12">
               <Button
                 variant={"ghost"}
-                className="border border-[#00FF19] px-8 md:px-12 py-6 md:py-8 text-lg md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a]"
+                className="border border-white px-8 md:px-12 py-6 md:py-8 text-lg md:text-2xl font-bold font-poppins rounded-full transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-white hover:shadow-md hover:text-stone-950 hover:shadow-[#737373]"
               >
                 {generateLink("BOOK NOW")}
               </Button>
@@ -339,7 +339,7 @@ export default function AaronLanding() {
         </section>
         {/* <section className="container relative z-10 text-stone-50 pt-0 py-12 ">
           <div className="relative z-10">
-            <h3 className=" text-4xl md:text-6xl  font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">
+            <h3 className=" text-4xl md:text-6xl  font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-white via-[#FFFFFF] to-white bg-clip-text">
               Our Videos
             </h3>
             <p className="text-center text-lg w-10/12 md:w-full mx-auto">
@@ -355,7 +355,7 @@ export default function AaronLanding() {
             <div className="flex gap-10 justify-center items-center flex-col w-full ">
               <Button
                 variant={"ghost"}
-                className="border border-[#00FF1A] rounded-full font-extrabold font-poppins px-12 py-10 uppercase  text-xl md:text-3xl transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a] "
+                className="border border-white rounded-full font-extrabold font-poppins px-12 py-10 uppercase  text-xl md:text-3xl transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-white hover:shadow-md hover:text-stone-950 hover:shadow-[#737373] "
               >
                 {generateLink("BOOK NOW")}
               </Button>
@@ -371,7 +371,7 @@ export default function AaronLanding() {
         </section> */}
 
         <section className="container mx-auto px-6 sm:px-6 lg:px-8 py-12 text-stone-50 rounded-lg relative z-10 flex flex-col justify-center items-center">
-          <h4 className="text-4xl md:text-7xl my-6 md:my-12 uppercase   items-center justify-center text-center font-extrabold text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">
+          <h4 className="text-4xl md:text-7xl my-6 md:my-12 uppercase   items-center justify-center text-center font-extrabold text-transparent bg-gradient-to-r from-white via-[#FFFFFF] to-white bg-clip-text">
             Reviews
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -387,7 +387,7 @@ export default function AaronLanding() {
           </div>
           <Button
             variant={"ghost"}
-            className="border border-[#00FF19] px-12 py-8 text-2xl font-bold font-poppins rounded-full my-24 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a] "
+            className="border border-white px-12 py-8 text-2xl font-bold font-poppins rounded-full my-24 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-white hover:shadow-md hover:text-stone-950 hover:shadow-[#737373] "
           >
             {generateLink("LIMITED SLOT ONLY!")}
           </Button>
@@ -406,7 +406,7 @@ export default function AaronLanding() {
             <h3 className="text-3xl md:text-4xl font-black font-poppins w-10/12 tracking-wider leading-[3rem] md:leading-10  mt-4 mb-12 uppercase">
               Book an Appoinment Now.
               <br className="hidden md:block" />
-              <span className="text-[#24FF00]">LIMITED </span>
+              <span className="text-white">LIMITED </span>
               SLOT ONLY!
             </h3>
             <div className="flex justify-center items-center text-center flex-col  ">
@@ -416,7 +416,7 @@ export default function AaronLanding() {
               <div className="flex flex-col md:flex-row gap-2 py-4 uppercase">
                 <Button
                   variant={"ghost"}
-                  className="border border-stone-400 rounded-full uppercase px-12 py-6 bg-[#1ABC00]/5 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:shadow-lg hover:shadow-stone-800 hover:bg-[#24FF00] hover:text-stone-950"
+                  className="border border-stone-400 rounded-full uppercase px-12 py-6 bg-white/5 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:shadow-lg hover:shadow-stone-800 hover:bg-white hover:text-stone-950"
                 >
                   {generateLink("BOOK NOW")}
                 </Button>

@@ -25,7 +25,7 @@ export default function BookNowButton({
       style={{
         backgroundColor: isHovered ? "transparent" : "#19181E",
         backgroundImage: isHovered
-          ? "linear-gradient(to left, #33FF00, #187700)"
+          ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
           : "none",
         border: "none",
         outline: isHovered ? "none" : "2px solid white",
@@ -33,8 +33,8 @@ export default function BookNowButton({
         color: isHovered ? "#19181E" : "#F0F0F0",
         fontWeight: isHovered ? 700 : 600,
         boxShadow: isHovered
-          ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-          : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+          ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+          : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
       }}
     >
       {children}

@@ -71,13 +71,13 @@ function Calendar({
           day: cn(
             buttonVariants({ variant: "ghost" }),
             "h-full w-full p-0 font-normal aria-selected:opacity-100",
-            "bg-transparent text-[#33FF00] hover:bg-white hover:text-black border-2 border-[#33FF00]",
+            "bg-transparent text-white hover:bg-white hover:text-black border-2 border-white",
             "aria-selected:bg-white aria-selected:text-black"
           ),
           day_range_end: "day-range-end",
           day_selected:
             "!bg-white !text-black hover:!bg-white hover:!text-black focus:!bg-white focus:!text-black border-2 border-gray-400",
-          day_today: "bg-transparent text-[#33FF00] font-bold border-4 border-[#33FF00]",
+          day_today: "bg-transparent text-white font-bold border-4 border-white",
           day_outside:
             "day-outside text-muted-foreground opacity-30 bg-transparent hover:bg-transparent aria-selected:bg-transparent",
           day_disabled: "bg-transparent text-red-400 opacity-90 cursor-not-allowed hover:bg-white hover:text-black border-2 border-red-400",

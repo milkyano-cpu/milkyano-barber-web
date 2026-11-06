@@ -219,7 +219,7 @@ const BookAppointment = () => {
   const timesOfDayWithAppointments = updateTimesOfDayWithAppointments();
 
   return (
-    <section className="relative bg-[#010401] flex flex-col p-4 py-12 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0"  >
+    <section className="relative bg-[#090909] flex flex-col p-4 py-12 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0"  >
       <div className='flex flex-col justify-center items-center absolute left-6 top-6'>
         <Link to={"/home"}  >
           <Logo className='w-48 md:w-[12rem] h-auto opacity-90 ' />
@@ -232,8 +232,8 @@ const BookAppointment = () => {
           <>
             <section className='grid grid-cols-1 md:grid-cols-3 gap-4 relative z-40 w-full pt-12 md:pt-0'>
               <div className='absolute top-24 md:top-12 h-8 w-full px-4'>
-                <hr className='absolute top-0 left-0 w-[10rem] h-[3px] bg-[#42FF00] transform  z-10' />
-                <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-[#038101] z-0 opacity-50' />
+                <hr className='absolute top-0 left-0 w-[10rem] h-[3px] bg-white transform  z-10' />
+                <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-white z-0 opacity-50' />
               </div>
               <div className='col-span-2'>
                 <Calendar

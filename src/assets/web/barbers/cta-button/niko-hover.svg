@@ -10,18 +10,18 @@
 <feOffset dy="4"/>
 <feGaussianBlur stdDeviation="15"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.2 0 0 0 0 1 0 0 0 0 0 0 0 0 0.4 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0"/>
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_13_38"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="5"/>
 <feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.070012 0 0 0 0 0.35006 0 0 0 0 0 0 0 0 1 0"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.35006 0 0 0 0 0.35006 0 0 0 0 0.35006 0 0 0 1 0"/>
 <feBlend mode="normal" in2="effect1_dropShadow_13_38" result="effect2_dropShadow_13_38"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_13_38" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_13_38" x1="295" y1="58" x2="30" y2="58" gradientUnits="userSpaceOnUse">
-<stop stop-color="#33FF00"/>
-<stop offset="1" stop-color="#187700"/>
+<stop stop-color="#FFFFFF"/>
+<stop offset="1" stop-color="#D4D4D4"/>
 </linearGradient>
 </defs>
 </svg>

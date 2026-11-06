@@ -391,7 +391,7 @@ const BookContactInfo = () => {
   });
 
   return (
-    <section className='relative bg-[#010401] flex flex-col p-4 py-12 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0'>
+    <section className='relative bg-[#090909] flex flex-col p-4 py-12 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0'>
       <div className='flex flex-col justify-center items-center absolute left-6 top-6'>
         <Link to={'/home'}>
           <Logo className='w-48 md:w-[12rem] h-auto opacity-90 ' />
@@ -419,8 +419,8 @@ const BookContactInfo = () => {
                 <Spinner />
               ) : status === 'succeeded' ? (
                 <div className='flex justify-center items-center p-4  md:p-12 animate-scaleIn'>
-                  <div className='p-1  rounded-full border border-[#24FF00]'>
-                    <Check className='h-24 w-auto md:h-24 md:w-24 text-[#24FF00] ' />
+                  <div className='p-1  rounded-full border border-white'>
+                    <Check className='h-24 w-auto md:h-24 md:w-24 text-white ' />
                   </div>
                 </div>
               ) : status === 'failed' ? (
@@ -444,8 +444,8 @@ const BookContactInfo = () => {
             </p>
           </div>
           <div className='relative  h-8 w-full px-4'>
-            <hr className='absolute top-0 left-1/2 -translate-x-1/2 w-[15rem] h-[3px] bg-[#42FF00] transform  z-10' />
-            <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-[#038101] z-0 opacity-50' />
+            <hr className='absolute top-0 left-1/2 -translate-x-1/2 w-[15rem] h-[3px] bg-white transform  z-10' />
+            <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-white z-0 opacity-50' />
           </div>
         </div>
 
@@ -478,7 +478,7 @@ const BookContactInfo = () => {
                     </FormItem>
                   )}
                 />
-                <hr className='h-[2px] opacity-50 bg-[#048301] w-full my-6' />
+                <hr className='h-[2px] opacity-50 bg-white w-full my-6' />
                 <div className='grid grid-cols-2 gap-4 w-full justify-between z-50'>
                   <FormField
                     control={form.control}
@@ -531,7 +531,7 @@ const BookContactInfo = () => {
                     )}
                   />
                 </div>
-                <hr className='h-[2px] opacity-50 bg-[#048301] w-full my-6' />
+                <hr className='h-[2px] opacity-50 bg-white w-full my-6' />
                 <div className='flex justify-between'>
                   <h3>Appointment Note</h3>
                   <h3 onClick={handleAddClick} className='cursor-pointer'>
@@ -561,14 +561,14 @@ const BookContactInfo = () => {
                   )}
                 </div>
 
-                <hr className='h-[2px] opacity-50 bg-[#048301] w-full my-6' />
+                <hr className='h-[2px] opacity-50 bg-white w-full my-6' />
                 <div className='flex flex-col gap-8 text-sm'>
                   <div>
                     <h3 className='font-medium text-base'>
                       Cancellation Policy
                     </h3>
                     <div className='flex flex-col gap-4 relative'>
-                      <h4 className='text-xs relative right-[-10rem] md:right-[-28rem] font-light text-stone-950 bg-[#04C600] rounded-full w-fit px-4 py-1 opacity-90'>
+                      <h4 className='text-xs relative right-[-10rem] md:right-[-28rem] font-light text-stone-950 bg-white rounded-full w-fit px-4 py-1 opacity-90'>
                         Cancel Before {dateObject.day} {dateObject.monthName}
                       </h4>
                       <img src={CancelationBar} alt='cancel before' />
@@ -578,7 +578,7 @@ const BookContactInfo = () => {
                     Please cancel or reschedule before {cancelTime} on{' '}
                     {dateObject.time}. After that, you may be charged a
                     cancellation fee.{' '}
-                    <a className='text-[#04C600] underline'>See full policy</a>
+                    <a className='text-white underline'>See full policy</a>
                   </p>
                   <div className='flex items-center space-x-2'>
                     <input
@@ -656,7 +656,7 @@ const BookContactInfo = () => {
                 variant={'ghost'}
                 type='submit'
                 disabled={!isChecked}
-                className=' w-full bg-[#036901] mt-10 h-fit py-4 rounded-xl font-light'
+                className=' w-full bg-white mt-10 h-fit py-4 rounded-xl font-light'
               >
                 Book an Appointement
               </Button>
