@@ -11,21 +11,22 @@ import image10 from "@/assets/our-works/10.png";
 import image11 from "@/assets/our-works/11.png";
 import image12 from "@/assets/our-works/12.png";
 
+const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12];
+
 const CarauselGallery = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 justify-center items-center gap-y-4 md:gap-10 max-w-screen-lg self-center mt-10">
-      <img src={image1} width={500} height={500} alt="" />
-      <img src={image2} width={500} height={500} alt="" />
-      <img src={image3} width={500} height={500} alt="" />
-      <img src={image4} width={500} height={500} alt="" />
-      <img src={image5} width={500} height={500} alt="" />
-      <img src={image6} width={500} height={500} alt="" />
-      <img src={image7} width={500} height={500} alt="" />
-      <img src={image8} width={500} height={500} alt="" />
-      <img src={image9} width={500} height={500} alt="" />
-      <img src={image10} width={500} height={500} alt="" />
-      <img src={image11} width={500} height={500} alt="" />
-      <img src={image12} width={500} height={500} alt="" />
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-screen-lg self-center mt-10 px-4 md:px-0">
+      {images.map((src, index) => (
+        <img
+          key={src}
+          src={src}
+          width={500}
+          height={500}
+          alt={`Barber work ${index + 1}`}
+          loading="lazy"
+          className="w-full aspect-square object-cover rounded-2xl border border-black/10 shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-transform duration-300 hover:scale-[1.02]"
+        />
+      ))}
     </div>
   );
 };

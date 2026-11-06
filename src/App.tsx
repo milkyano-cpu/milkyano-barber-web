@@ -6,7 +6,7 @@ import "@fontsource-variable/inter";
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme-light">
       <div className="App">
         <AppRoutes />
       </div>

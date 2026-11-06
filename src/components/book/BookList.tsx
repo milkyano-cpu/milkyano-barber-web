@@ -337,31 +337,31 @@ const BookList = () => {
   };
 
   return (
-    <section className="relative bg-[#090909] min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black px-6 py-4 flex justify-center md:justify-start border-b border-white md:border-b-0">
+    <section className="relative bg-[#f5f5f3] min-h-screen text-black">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md px-6 py-4 flex justify-center md:justify-start border-b border-black/10 shadow-sm">
         <Link to="/home">
-          <Logo className="w-48 md:w-[12rem] h-auto opacity-90" />
+          <Logo className="w-48 md:w-[12rem] h-auto" />
         </Link>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-24">
+      <div className="max-w-6xl mx-auto px-4 pt-32 pb-20 md:pt-36">
         {isLoading ? (
           <div className="flex flex-col items-center justify-center gap-6 min-h-[calc(100vh-12rem)] md:min-h-[calc(100vh-8rem)] md:pt-16">
-            <h3 className="text-xl font-bold text-white">Loading data...</h3>
+            <h3 className="text-xl font-bold text-black">Loading data...</h3>
             <Spinner />
           </div>
         ) : (
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-8 md:space-y-12">
             {barberServices?.data.map((item) => (
-              <div key={item.barber.team_member_id} className="relative">
-                <div className="flex flex-col md:grid md:grid-cols-[380px,1fr] gap-6 md:gap-12">
+              <div key={item.barber.team_member_id} className="relative rounded-[2rem] border border-black/10 bg-white p-4 pb-8 md:p-8 shadow-[0_16px_50px_rgba(0,0,0,0.06)]">
+                <div className="flex flex-col md:grid md:grid-cols-[380px,1fr] gap-7 md:gap-10">
                   {/* Barber Image Section */}
                   <div className="relative">
                     {/* Mobile: Card with white border and info overlay */}
-                    <div className="md:hidden w-[85%] mx-auto relative">
+                    <div className="md:hidden w-full sm:w-[85%] mx-auto relative">
                       {/* White border container with curved bottom */}
-                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-white">
-                        <div className="relative rounded-[20px] overflow-hidden bg-black">
+                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-black/20 shadow-md">
+                        <div className="relative rounded-[20px] overflow-hidden bg-white">
                         {/* Image */}
                         <div className="aspect-[1/1] overflow-hidden">
                           <img
@@ -372,8 +372,8 @@ const BookList = () => {
                         </div>
 
                         {/* Info section with neutral background at bottom */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-[#262626]/80 px-5 py-4 rounded-b-[18px]">
-                          <h2 className="text-[32px] font-extrabold font-inter text-white uppercase mb-1.5">
+                        <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-5 py-4 rounded-b-[18px]">
+                          <h2 className="text-[32px] font-extrabold font-inter text-black uppercase mb-1.5">
                             {item.barber.display_name.split(" ")[0]}
                           </h2>
                           <div className="flex items-center justify-between">
@@ -383,12 +383,12 @@ const BookList = () => {
                                 alt="Instagram"
                                 className="w-[14px] h-[14px]"
                               />
-                              <p className="text-[13px] font-medium font-inter text-white/90">
+                              <p className="text-[13px] font-medium font-inter text-black/90">
                                 {getInstagramHandle(item.barber.display_name)}
                               </p>
                             </div>
                             {isAvailableNow(item.barber.display_name) && (
-                              <span className="text-xs text-white border border-white px-2 py-1 rounded-full">
+                              <span className="text-xs text-black border border-black px-2 py-1 rounded-full">
                                 Available Now
                               </span>
                             )}
@@ -410,8 +410,8 @@ const BookList = () => {
                     {/* Desktop: Card with white border and info overlay (same as mobile) */}
                     <div className="hidden md:block w-[380px] mx-auto relative">
                       {/* White border container with curved bottom */}
-                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-white">
-                        <div className="relative rounded-[20px] overflow-hidden bg-black">
+                      <div className="relative rounded-[20px] overflow-visible ring-1 ring-black/20 shadow-md">
+                        <div className="relative rounded-[20px] overflow-hidden bg-white">
                           {/* Image */}
                           <div className="aspect-[3/4] overflow-hidden">
                             <img
@@ -422,8 +422,8 @@ const BookList = () => {
                           </div>
 
                           {/* Info section with neutral background at bottom */}
-                          <div className="absolute bottom-0 left-0 right-0 bg-[#262626]/80 px-5 py-4 rounded-b-[18px]">
-                            <h2 className="text-[32px] font-extrabold font-inter text-white uppercase mb-1.5">
+                          <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm px-5 py-4 rounded-b-[18px]">
+                            <h2 className="text-[32px] font-extrabold font-inter text-black uppercase mb-1.5">
                               {item.barber.display_name.split(" ")[0]}
                             </h2>
                             <div className="flex items-center justify-between">
@@ -433,12 +433,12 @@ const BookList = () => {
                                   alt="Instagram"
                                   className="w-[14px] h-[14px]"
                                 />
-                                <p className="text-[13px] font-medium font-inter text-white/90">
+                                <p className="text-[13px] font-medium font-inter text-black/90">
                                   {getInstagramHandle(item.barber.display_name)}
                                 </p>
                               </div>
                               {isAvailableNow(item.barber.display_name) && (
-                                <span className="text-xs text-white border border-white px-2 py-1 rounded-full">
+                                <span className="text-xs text-black border border-black px-2 py-1 rounded-full">
                                   Available Now
                                 </span>
                               )}
@@ -468,11 +468,11 @@ const BookList = () => {
                         onClick={() =>
                           toggleBarberServices(item.barber.team_member_id)
                         }
-                        className="hidden md:flex w-full bg-black hover:bg-zinc-900 text-white justify-between h-14 md:h-16 py-4 md:py-5 border border-white rounded-lg"
+                        className="hidden md:flex w-full bg-[#f5f5f3] hover:bg-[#eaeae7] text-black justify-between h-14 md:h-16 py-4 md:py-5 border border-black/15 rounded-xl"
                       >
                         <span className="flex items-center gap-3">
                           <span className="text-lg md:text-xl font-semibold">View Services</span>
-                          <span className="text-sm md:text-base text-gray-400">
+                          <span className="text-sm md:text-base text-stone-600">
                             {extractPriceRange(item.services)} AUD
                           </span>
                         </span>
@@ -484,17 +484,17 @@ const BookList = () => {
                       </Button>
 
                       {/* Mobile: 2-Column Grid - Always Visible */}
-                      <div className="md:hidden w-[85%] mx-auto grid grid-cols-2 gap-3">
+                      <div className="md:hidden w-full sm:w-[85%] mx-auto grid grid-cols-2 gap-3">
                         {item.services.map((service) => (
                           <div
                             key={service.id}
-                            className="bg-zinc-900/30 p-3 flex flex-col gap-2 border border-white rounded-lg"
+                            className="bg-[#f5f5f3] p-3 flex flex-col gap-2 border border-black/10 rounded-xl"
                           >
                             <div className="flex-1">
-                              <h3 className="text-white text-xs font-bold font-inter text-center">
+                              <h3 className="text-black text-xs font-bold font-inter text-center">
                                 {cleanDisplayName(service.item_data.name)}
                               </h3>
-                              <p className="text-zinc-400 text-xs mt-1 text-center">
+                              <p className="text-stone-600 text-xs mt-1 text-center">
                                 {getPriceDisplay(service, item.barber.display_name)}
                               </p>
                             </div>
@@ -514,14 +514,14 @@ const BookList = () => {
                           {item.services.map((service) => (
                             <div
                               key={service.id}
-                              className="bg-black border-b border-white"
+                              className="bg-white border-b border-black/10 last:border-b-0"
                             >
                               <div className="flex flex-col md:flex-row md:items-center gap-4 p-4 md:py-6 md:pl-6 md:pr-0">
                                 <div className="flex-1 md:min-w-0">
-                                  <h3 className="text-white text-base md:text-lg font-medium font-inter text-center md:text-left">
+                                  <h3 className="text-black text-base md:text-lg font-medium font-inter text-center md:text-left">
                                     {cleanDisplayName(service.item_data.name)}
                                   </h3>
-                                  <p className="text-zinc-400 text-sm mt-1 text-center md:text-left">
+                                  <p className="text-stone-600 text-sm mt-1 text-center md:text-left">
                                     {getPriceDisplay(service, item.barber.display_name)}
                                   </p>
                                 </div>

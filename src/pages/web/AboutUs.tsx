@@ -52,7 +52,7 @@ const SocialMediaLinks: React.FC = () => {
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-2xl text-white hover:text-white"
+          className="text-2xl text-black hover:text-black"
         >
           <item.icon className="w-8 h-auto" />
           <span className="sr-only">{item.name}</span>
@@ -64,7 +64,7 @@ const SocialMediaLinks: React.FC = () => {
 
 export default function AboutUs() {
   return (
-    <Layout>
+    <Layout gap="gap-20 md:gap-28">
       <Helmet>
         <title>About Us - Fadelines Barber Shop</title>
         <meta
@@ -81,7 +81,7 @@ export default function AboutUs() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="flex flex-col justify-center items-center relative pt-40">
+      <section className="flex min-h-[540px] flex-col justify-center items-center relative overflow-hidden pt-36 pb-24">
         <img
           alt="hero image"
           width={500}
@@ -89,10 +89,10 @@ export default function AboutUs() {
           src={BgHero2}
           className="top-0 absolute w-full h-full object-cover -z-10"
         />
-        <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-black/80 to-black" />
+        <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-white/30 via-white/60 to-white" />
         <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
           <div className="flex flex-col mb-12">
-            <h2 className="text-white">AWARD WINNING</h2>
+            <h2 className="text-black">AWARD WINNING</h2>
             <h2>BARBERSHOP</h2>
             <sub className="mt-6">
               55 PORTMAN ST; OAKLEIGH VIC 3166; AUSTRALIA
@@ -107,18 +107,18 @@ export default function AboutUs() {
           >
             <path
               d="M50.582 0.216618L54.9987 4.63745L30.9279 28.7166C30.5422 29.1048 30.0835 29.4128 29.5783 29.623C29.0731 29.8332 28.5313 29.9414 27.9841 29.9414C27.4369 29.9414 26.8951 29.8332 26.3899 29.623C25.8847 29.4128 25.4261 29.1048 25.0404 28.7166L0.957032 4.63745L5.3737 0.220782L27.9779 22.8208L50.582 0.216618Z"
-              fill="#FFFFFF"
+              fill="#111111"
             />
           </svg>
         </div>
       </section>
 
-      <section className="container flex flex-col md:flex-row">
+      <section className="container flex flex-col md:flex-row gap-8 md:gap-12 items-center">
         <div className="md:w-1/3">
           <img
             alt="background about us"
             src={AboutUsDejan1}
-            className="hover:scale-110 transform transition-transform ease-out duration-500 cursor-pointer delay-75"
+            className="rounded-2xl shadow-[0_18px_45px_rgba(0,0,0,0.14)] hover:scale-[1.02] transform transition-transform ease-out duration-500"
           />
         </div>
         <div className="md:w-max flex flex-col justify-center items-center">
@@ -127,7 +127,7 @@ export default function AboutUs() {
           <div className="flex flex-col md:flex-row gap-10 mt-10 md:mt-0 md:w-2/4">
             <h2 className="w-full">
               Hey, I'm <br />
-              <span className="text-white">Dejan</span>
+              <span className="text-black">Dejan</span>
             </h2>
             <p>
               Faded Lines Barbershop wants to bring convivence back into peoples
@@ -139,7 +139,7 @@ export default function AboutUs() {
       </section>
 
       <section className="container flex justify-center">
-        <div className="border border-[#404040] rounded-xl flex flex-col gap-6 md:gap-10 justify-center text-center items-center p-10 md:p-20 md:w-2/3">
+        <div className="border border-black/10 bg-[#eaeae7] rounded-[2rem] shadow-[0_16px_50px_rgba(0,0,0,0.06)] flex flex-col gap-6 md:gap-10 justify-center text-center items-center p-8 md:p-16 md:w-2/3">
           <svg
             width="60"
             height="51"
@@ -149,11 +149,11 @@ export default function AboutUs() {
           >
             <path
               d="M0.833496 0.5V9.65C3.46995 9.97708 5.72204 11.0115 7.58975 12.7542C9.34704 14.4979 10.721 16.7312 11.7095 19.4542C12.5877 22.0687 13.0272 24.901 13.0272 27.951H1.82308V50.5H24.8929V30.075C24.8929 23.5396 23.7939 18.2021 21.597 14.0625C19.2908 9.92292 16.3241 6.76354 12.6991 4.58542C9.07308 2.40625 5.11787 1.04375 0.833496 0.5ZM35.2731 0.5V9.65C37.8002 9.97708 39.997 11.0115 41.8647 12.7542C43.622 14.4979 44.995 16.7312 45.9845 19.4542C46.8627 22.0687 47.3022 24.901 47.3022 27.951H36.097V50.5H59.1668V30.075C59.1668 23.5396 58.0679 18.2021 55.871 14.0625C53.5637 9.92292 50.5981 6.76354 46.9731 4.58542C43.3997 2.4247 39.4148 1.03325 35.2731 0.5Z"
-              fill="#FFFFFF"
+              fill="#111111"
             />
           </svg>
 
-          <h1 className="text-transparent bg-gradient-to-b from-white to-[#D4D4D4] bg-clip-text">
+          <h1 className="text-transparent bg-gradient-to-b from-black to-[#D4D4D4] bg-clip-text">
             Not Luck Of <br />
             The Draw.
           </h1>
@@ -181,7 +181,7 @@ export default function AboutUs() {
         <div className="md:w-4/12 flex flex-col gap-8 md:pl-24">
           <h3 className="text-4xl flex flex-col font-extrabold w-8/12">
             WE ARE WELL KNOWN ON
-            <span className="text-white">TIKTOK</span>
+            <span className="text-black">TIKTOK</span>
           </h3>
           <p className="text-sm font-light md:w-8/12">
             Still doubt our ability to create the best haircuts in Melbourne?
@@ -190,7 +190,7 @@ export default function AboutUs() {
 
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button className="border absolute md:relative bottom-[.5rem] md:bottom-[1rem] w-max px-7 py-5 rounded-lg border-[#525252] hover:border-white text-white bg-transparent backdrop-blur-md z-30 transform hover:scale-110 transition-transform duration-400 ease-in-out hover:shadow-md hover:bg-white hover:shadow-white text-xs md:text-base hover:text-black">
+              <Button className="border relative w-max px-7 py-5 rounded-lg border-black/30 hover:border-black text-black bg-transparent z-30 transform hover:scale-105 transition-transform duration-300 hover:shadow-md hover:bg-black hover:shadow-black/10 text-xs md:text-base hover:text-white">
                 FOLLOW US
               </Button>
             </AlertDialogTrigger>

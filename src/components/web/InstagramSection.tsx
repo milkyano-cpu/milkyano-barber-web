@@ -59,7 +59,7 @@ const InstagramSection: React.FC<InstagramSectionProps> = ({
     <section className="md:h-screen flex  flex-col justify-center items-start pt-24 relative z-10">
       <div className="w-full px-4 md:px-0 md:w-10/12 justify-center flex flex-col z-10 relative">
         <h3 className="text-4xl tracking-wider font-extrabold md:text-end md:flex md:self-end flex-col mb-8">
-          {/* FOLLOW US ON <br /> <span className="text-transparent bg-gradient-to-r from-white  to-white bg-clip-text">INSTAGRAM</span> */}
+          {/* FOLLOW US ON <br /> <span className="text-transparent bg-gradient-to-r from-black  to-black bg-clip-text">INSTAGRAM</span> */}
         </h3>
         <div className="hidden md:flex md:flex-row gap-2 h-full w-full overflow-hidden rounded-3xl ">
           {instagram_images_desktop.map((image, index) => (
@@ -84,7 +84,7 @@ const InstagramSection: React.FC<InstagramSectionProps> = ({
             </div>
           ))}
         </div>
-        <div className="flex flex-col md:hidden gap-4 h-1/3 w-full z-20 bg-black">
+        <div className="flex flex-col md:hidden gap-4 h-1/3 w-full z-20 bg-white">
           {instagram_images_desktop.map((image, index) => (
             <img
               key={index}

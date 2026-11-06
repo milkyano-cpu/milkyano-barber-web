@@ -391,7 +391,7 @@ const BookContactInfo = () => {
   });
 
   return (
-    <section className='relative bg-[#090909] flex flex-col p-4 py-12 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0'>
+    <section className='relative bg-[#f5f5f3] text-black flex flex-col p-4 pt-28 pb-16 items-center md:items-start justify-center z-30 md:px-16 lg:px-32 min-h-screen gap-0'>
       <div className='flex flex-col justify-center items-center absolute left-6 top-6'>
         <Link to={'/home'}>
           <Logo className='w-48 md:w-[12rem] h-auto opacity-90 ' />
@@ -419,8 +419,8 @@ const BookContactInfo = () => {
                 <Spinner />
               ) : status === 'succeeded' ? (
                 <div className='flex justify-center items-center p-4  md:p-12 animate-scaleIn'>
-                  <div className='p-1  rounded-full border border-white'>
-                    <Check className='h-24 w-auto md:h-24 md:w-24 text-white ' />
+                  <div className='p-1  rounded-full border border-black'>
+                    <Check className='h-24 w-auto md:h-24 md:w-24 text-black ' />
                   </div>
                 </div>
               ) : status === 'failed' ? (
@@ -435,26 +435,26 @@ const BookContactInfo = () => {
         </AlertDialogContent>
       </AlertDialog>
 
-      <section className='flex flex-col  relative z-40 w-full pt-12 md:pt-0'>
+      <section className='flex flex-col relative z-40 w-full max-w-6xl mx-auto pt-12 md:pt-0'>
         <div className='flex flex-col'>
-          <div className='text-center w-full text-stone-200 text-sm py-2'>
+          <div className='text-center w-full text-stone-700 text-sm py-2'>
             <h3 className='text-lg font-medium '>Checkout</h3>
             <p className='font-extralight'>
               Appointment held for {selectedTime} {startPeriod}
             </p>
           </div>
           <div className='relative  h-8 w-full px-4'>
-            <hr className='absolute top-0 left-1/2 -translate-x-1/2 w-[15rem] h-[3px] bg-white transform  z-10' />
-            <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-white z-0 opacity-50' />
+            <hr className='absolute top-0 left-1/2 -translate-x-1/2 w-[15rem] h-[3px] bg-black transform  z-10' />
+            <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-black z-0 opacity-50' />
           </div>
         </div>
 
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(submitContactForm)}
-            className='grid  grid-cols-1 md:grid-cols-3 pt-4 gap-y-12 md:gap-0'
+            className='grid grid-cols-1 md:grid-cols-3 pt-4 gap-6'
           >
-            <div className='flex flex-col gap-4 col-span-2 mr-4'>
+            <div className='flex flex-col gap-4 col-span-2 rounded-2xl border border-black/10 bg-white p-5 md:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.05)]'>
               <div className='flex justify-between'>
                 <h3 className='text-sm font-medium'>Contact Info</h3>
                 <h3 className='text-sm font-medium'>Sign In</h3>
@@ -478,7 +478,7 @@ const BookContactInfo = () => {
                     </FormItem>
                   )}
                 />
-                <hr className='h-[2px] opacity-50 bg-white w-full my-6' />
+                <hr className='h-[2px] opacity-50 bg-black w-full my-6' />
                 <div className='grid grid-cols-2 gap-4 w-full justify-between z-50'>
                   <FormField
                     control={form.control}
@@ -531,7 +531,7 @@ const BookContactInfo = () => {
                     )}
                   />
                 </div>
-                <hr className='h-[2px] opacity-50 bg-white w-full my-6' />
+                <hr className='h-[2px] opacity-50 bg-black w-full my-6' />
                 <div className='flex justify-between'>
                   <h3>Appointment Note</h3>
                   <h3 onClick={handleAddClick} className='cursor-pointer'>
@@ -561,14 +561,14 @@ const BookContactInfo = () => {
                   )}
                 </div>
 
-                <hr className='h-[2px] opacity-50 bg-white w-full my-6' />
+                <hr className='h-[2px] opacity-50 bg-black w-full my-6' />
                 <div className='flex flex-col gap-8 text-sm'>
                   <div>
                     <h3 className='font-medium text-base'>
                       Cancellation Policy
                     </h3>
                     <div className='flex flex-col gap-4 relative'>
-                      <h4 className='text-xs relative right-[-10rem] md:right-[-28rem] font-light text-stone-950 bg-white rounded-full w-fit px-4 py-1 opacity-90'>
+                      <h4 className='text-xs self-end font-light text-white bg-black rounded-full w-fit px-4 py-1'>
                         Cancel Before {dateObject.day} {dateObject.monthName}
                       </h4>
                       <img src={CancelationBar} alt='cancel before' />
@@ -578,7 +578,7 @@ const BookContactInfo = () => {
                     Please cancel or reschedule before {cancelTime} on{' '}
                     {dateObject.time}. After that, you may be charged a
                     cancellation fee.{' '}
-                    <a className='text-white underline'>See full policy</a>
+                    <a className='text-black underline'>See full policy</a>
                   </p>
                   <div className='flex items-center space-x-2'>
                     <input
@@ -598,7 +598,7 @@ const BookContactInfo = () => {
                 </div>
               </div>
             </div>
-            <div className='flex flex-col px-4 '>
+            <div className='flex flex-col rounded-2xl border border-black/10 bg-white p-5 md:p-6 shadow-[0_12px_36px_rgba(0,0,0,0.05)]'>
               <h3 className='text-sm font-medium'>Appointment Summary</h3>
               <div className='flex flex-col gap-2 border-[1px] border-b-0 border-t border-stone-400 p-4 pl-8 pr-6 rounded-t-xl text-sm mt-4 '>
                 <h4 className=' text-lg pb-2'>{formattedDate}</h4>
@@ -656,7 +656,7 @@ const BookContactInfo = () => {
                 variant={'ghost'}
                 type='submit'
                 disabled={!isChecked}
-                className=' w-full bg-white mt-10 h-fit py-4 rounded-xl font-light'
+                className=' w-full bg-black text-white mt-10 h-fit py-4 rounded-xl font-light'
               >
                 Book an Appointement
               </Button>

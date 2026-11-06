@@ -6,7 +6,7 @@ import EmeraldFooterLeft from "@/assets/web/emerald_footer_left.svg";
 
 export default function PrivacyPolicy() {
   return (
-    <Layout>
+    <Layout gap="gap-0">
       <Helmet>
         <title>Privacy Policy - Fadelines Barber Shop</title>
         <meta
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
         <meta property="og:url" content="URL to Fadelines' website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      <div className="flex flex-col text-stone-50 bg-black w-full relative tracking-wider">
+      <div className="flex flex-col text-stone-950 bg-[#f5f5f3] w-full relative tracking-wide">
         <img
           src={EmeraldFooter}
           alt="EmeraldFooter.svg"
@@ -39,11 +39,11 @@ export default function PrivacyPolicy() {
           className="absolute hidden md:block bottom-[-10rem] md:bottom-[-26rem] z-0 left-0"
         />
 
-        <div className="prose-invert prose-headings:text-3xl prose-headings:py-4  max-w-none px-8 container prose-headings:font-bold prose-headings:text-stone-100 prose-p:font-extralight prose-ul:font-extralight prose-stone font-poppins leading-8 py-12 prose-ul:list-disc prose-ul:pl-12 pb-40 prose-p:text-stone-200 prose-ul:text-stone-200 prose-headings:pt-12">
+        <div className="prose prose-stone prose-headings:text-3xl prose-headings:py-4 max-w-4xl mx-auto px-6 md:px-10 rounded-3xl border border-black/10 bg-white shadow-[0_16px_50px_rgba(0,0,0,0.06)] prose-headings:font-bold prose-headings:text-black prose-p:text-stone-700 prose-ul:text-stone-700 font-poppins leading-8 py-12 md:py-16 my-28 md:my-36 prose-ul:list-disc prose-ul:pl-8 prose-headings:pt-8">
           <h3>
             {" "}
             Privacy Policy for <br />{" "}
-            <span className="text-transparent bg-gradient-to-r from-white  to-white bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-black  to-black bg-clip-text">
               Fadedlines Barbershop
             </span>
           </h3>

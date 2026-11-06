@@ -71,16 +71,16 @@ function Calendar({
           day: cn(
             buttonVariants({ variant: "ghost" }),
             "h-full w-full p-0 font-normal aria-selected:opacity-100",
-            "bg-transparent text-white hover:bg-white hover:text-black border-2 border-white",
-            "aria-selected:bg-white aria-selected:text-black"
+            "bg-transparent text-black hover:bg-black hover:text-white border border-black/10 rounded-lg",
+            "aria-selected:bg-black aria-selected:text-white"
           ),
           day_range_end: "day-range-end",
           day_selected:
-            "!bg-white !text-black hover:!bg-white hover:!text-black focus:!bg-white focus:!text-black border-2 border-gray-400",
-          day_today: "bg-transparent text-white font-bold border-4 border-white",
+            "!bg-black !text-white hover:!bg-black hover:!text-white focus:!bg-black focus:!text-white border border-black rounded-lg",
+          day_today: "bg-transparent text-black font-bold border-2 border-black rounded-lg",
           day_outside:
             "day-outside text-muted-foreground opacity-30 bg-transparent hover:bg-transparent aria-selected:bg-transparent",
-          day_disabled: "bg-transparent text-red-400 opacity-90 cursor-not-allowed hover:bg-white hover:text-black border-2 border-red-400",
+          day_disabled: "bg-transparent text-stone-400 opacity-70 cursor-not-allowed border border-black/5 rounded-lg",
           day_range_middle:
             "aria-selected:bg-accent aria-selected:text-accent-foreground",
           day_hidden: "invisible",
