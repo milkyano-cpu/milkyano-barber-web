@@ -681,7 +681,7 @@ export default function Home() {
           {/* MAIN PREVIEW IMAGE */}
           <div
             ref={previewImageRef}
-            className="relative w-full max-w-[200px] md:max-w-sm mx-auto mb-4 md:mb-8 overflow-hidden rounded-xl border border-black/20 shadow-[0_18px_45px_rgba(0,0,0,0.18)] aspect-[0.7]"
+            className="relative w-full max-w-[260px] md:max-w-sm mx-auto mb-4 md:mb-8 overflow-hidden rounded-xl border border-black/20 shadow-[0_18px_45px_rgba(0,0,0,0.18)] aspect-[0.7]"
           >
             <img
               key={selectedBarber}
@@ -713,9 +713,9 @@ export default function Home() {
           </div>
 
           {/* THUMBNAIL GRID (3 columns) */}
-          <div className="w-full max-w-[300px] md:max-w-screen-md mx-auto relative px-1 md:px-0">
+          <div className="w-full max-w-[360px] md:max-w-screen-md mx-auto relative px-1 md:px-0">
 
-            <div className="grid grid-cols-3 gap-x-3 gap-y-5 md:gap-x-9 md:gap-y-12">
+            <div className="grid grid-cols-3 gap-x-4 gap-y-6 md:gap-x-9 md:gap-y-12">
               {galleryBarbers.map((barber, index) => (
                 <div
                   key={index}
