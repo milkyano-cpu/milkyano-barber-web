@@ -118,7 +118,7 @@ const WebFooter: React.FC = () => {
             <img
               src={Logo}
               alt="barber shop faded lines"
-              className="w-[20rem] h-auto"
+              className="w-[26rem] max-w-[90vw] h-auto"
             />
             <div className="flex flex-col gap-4 relative z-[99999999]">
               <h4 className="text-sm font-poppins font-medium">Visit us on:</h4>
