@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 
 import BgHero2 from "@/assets/web/home/hero.svg";
-import Logo from "@/assets/web/icons/logo.svg";
+import Logo from "@/assets/web/icons/new-logo.svg";
 import Instagram from "@/assets/web/icons/Instagram.svg";
 import Tiktok from "@/assets/web/icons/Tiktok.svg";
 import Maps from "@/assets/web/icons/Maps.svg";
@@ -190,7 +190,7 @@ export default function Home() {
               className="w-[20rem] md:w-[25rem] h-auto"
             />
           </div>
-          <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max self-center hover:bg-[#454545]/80">
+          <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-white font-bold px-16 py-7 w-max self-center hover:bg-[#454545]/80">
             {generateLink("BOOK NOW")}
           </Button>
 
@@ -273,14 +273,14 @@ export default function Home() {
           >
             <path
               d="M50.582 0.216618L54.9987 4.63745L30.9279 28.7166C30.5422 29.1048 30.0835 29.4128 29.5783 29.623C29.0731 29.8332 28.5313 29.9414 27.9841 29.9414C27.4369 29.9414 26.8951 29.8332 26.3899 29.623C25.8847 29.4128 25.4261 29.1048 25.0404 28.7166L0.957032 4.63745L5.3737 0.220782L27.9779 22.8208L50.582 0.216618Z"
-              fill="#33FF00"
+              fill="#FFFFFF"
             />
           </svg>
         </div>
       </section>
 
       {/* <section className="flex flex-col justify-center items-center px-6">
-        <h2 className="text-[#33FF00] text-center">AFRAID OF THE RESULTS?</h2>
+        <h2 className="text-white text-center">AFRAID OF THE RESULTS?</h2>
         <p className="text-2xl md:text-3xl font-bold text-center">See Them for Yourself!</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full max-w-6xl">
@@ -301,13 +301,13 @@ export default function Home() {
           ))}
         </div>
 
-        <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-[#33FF00] font-bold px-16 py-7 w-max mt-10 hover:bg-[#454545]/80">
+        <Button className="bg-[#454545] border-[0.5px] border-white text-2xl text-white font-bold px-16 py-7 w-max mt-10 hover:bg-[#454545]/80">
           {generateLink("BOOK NOW")}
         </Button>
       </section> */}
 
       <section className="flex flex-col justify-center items-center">
-        <h2 className="text-[#33FF00]">GALLERY</h2>
+        <h2 className="text-white">GALLERY</h2>
         <p>Our Results</p>
 
         <InstagramSection

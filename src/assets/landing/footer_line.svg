@@ -10,8 +10,8 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_162_6" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear_162_6" x1="195.5" y1="-73.5572" x2="1249.25" y2="242.175" gradientUnits="userSpaceOnUse">
-<stop stop-color="#16BD13"/>
-<stop offset="1" stop-color="#00FF47" stop-opacity="0"/>
+<stop stop-color="#111111"/>
+<stop offset="1" stop-color="#111111" stop-opacity="0"/>
 </linearGradient>
 </defs>
 </svg>

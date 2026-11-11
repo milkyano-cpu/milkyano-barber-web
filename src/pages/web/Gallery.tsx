@@ -64,7 +64,7 @@ export default function GalleriesPage() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <Layout>
+    <Layout gap="gap-0">
       <Helmet>
         <title>Gallery - Fadelines Barber Shop</title>
         <meta
@@ -81,52 +81,52 @@ export default function GalleriesPage() {
         <meta name="twitter:card" content="summary_large_img" />
       </Helmet>
 
-      <div className="flex flex-col text-stone-50 bg-black w-full relative mt-10">
-        <section className="py-12 pt-32 px-0 container pr-0  md:pr-4 relative z-30 flex gap-12 justify-center items-center flex-col md:flex-row overflow-hidden">
-          <div className="w-full md:w-10/12 flex flex-col justify-end md:pb-24 h-full">
-            <h3 className="text-3xl md:text-4xl font-extrabold tracking-wider flex flex-col  md:gap-2 text-center md:text-right">
+      <div className="flex flex-col text-stone-950 bg-white w-full relative pt-28 md:pt-36">
+        <section className="container relative z-30 flex flex-col md:flex-row items-center gap-8 md:gap-12 overflow-hidden rounded-[2rem] border border-black/10 bg-[#eaeae7] px-6 py-14 md:px-12 md:py-20 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+          <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.3em]">Faded Lines Gallery</p>
+            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight flex flex-col gap-2">
               <span>BE OUR NEXT</span>
-              <span className="text-transparent bg-[#33FF00] bg-clip-text">
+              <span className="text-transparent bg-black bg-clip-text">
                 MASTERPIECE
               </span>
             </h3>
             <BookNowButton
               onClick={handleBookNow}
-              className="self-center md:self-end mt-6 px-20 py-4 md:px-20 md:py-5 text-xl md:text-5xl"
+              className="mt-8 px-12 py-4 md:px-16 md:py-5 text-xl"
             />
           </div>
-          <div className="relative w-full min-h-[25rem] md:min-h-[40rem]">
+          <div className="relative w-full md:w-1/2 min-h-[25rem] md:min-h-[34rem]">
             <div className="absolute inset-0 overflow-hidden">
               <div className="w-full h-full flex justify-end md:justify-center items-center rotate-[10deg] md:rotate-[12deg]">
                 <CardStack />
               </div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-50 pointer-events-none"></div>
           </div>
         </section>
 
-        <div className=" w-full flex justify-center py-12 relative">
-          <div className="h-40 w-[1px] bg-[#086600] z-0" />
+        <div className="w-full flex justify-center py-10 relative" aria-hidden="true">
+          <div className="h-24 w-[1px] bg-black/20 z-0" />
           <motion.div
-            className="absolute h-[18rem] w-[2px] bg-gradient-to-b from-[#096601] to-[#15ff00] shadow-[0px_0px_70px_2px_#15ff00] origin-top z-10"
+            className="absolute h-24 w-[2px] bg-black origin-top z-10"
             style={{ scaleY }}
           />
         </div>
 
-        <section className="relative z-[99999999] pb-[10rem] md:pb-[30rem] pt-12">
+        <section className="relative z-20 bg-[#f5f5f3] border-y border-black/10 py-16 md:py-24">
           <section className=" w-full relative flex flex-col items-center text-center  container">
             <div className="w-full px-4 md:px-0 flex flex-col gap-4 ">
-              <h3 className="text-2xl md:text-3xl tracking-wider font-extrabold w-full md:w-1/3 mx-auto font-poppins">
+              <h3 className="text-2xl md:text-4xl tracking-tight font-extrabold w-full md:w-1/2 mx-auto font-poppins">
                 WE’VE DONE ALL
                 <br />
-                <span className="text-transparent bg-[#33FF00] bg-clip-text">
+                <span className="text-transparent bg-black bg-clip-text">
                   YOU EVER NEED
                 </span>
               </h3>
             </div>
           </section>
 
-          <section className="relative z-[99999] flex flex-col gap-2  py-4 container mx-0 max-w-none px-0">
+          <section className="relative z-20 flex flex-col gap-2 py-4 container mx-auto max-w-none px-0">
             <CarauselGallery />
           </section>
         </section>

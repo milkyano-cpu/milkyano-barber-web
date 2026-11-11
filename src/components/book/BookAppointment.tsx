@@ -219,7 +219,7 @@ const BookAppointment = () => {
   const timesOfDayWithAppointments = updateTimesOfDayWithAppointments();
 
   return (
-    <section className="relative bg-[#010401] flex flex-col p-4 py-12 items-center md:items-start justify-center z-30 md:px-40 min-h-screen gap-0"  >
+    <section className="relative bg-[#f5f5f3] text-black flex flex-col p-4 pt-28 pb-16 items-center md:items-start justify-center z-30 md:px-16 lg:px-32 min-h-screen gap-0"  >
       <div className='flex flex-col justify-center items-center absolute left-6 top-6'>
         <Link to={"/home"}  >
           <Logo className='w-48 md:w-[12rem] h-auto opacity-90 ' />
@@ -230,15 +230,15 @@ const BookAppointment = () => {
       {
         !isLoading && unavailableDates ? (
           <>
-            <section className='grid grid-cols-1 md:grid-cols-3 gap-4 relative z-40 w-full pt-12 md:pt-0'>
+            <section className='grid grid-cols-1 md:grid-cols-3 gap-6 relative z-40 w-full pt-12 md:pt-0'>
               <div className='absolute top-24 md:top-12 h-8 w-full px-4'>
-                <hr className='absolute top-0 left-0 w-[10rem] h-[3px] bg-[#42FF00] transform  z-10' />
-                <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-[#038101] z-0 opacity-50' />
+                <hr className='absolute top-0 left-0 w-[10rem] h-[3px] bg-black transform  z-10' />
+                <hr className='absolute top-[1px] left-0 w-full h-[2px] bg-black z-0 opacity-50' />
               </div>
               <div className='col-span-2'>
                 <Calendar
                   mode="single"
-                  className="rounded-md border-none p-0 py-3 mr-4"
+                  className="rounded-2xl border border-black/10 bg-white shadow-[0_12px_36px_rgba(0,0,0,0.05)] p-4 py-5 mr-0 md:mr-4"
                   selected={selectedDate}
                   onSelect={handleDayPickerSelect}
                   month={month}
@@ -246,9 +246,9 @@ const BookAppointment = () => {
                   fromMonth={new Date()}
                   disabledDates={unavailableDates} />
               </div>
-              <div className='flex flex-col rounded-3xl p-4 '>
+              <div className='flex flex-col rounded-2xl border border-black/10 bg-white shadow-[0_12px_36px_rgba(0,0,0,0.05)] p-6'>
                 <h3>Appointment Summary</h3>
-                <div className='flex flex-col gap-2 border-[1px]  border-t border-stone-400 p-3 rounded-xl text-sm mt-12'>
+                <div className='flex flex-col gap-2 border border-black/10 bg-[#f5f5f3] p-4 rounded-xl text-sm mt-6'>
                   {bookedItems.length > 0 ? (
                     bookedItems.map((item) => (
                       <div key={item.id}>
@@ -272,7 +272,7 @@ const BookAppointment = () => {
 
               </div>
             </section>
-            <section className=" flex flex-col relative z-40 px-4 w-full text-start gap-2 md:gap-4 text-stone-300 text-xs mt-8 ">
+            <section className="flex flex-col relative z-40 w-full text-start gap-2 md:gap-4 text-stone-700 text-sm mt-8 rounded-2xl border border-black/10 bg-white p-5 md:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.05)]">
               <div>
                 <label htmlFor={inputId} className=''>
                   {isValidDate ? (

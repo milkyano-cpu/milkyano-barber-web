@@ -125,7 +125,7 @@ export default function Careers() {
   };
 
   return (
-    <Layout>
+    <Layout gap="gap-20 md:gap-28">
       <Helmet>
         <title>Careers - Fadelines Barber Shop</title>
         <meta
@@ -142,15 +142,14 @@ export default function Careers() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="flex flex-col justify-center items-center relative pt-40">
-        <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-black/80 to-black" />
+      <section className="flex min-h-[460px] flex-col justify-center items-center relative bg-[#eaeae7] border-b border-black/10 pt-36 pb-20">
         <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
           <div className="flex flex-col mb-12">
-            <h2 className="text-[#33FF00]">JOIN THE BEST</h2>
+            <h2 className="text-black">JOIN THE BEST</h2>
             <h2>BARBERSHOP IN MELBOURNE</h2>
             <sub className="mt-6">
               Are you qualified to be in our{" "}
-              <span className="text-[#33FF00]">team?</span>
+              <span className="text-black">team?</span>
             </sub>
           </div>
 
@@ -162,13 +161,13 @@ export default function Careers() {
           >
             <path
               d="M50.582 0.216618L54.9987 4.63745L30.9279 28.7166C30.5422 29.1048 30.0835 29.4128 29.5783 29.623C29.0731 29.8332 28.5313 29.9414 27.9841 29.9414C27.4369 29.9414 26.8951 29.8332 26.3899 29.623C25.8847 29.4128 25.4261 29.1048 25.0404 28.7166L0.957032 4.63745L5.3737 0.220782L27.9779 22.8208L50.582 0.216618Z"
-              fill="#33FF00"
+              fill="#111111"
             />
           </svg>
         </div>
       </section>
 
-      <div className="flex flex-col text-stone-50 bg-black w-full relative tracking-wider">
+      <div className="flex flex-col text-stone-950 bg-white w-full relative tracking-wider">
         <AlertDialog open={isLoading} onOpenChange={setIsLoading}>
           <AlertDialogContent>
             <AlertDialogHeader>
@@ -180,8 +179,8 @@ export default function Careers() {
                   <Spinner />
                 ) : status === "succeeded" ? (
                   <div className="flex justify-center items-center p-4  md:p-12 animate-scaleIn">
-                    <div className="p-1  rounded-full border border-[#24FF00]">
-                      <Check className="h-24 w-auto md:h-24 md:w-24 text-[#24FF00] " />
+                    <div className="p-1  rounded-full border border-black">
+                      <Check className="h-24 w-auto md:h-24 md:w-24 text-black " />
                     </div>
                   </div>
                 ) : status === "failed" ? (
@@ -196,12 +195,12 @@ export default function Careers() {
           </AlertDialogContent>
         </AlertDialog>
 
-        <section className="flex gap-4 md:gap-32 flex-col md:flex-row relative z-30 container justify-center md:pt-12  items-center ">
-          <div className="w-7/12 md:w-1/5 pt-12 pb-24 md:pb-0 md:pt-0">
+        <section className="flex gap-8 md:gap-20 flex-col md:flex-row relative z-30 container justify-center md:pt-12 items-center">
+          <div className="w-7/12 md:w-1/5 pt-8 pb-4 md:pb-0 md:pt-0">
             <img src={Clipper} alt="clipper" className="w-full" />
           </div>
 
-          <div className="w-full md:w-6/12">
+          <div className="w-full md:w-6/12 rounded-[2rem] border border-black/10 bg-white p-5 md:p-8 shadow-[0_16px_50px_rgba(0,0,0,0.06)]">
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(sendEmail)}
@@ -211,16 +210,16 @@ export default function Careers() {
                   control={form.control}
                   name="fullName"
                   render={({ field }) => (
-                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                       <FormLabel className="w-full flex justify-start">
-                        <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                        <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                           Full Name
                         </span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Johnathan"
-                          className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                          className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                           {...field}
                         />
                       </FormControl>
@@ -232,16 +231,16 @@ export default function Careers() {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                       <FormLabel className="w-full flex justify-start">
-                        <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                        <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                           Email
                         </span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Johnathan"
-                          className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                          className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                           {...field}
                         />
                       </FormControl>
@@ -253,16 +252,16 @@ export default function Careers() {
                   control={form.control}
                   name="phoneNumber"
                   render={({ field }) => (
-                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                       <FormLabel className="w-full flex justify-start">
-                        <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                        <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                           Phone Number
                         </span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Johnathan"
-                          className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                          className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                           {...field}
                         />
                       </FormControl>
@@ -282,14 +281,14 @@ export default function Careers() {
         </section>
         <section ref={ref}>
           <div className=" w-full flex justify-center  relative">
-            <div className="h-[10rem] w-[1px] bg-[#086600] z-0" />
+            <div className="h-[10rem] w-[1px] bg-black z-0" />
             <motion.div
-              className="absolute h-[10rem] w-[2px] bg-gradient-to-b from-[#096601] to-[#15ff00] shadow-[0px_0px_70px_2px_#15ff00] origin-top z-10"
+              className="absolute h-[10rem] w-[2px] bg-black origin-top z-10"
               style={{ scaleY }}
             />
           </div>
         </section>
-        <section className="w-1/2 flex flex-col md:flex-row self-center justify-center items-center relative z-30 py-32 pb-[20rem] gap-8 font-bold text-center">
+        <section className="w-full md:w-2/3 flex flex-col md:flex-row self-center justify-center items-center relative z-30 py-16 pb-24 gap-8 font-bold text-center">
           <div className="flex flex-col gap-4 items-center">
             <h3 className="text-3xl rotate-90 md:rotate-0">👉</h3>
             <h4>
@@ -312,7 +311,7 @@ export default function Careers() {
           <div className="flex flex-col gap-4 items-center">
             <h3 className="text-3xl">👑</h3>
             <h4>
-              <span className="text-transparent bg-gradient-to-r from-[#00FF29]  to-[#B2FFBF] bg-clip-text">
+              <span className="text-transparent bg-gradient-to-r from-black  to-black bg-clip-text">
                 After
               </span>{" "}
               working with us{" "}

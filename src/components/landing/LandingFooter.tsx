@@ -3,7 +3,7 @@ import backgroundImage from '@/assets/landing/footer_line.svg';
 
 const LandingFooter: React.FC = () => {
   return (
-    <footer className="bg-transparent backdrop-blur-lg text-stone-50 py-12 relative z-40 "
+    <footer className="bg-transparent backdrop-blur-lg text-stone-950 py-12 relative z-40 "
       style={{ backgroundImage: `url("${backgroundImage}")`, backgroundSize: 'cover', backgroundRepeat: "center", backdropFilter: 'blur(16px) contrast(100%)', WebkitBackdropFilter: 'blur(16px) contrast(100%)' }}
     >
       <div className='flex justify-center flex-col items-center py-12 md:py-0'>

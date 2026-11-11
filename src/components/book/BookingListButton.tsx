@@ -22,15 +22,15 @@ export default function BookingListButton({
       style={{
         backgroundColor: isHovered ? "transparent" : "#1A1A1A",
         backgroundImage: isHovered
-          ? "linear-gradient(to left, #33FF00, #187700)"
+          ? "linear-gradient(to left, #333333, #111111)"
           : "none",
-        border: isHovered ? "none" : "0.5px solid #1CFF21",
-        color: isHovered ? "#19181E" : "#1CFF21",
+        border: isHovered ? "none" : "0.5px solid #111111",
+        color: "#FFFFFF",
         fontWeight: 700,
         lineHeight: 1,
         boxShadow: isHovered
-          ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-          : "0 0 12px rgba(28, 255, 33, 0.5)",
+          ? "0 4px 20px rgba(0, 0, 0, 0.2), 0 5px 0 rgba(60, 60, 60, 1)"
+          : "0 0 12px rgba(0, 0, 0, 0.2)",
       }}
     >
       {children}

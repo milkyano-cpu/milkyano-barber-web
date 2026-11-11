@@ -10,20 +10,20 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_412_407" x1="371.909" y1="65.1553" x2="-97.4207" y2="631.143" gradientUnits="userSpaceOnUse">
-<stop stop-color="#05FF00" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#05FF00" stop-opacity="0"/>
+<stop stop-color="#FFFFFF" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
 </linearGradient>
 <linearGradient id="paint1_linear_412_407" x1="327.977" y1="7.58829" x2="-107.466" y2="600.043" gradientUnits="userSpaceOnUse">
-<stop stop-color="#05FF00" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#05FF00" stop-opacity="0"/>
+<stop stop-color="#FFFFFF" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
 </linearGradient>
 <linearGradient id="paint2_linear_412_407" x1="1101.43" y1="112.576" x2="1654.15" y2="605.027" gradientUnits="userSpaceOnUse">
-<stop stop-color="#05FF00" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#05FF00" stop-opacity="0"/>
+<stop stop-color="#FFFFFF" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
 </linearGradient>
 <linearGradient id="paint3_linear_412_407" x1="1136.44" y1="48.664" x2="1659.05" y2="571.955" gradientUnits="userSpaceOnUse">
-<stop stop-color="#05FF00" stop-opacity="0.2"/>
-<stop offset="1" stop-color="#05FF00" stop-opacity="0"/>
+<stop stop-color="#FFFFFF" stop-opacity="0.2"/>
+<stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
 </linearGradient>
 </defs>
 </svg>

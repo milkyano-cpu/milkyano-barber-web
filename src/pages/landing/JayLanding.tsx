@@ -134,7 +134,7 @@ export default function JayLanding() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <div className="flex flex-col bg-stone-950 w-full h-full relative">
+      <div className="flex flex-col bg-white w-full h-full relative">
         <img
           src={Top}
           alt="Vector Top"
@@ -169,25 +169,25 @@ export default function JayLanding() {
           </video>
           <div className="max-w-screen-lg mx-auto md:mx-0 md:ml-8 lg:ml-16 w-full">
             <div
-              className="relative z-30 backdrop-blur-lg text-white rounded-3xl py-12 px-12 my-12 mb-10 mx-6 md:ml-12 md:mr-auto border border-stone-50 md:w-1/2"
+              className="relative z-30 backdrop-blur-lg text-black rounded-3xl py-12 px-12 my-12 mb-10 mx-6 md:ml-12 md:mr-auto border border-stone-50 md:w-1/2"
               style={{
                 backdropFilter: "blur(16px) contrast(100%)",
                 WebkitBackdropFilter: "blur(16px) contrast(100%)",
               }}
             >
-              <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-[#42FF00] tracking-wider">
+              <h2 className="text-4xl md:text-5xl uppercase font-poppins font-extrabold mb-2 text-black tracking-wider">
                 Hi, I&apos;m jay
               </h2>
               <h2 className="text-xl font-bold mb-4">
                 BEST BARBER/HAIRDRESSER IN MELBOURNE
               </h2>
               <p className="text-lg mb-8">{description}</p>
-              <div className="bg-black"></div>
+              <div className="bg-white"></div>
             </div>
-            <div className="px-6 md:pl-12 text-stone-50 flex flex-col md:flex-row gap-4 uppercase relative z-30">
+            <div className="px-6 md:pl-12 text-stone-950 flex flex-col md:flex-row gap-4 uppercase relative z-30">
               <Button
                 variant={"ghost"}
-                className="relative z-20 backdrop-blur-lg bg-transparent text-xl rounded-full border border-stone-50 px-12 py-6 hover:bg-white/10"
+                className="relative z-20 backdrop-blur-lg bg-transparent text-xl rounded-full border border-stone-50 px-12 py-6 hover:bg-black/10"
                 style={{
                   backdropFilter: "blur(16px) contrast(100%)",
                   WebkitBackdropFilter: "blur(16px) contrast(100%)",
@@ -214,7 +214,7 @@ export default function JayLanding() {
           />
         </section>
 
-        <section className="flex relative flex-col z-20 justify-center items-center  container w-full text-stone-50 uppercase py-32 pt-40 pb-20">
+        <section className="flex relative flex-col z-20 justify-center items-center  container w-full text-stone-950 uppercase py-32 pt-40 pb-20">
           <div className="hidden xl:flex  absolute bottom-1/3 pb-32 left-32  h-auto">
             <img
               alt="swipe to see "
@@ -242,9 +242,9 @@ export default function JayLanding() {
             className="absolute z-0 w-auto h-full object-fill bottom-[0]"
           />
         </section>
-        <section className="container relative z-10 text-stone-50 pt-0 py-12 ">
+        <section className="container relative z-10 text-stone-950 pt-0 py-12 ">
           <div className="relative z-10">
-            <h3 className=" text-4xl md:text-6xl  font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">
+            <h3 className=" text-4xl md:text-6xl  font-poppins font-extrabold text-center py-2 uppercase text-transparent bg-gradient-to-r from-black via-[#777777] to-black bg-clip-text">
               Our Videos
             </h3>
             <p className="text-center text-lg w-10/12 md:w-full mx-auto">
@@ -264,7 +264,7 @@ export default function JayLanding() {
             <div className="flex gap-10 justify-center items-center flex-col w-full ">
               <Button
                 variant={"ghost"}
-                className="border border-[#00FF1A] rounded-full font-extrabold font-poppins px-12 py-10 uppercase  text-xl md:text-3xl transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a] "
+                className="border border-black rounded-full font-extrabold font-poppins px-12 py-10 uppercase  text-xl md:text-3xl transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-black hover:shadow-md hover:text-white hover:shadow-[#737373] "
               >
                 {generateLink("BOOK NOW")}
               </Button>
@@ -279,8 +279,8 @@ export default function JayLanding() {
           />
         </section>
 
-        <section className="container mx-auto px-6 sm:px-6 lg:px-8 py-12 text-stone-50 rounded-lg relative z-10 flex flex-col justify-center items-center">
-          <h4 className="text-4xl md:text-7xl my-6 md:my-12 uppercase   items-center justify-center text-center font-extrabold text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text">
+        <section className="container mx-auto px-6 sm:px-6 lg:px-8 py-12 text-stone-950 rounded-lg relative z-10 flex flex-col justify-center items-center">
+          <h4 className="text-4xl md:text-7xl my-6 md:my-12 uppercase   items-center justify-center text-center font-extrabold text-transparent bg-gradient-to-r from-black via-[#777777] to-black bg-clip-text">
             Reviews
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -296,13 +296,13 @@ export default function JayLanding() {
           </div>
           <Button
             variant={"ghost"}
-            className="border border-[#00FF19] px-12 py-8 text-2xl font-bold font-poppins rounded-full my-24 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-[#24FF00] hover:shadow-md hover:text-stone-950 hover:shadow-[#44813a] "
+            className="border border-black px-12 py-8 text-2xl font-bold font-poppins rounded-full my-24 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:bg-black hover:shadow-md hover:text-white hover:shadow-[#737373] "
           >
             {generateLink("LIMITED SLOT ONLY!")}
           </Button>
         </section>
 
-        <section className="container relative  z-30 flex justify-center items-center pb-32 px-6 md:px-0 md:pb-0 md:h-[100vh] text-stone-50  ">
+        <section className="container relative  z-30 flex justify-center items-center pb-32 px-6 md:px-0 md:pb-0 md:h-[100vh] text-stone-950  ">
           <div
             className=" bg-[#0E0E0E]/20 backdrop-blur-lg px-6 md:px-12 py-10 rounded-[36px] md:rounded-[50px] w-full md:w-9/12 lg:w-7/12 relative flex flex-col justify-center items-center"
             id="gradientBox"
@@ -315,7 +315,7 @@ export default function JayLanding() {
             <h3 className="text-3xl md:text-4xl font-black font-poppins w-10/12 tracking-wider leading-[3rem] md:leading-10  mt-4 mb-12 uppercase">
               Book an Appoinment Now.
               <br className="hidden md:block" />
-              <span className="text-[#24FF00]">LIMITED </span>
+              <span className="text-black">LIMITED </span>
               SLOT ONLY!
             </h3>
             <div className="flex justify-center items-center text-center flex-col  ">
@@ -325,7 +325,7 @@ export default function JayLanding() {
               <div className="flex flex-col md:flex-row gap-2 py-4 uppercase">
                 <Button
                   variant={"ghost"}
-                  className="border border-stone-400 rounded-full uppercase px-12 py-6 bg-[#1ABC00]/5 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:shadow-lg hover:shadow-stone-800 hover:bg-[#24FF00] hover:text-stone-950"
+                  className="border border-stone-400 rounded-full uppercase px-12 py-6 bg-black/5 transform hover:scale-110 transition-transform duration-200 ease-in-out hover:shadow-lg hover:shadow-stone-800 hover:bg-black hover:text-white"
                 >
                   {generateLink("BOOK NOW")}
                 </Button>

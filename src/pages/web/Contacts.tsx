@@ -79,7 +79,7 @@ export default function Contacts() {
   });
 
   return (
-    <Layout>
+    <Layout gap="gap-20 md:gap-28">
       <Helmet>
         <title>Contact - Fadelines Barber Shop</title>
         <meta
@@ -96,12 +96,11 @@ export default function Contacts() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="flex flex-col justify-center items-center relative pt-40">
-        <div className="top-0 absolute w-full h-full object-cover z-0 bg-gradient-to-b from-black/80 to-black" />
+      <section className="flex min-h-[400px] flex-col justify-center items-center relative bg-[#eaeae7] border-b border-black/10 pt-36 pb-20">
         <div className="flex flex-col justify-center items-center text-center gap-6 z-10">
           <div className="flex flex-col mb-12">
             <h2>HAVE SOME</h2>
-            <h2 className="text-[#33FF00]">QUESTIONS?</h2>
+            <h2 className="text-black">QUESTIONS?</h2>
           </div>
 
           <svg
@@ -112,7 +111,7 @@ export default function Contacts() {
           >
             <path
               d="M50.582 0.216618L54.9987 4.63745L30.9279 28.7166C30.5422 29.1048 30.0835 29.4128 29.5783 29.623C29.0731 29.8332 28.5313 29.9414 27.9841 29.9414C27.4369 29.9414 26.8951 29.8332 26.3899 29.623C25.8847 29.4128 25.4261 29.1048 25.0404 28.7166L0.957032 4.63745L5.3737 0.220782L27.9779 22.8208L50.582 0.216618Z"
-              fill="#33FF00"
+              fill="#111111"
             />
           </svg>
         </div>
@@ -129,8 +128,8 @@ export default function Contacts() {
                 <Spinner />
               ) : status === "succeeded" ? (
                 <div className="flex justify-center items-center p-4  md:p-12 animate-scaleIn">
-                  <div className="p-1  rounded-full border border-[#24FF00]">
-                    <Check className="h-24 w-auto md:h-24 md:w-24 text-[#24FF00] " />
+                  <div className="p-1  rounded-full border border-black">
+                    <Check className="h-24 w-auto md:h-24 md:w-24 text-black " />
                   </div>
                 </div>
               ) : status === "failed" ? (
@@ -145,8 +144,8 @@ export default function Contacts() {
         </AlertDialogContent>
       </AlertDialog>
 
-      <section className="container flex flex-col md:flex-row gap-10 mb-40 md:mb-80">
-        <div className="md:w-1/2">
+      <section className="container flex flex-col md:flex-row gap-8 md:gap-12 mb-20 md:mb-32">
+        <div className="md:w-1/2 rounded-[2rem] border border-black/10 bg-white p-5 md:p-8 shadow-[0_16px_50px_rgba(0,0,0,0.06)]">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(sendEmail)}
@@ -156,15 +155,15 @@ export default function Contacts() {
                 control={form.control}
                 name="firstName"
                 render={({ field }) => (
-                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                     <FormLabel className="w-full flex justify-start">
-                      <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                      <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                         First Name
                       </span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="Johnathan"
                         {...field}
                       />
@@ -177,15 +176,15 @@ export default function Contacts() {
                 control={form.control}
                 name="lastName"
                 render={({ field }) => (
-                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                     <FormLabel className="w-full flex justify-start">
-                      <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                      <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                         Last Name
                       </span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="Doe"
                         {...field}
                       />
@@ -198,15 +197,15 @@ export default function Contacts() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                     <FormLabel className="w-full flex justify-start">
-                      <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                      <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                         Email
                       </span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="mail@fade.com"
                         {...field}
                       />
@@ -219,15 +218,15 @@ export default function Contacts() {
                 control={form.control}
                 name="phone"
                 render={({ field }) => (
-                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                  <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                     <FormLabel className="w-full flex justify-start">
-                      <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                      <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                         Phone
                       </span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                        className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                         placeholder="+12555"
                         {...field}
                       />
@@ -241,15 +240,15 @@ export default function Contacts() {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#262626] placeholder-[#B3E7C9]">
+                    <FormItem className="w-full flex flex-col justify-center items-center rounded-lg p-3 bg-[#f5f5f3] border border-black/10 focus-within:border-black/40">
                       <FormLabel className="w-full flex justify-start">
-                        <span className="text-stone-50 font-extrabold text-lg text-start w-full">
+                        <span className="text-stone-950 font-extrabold text-lg text-start w-full">
                           Leave us a message
                         </span>
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          className="placeholder:text-[#114330] bg-transparent focus-visible:outline-none"
+                          className="placeholder:text-[#404040] bg-transparent focus-visible:outline-none"
                           placeholder="Type Here..."
                           {...field}
                         />
@@ -269,19 +268,19 @@ export default function Contacts() {
           </Form>
         </div>
 
-        <div className="flex flex-col gap-4 md:w-1/2 items-center md:border-l-2 border-[#114330]">
+        <div className="flex flex-col gap-4 md:w-1/2 items-center rounded-[2rem] border border-black/10 bg-[#f5f5f3] p-5 md:p-8">
           <h3>OR GET IN TOUCH BY</h3>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 w-full max-w-sm">
             <a
               href="https://mail.google.com/mail/u/0/?fs=1&to=dejan@fadelinesbarbeshop.com&su=Hello,+I+Want+to+Collaborate&body&bcc=%22&tf=cm"
-              className="rounded-full p-4 flex gap-2 w-96 transition-all duration-300 font-poppins"
+              className="rounded-full p-4 flex gap-2 w-full max-w-sm transition-all duration-300 font-poppins"
               onMouseEnter={() => setHoveredButton('email')}
               onMouseLeave={() => setHoveredButton(null)}
               style={{
                 backgroundColor: hoveredButton === 'email' ? "transparent" : "#19181E",
                 backgroundImage: hoveredButton === 'email'
-                  ? "linear-gradient(to left, #33FF00, #187700)"
+                  ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
                   : "none",
                 border: "none",
                 outline: hoveredButton === 'email' ? "none" : "2px solid white",
@@ -289,8 +288,8 @@ export default function Contacts() {
                 color: hoveredButton === 'email' ? "#19181E" : "#F0F0F0",
                 fontWeight: hoveredButton === 'email' ? 700 : 600,
                 boxShadow: hoveredButton === 'email'
-                  ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-                  : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+                  ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+                  : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
               }}
             >
               <svg
@@ -333,13 +332,13 @@ export default function Contacts() {
             </a>
             <a
               href="tel:0390021055"
-              className="rounded-full p-4 flex gap-2 w-96 transition-all duration-300 font-poppins"
+              className="rounded-full p-4 flex gap-2 w-full max-w-sm transition-all duration-300 font-poppins"
               onMouseEnter={() => setHoveredButton('phone')}
               onMouseLeave={() => setHoveredButton(null)}
               style={{
                 backgroundColor: hoveredButton === 'phone' ? "transparent" : "#19181E",
                 backgroundImage: hoveredButton === 'phone'
-                  ? "linear-gradient(to left, #33FF00, #187700)"
+                  ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
                   : "none",
                 border: "none",
                 outline: hoveredButton === 'phone' ? "none" : "2px solid white",
@@ -347,8 +346,8 @@ export default function Contacts() {
                 color: hoveredButton === 'phone' ? "#19181E" : "#F0F0F0",
                 fontWeight: hoveredButton === 'phone' ? 700 : 600,
                 boxShadow: hoveredButton === 'phone'
-                  ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-                  : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+                  ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+                  : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
               }}
             >
               <svg
@@ -387,13 +386,13 @@ export default function Contacts() {
             </a>
             <a
               href="https://www.instagram.com/fadedlinesbarbershop"
-              className="rounded-full p-4 flex gap-2 w-96 transition-all duration-300 font-poppins"
+              className="rounded-full p-4 flex gap-2 w-full max-w-sm transition-all duration-300 font-poppins"
               onMouseEnter={() => setHoveredButton('instagram')}
               onMouseLeave={() => setHoveredButton(null)}
               style={{
                 backgroundColor: hoveredButton === 'instagram' ? "transparent" : "#19181E",
                 backgroundImage: hoveredButton === 'instagram'
-                  ? "linear-gradient(to left, #33FF00, #187700)"
+                  ? "linear-gradient(to left, #FFFFFF, #D4D4D4)"
                   : "none",
                 border: "none",
                 outline: hoveredButton === 'instagram' ? "none" : "2px solid white",
@@ -401,8 +400,8 @@ export default function Contacts() {
                 color: hoveredButton === 'instagram' ? "#19181E" : "#F0F0F0",
                 fontWeight: hoveredButton === 'instagram' ? 700 : 600,
                 boxShadow: hoveredButton === 'instagram'
-                  ? "0 4px 30px rgba(51, 255, 0, 0.4), 0 5px 0 rgba(7, 59, 0, 1)"
-                  : "0 0 10px rgba(51, 255, 0, 0.4), 0 0 30px rgba(51, 255, 0, 0.3), inset 0 0 16px rgba(51, 255, 0, 0.4)",
+                  ? "0 4px 30px rgba(255, 255, 255, 0.4), 0 5px 0 rgba(115, 115, 115, 1)"
+                  : "0 0 10px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.4)",
               }}
             >
               <svg

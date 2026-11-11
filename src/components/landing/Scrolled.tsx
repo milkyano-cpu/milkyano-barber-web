@@ -255,8 +255,8 @@ const Srolled: React.FC<ScrolledProps> = ({ cutsImages }) => {
     });
   }, []);
   return (
-    <div className='text-stone-50 relative z-20 overflow-hidden w-full' >
-      <h3 className="relative z-10 text-3xl md:text-6xl font-poppins font-extrabold  text-center my-10 text-transparent bg-gradient-to-r from-[#19F456] via-[#44D140] to-[#A1FF80] bg-clip-text overflow-hidden w-full">Transformation</h3>
+    <div className='text-stone-950 relative z-20 overflow-hidden w-full' >
+      <h3 className="relative z-10 text-3xl md:text-6xl font-poppins font-extrabold  text-center my-10 text-transparent bg-gradient-to-r from-black via-[#777777] to-black bg-clip-text overflow-hidden w-full">Transformation</h3>
       <div className="content flex flex-col justify-center w-full items-center overflow-hidden py-12">
         <EmblaCarouselComponent>
           {cutsImages.map((image, index) => (
