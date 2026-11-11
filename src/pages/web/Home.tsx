@@ -481,7 +481,7 @@ export default function Home() {
             <img
               src={Logo}
               alt="Fadedlines Barber Shop"
-              className="w-[20rem] md:w-[25rem] h-auto"
+              className="w-[26rem] md:w-[32rem] max-w-[90vw] h-auto"
             />
           </div>
           <BookNowButton onClick={handleHeroBookNowClick} className="px-14 md:px-16 py-4 md:py-5" />
